@@ -1,28 +1,30 @@
 import localFont from 'next/font/local'
 
 /**
- * 自托管字体（next/font/local）。
- * 变量字重（variable woff2）来自 Fontsource，已随仓库提交到 src/fonts/，
- * 构建与运行均不依赖外网（Google Fonts），零布局抖动、自动子集与预加载。
- * 每个字体导出一个 CSS 变量，在 globals.css 的 @theme 中作为首选字体引用。
+ * Self-hosted variable fonts (next/font/local).
+ * woff2 files committed to repo — zero CDN dependency, no layout shift.
+ * CSS variables are unchanged from yanyi-health so @theme mappings still work:
+ *   --font-manrope → now serves Inter (body)
+ *   --font-fraunces → now serves Space Grotesk (display/headings)
+ *   --font-jetbrains → JetBrains Mono unchanged (labels/data)
  */
 
 export const fontSans = localFont({
-  src: './Manrope-var.woff2',
+  src: './Inter-var.woff2',
   variable: '--font-manrope',
-  weight: '400 700',
+  weight: '100 900',
   display: 'swap',
   preload: true,
-  fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+  fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'sans-serif'],
 })
 
 export const fontDisplay = localFont({
-  src: './Fraunces-var.woff2',
+  src: './SpaceGrotesk-var.woff2',
   variable: '--font-fraunces',
-  weight: '400 600',
+  weight: '300 700',
   display: 'swap',
   preload: true,
-  fallback: ['Songti SC', 'STSong', 'SimSun', 'Georgia', 'serif'],
+  fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
 })
 
 export const fontMono = localFont({
