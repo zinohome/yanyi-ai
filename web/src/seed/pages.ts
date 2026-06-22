@@ -449,3 +449,43 @@ export const buildSolutions = (lang: Lang) => {
   }
 }
 
+export const buildCasesPage = (lang: Lang, ids: Ids) => {
+  const t = L(lang)
+  return {
+    title: t('客户案例', 'Cases'),
+    slug: 'cases',
+    status: 'published' as const,
+    meta: {
+      title: t('客户案例 · 衍绎 AI', 'Cases · Yanyi AI'),
+      description: t(
+        '工业 AI 落地实践——真实客户、可量化结果。[待替换]',
+        'Industrial AI in production — real customers, measurable results. [待替换]',
+      ),
+    },
+    layout: [
+      {
+        blockType: 'hero',
+        title: t('客户案例', 'Customer Cases'),
+        subtitle: t(
+          '真实落地 · 可量化结果 · 持续迭代 [待替换]',
+          'Real deployments · Measurable outcomes · Continuous iteration [待替换]',
+        ),
+      },
+      {
+        blockType: 'caseHighlights',
+        title: t('精选案例', 'Featured Cases'),
+        cases: ids.cases,
+      },
+      {
+        blockType: 'ctaBanner',
+        title: t('有相似的挑战？', 'Facing similar challenges?'),
+        subtitle: t(
+          '与我们的解决方案团队预约一次 30 分钟的深度交流。',
+          'Book a 30-minute deep-dive with our solutions team.',
+        ),
+        primaryCta: { label: t('预约咨询', 'Book a Consultation'), href: '/contact' },
+      },
+    ],
+  }
+}
+
