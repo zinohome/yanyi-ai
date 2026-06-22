@@ -22,8 +22,8 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
             className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur-md"
           >
             <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent/60" />
-              <span className="relative inline-flex size-2 rounded-full bg-accent" />
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary/60" />
+              <span className="relative inline-flex size-2 rounded-full bg-primary" />
             </span>
             {block.eyebrow}
           </Reveal>
