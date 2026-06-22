@@ -2,13 +2,14 @@ import type { GlobalConfig } from 'payload'
 
 export const Header: GlobalConfig = {
   slug: 'header',
-  label: '导航栏',
+  label: '导航栏 Navigation',
   access: { read: () => true },
   fields: [
     {
       name: 'navItems',
       type: 'array',
       label: '导航菜单',
+      admin: { description: '导航链接（/technology, /products, /solutions, /cases, /blog, /about, /careers, /contact）' },
       fields: [
         { name: 'label', type: 'text', localized: true },
         { name: 'href', type: 'text' },
