@@ -1,0 +1,428 @@
+@import 'tailwindcss';
+
+/* 显式声明源码扫描范围（src 下所有组件/页面） */
+@source '../../**/*.{ts,tsx}';
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * 研翌科技 — 人文暖科技设计系统 (Humanist Deep-Tech)
+ * 冷暖双色：科技蓝(primary) × 暖琥珀(accent) —— 呼应「科技，为爱而生」
+ * Light = 暖纸白；Dark = 暖墨炭
+ */
+:root {
+  --radius: 0.85rem;
+
+  --background: oklch(0.985 0.01 75); /* 暖纸白 */
+  --foreground: oklch(0.22 0.025 262);
+
+  --card: oklch(0.998 0.006 85);
+  --card-foreground: oklch(0.22 0.025 262);
+  --popover: oklch(0.998 0.006 85);
+  --popover-foreground: oklch(0.22 0.025 262);
+
+  --primary: oklch(0.55 0.2 256); /* 科技蓝（更鲜明） */
+  --primary-foreground: oklch(0.99 0.01 250);
+
+  --secondary: oklch(0.95 0.018 252);
+  --secondary-foreground: oklch(0.28 0.03 260);
+
+  --muted: oklch(0.955 0.014 252);
+  --muted-foreground: oklch(0.46 0.025 262);
+
+  --accent: oklch(0.68 0.17 38); /* 暖珊瑚 —— "爱" */
+  --accent-foreground: oklch(0.27 0.08 40);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.9 0.013 78);
+  --input: oklch(0.9 0.013 78);
+  --ring: oklch(0.52 0.16 256);
+}
+
+.dark {
+  --background: oklch(0.27 0.038 262); /* 暮蓝雾蓝（更柔和，不黑暗） */
+  --foreground: oklch(0.97 0.01 250);
+
+  --card: oklch(0.315 0.04 262);
+  --card-foreground: oklch(0.97 0.01 250);
+  --popover: oklch(0.315 0.04 262);
+  --popover-foreground: oklch(0.97 0.01 250);
+
+  --primary: oklch(0.71 0.17 256); /* 亮科技蓝 */
+  --primary-foreground: oklch(0.17 0.03 262);
+
+  --secondary: oklch(0.35 0.04 262);
+  --secondary-foreground: oklch(0.96 0.012 250);
+
+  --muted: oklch(0.35 0.038 262);
+  --muted-foreground: oklch(0.8 0.022 250);
+
+  --accent: oklch(0.79 0.16 48); /* 暖珊瑚琥珀 */
+  --accent-foreground: oklch(0.21 0.06 48);
+
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.44 0.045 262);
+  --input: oklch(0.42 0.045 262);
+  --ring: oklch(0.71 0.17 256);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  /* 首选 next/font 自托管字体变量；其后为本地中文与系统回退 */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, 'PingFang SC',
+    'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  --font-display: var(--font-fraunces), 'Songti SC', 'STSong', 'SimSun', Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SFMono-Regular', monospace;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    /* 全站环境光：左上科技蓝 + 右上暖珊瑚，永不冷清 */
+    background-image:
+      radial-gradient(
+        58rem 42rem at 10% -8%,
+        color-mix(in oklch, var(--primary) 18%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        52rem 40rem at 96% 4%,
+        color-mix(in oklch, var(--accent) 15%, transparent),
+        transparent 60%
+      );
+    background-repeat: no-repeat;
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  ::selection {
+    background-color: color-mix(in oklch, var(--accent) 34%, transparent);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  /* 技术标签：等宽、大写、字距 */
+  .eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+  /* 冷色渐变文字（蓝） */
+  .text-gradient {
+    background-image: linear-gradient(
+      115deg,
+      var(--foreground) 0%,
+      var(--foreground) 42%,
+      var(--primary) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* 冷暖渐变文字（蓝→暖）—— 用于情感标语 */
+  .text-gradient-warm {
+    background-image: linear-gradient(
+      115deg,
+      var(--primary) 0%,
+      var(--foreground) 45%,
+      var(--accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* 卡片描边发光（hover） */
+  .card-glow {
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-glow:hover {
+    border-color: color-mix(in oklch, var(--primary) 50%, var(--border));
+    box-shadow: 0 18px 55px -22px color-mix(in oklch, var(--primary) 45%, transparent),
+      0 8px 34px -20px color-mix(in oklch, var(--accent) 42%, transparent);
+    transform: translateY(-4px);
+  }
+}
+
+/* 进入视口的渐显动画（配合 Reveal 组件）
+   仅在 JS 可用（html.js）时隐藏，保证无 JS / SEO 时内容始终可见 */
+@layer base {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .js [data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+  /* 移动端：内容始终可见，不依赖 JS 渐显（避免慢网空白） */
+  @media (max-width: 768px) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+/* 精密网格背景 */
+@utility tech-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--foreground) 13%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 13%, transparent) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+@utility glow {
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 32%, transparent),
+    0 10px 50px -12px color-mix(in oklch, var(--primary) 48%, transparent);
+}
+
+@utility warm-glow {
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--accent) 32%, transparent),
+    0 10px 50px -12px color-mix(in oklch, var(--accent) 48%, transparent);
+}
+
+/* 冷暖渐变网格氛围（hero / cta）—— 蓝与暖同场，更浓郁 */
+@utility aurora {
+  background-image:
+    radial-gradient(40rem 30rem at 16% 6%, color-mix(in oklch, var(--primary) 42%, transparent), transparent 68%),
+    radial-gradient(36rem 28rem at 86% 18%, color-mix(in oklch, var(--accent) 38%, transparent), transparent 68%),
+    radial-gradient(30rem 24rem at 60% 96%, color-mix(in oklch, var(--primary) 24%, transparent), transparent 70%);
+}
+
+/* 卡片：微弱蓝调底 + hover 冷暖描边发光 */
+@utility card-tint {
+  background-image: linear-gradient(
+    160deg,
+    color-mix(in oklch, var(--primary) 5%, transparent),
+    transparent 55%
+  );
+}
+
+/* 心核呼吸动效 */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+.animate-breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+/* 流动极光漂移（大幅位移，肉眼可见的流动） */
+@keyframes drift1 {
+  0% { transform: translate(-22%, -16%) scale(0.95); }
+  50% { transform: translate(26%, 18%) scale(1.35); }
+  100% { transform: translate(-22%, -16%) scale(0.95); }
+}
+@keyframes drift2 {
+  0% { transform: translate(24%, -12%) scale(1.3); }
+  50% { transform: translate(-26%, 20%) scale(0.92); }
+  100% { transform: translate(24%, -12%) scale(1.3); }
+}
+@keyframes drift3 {
+  0% { transform: translate(4%, 22%) scale(1.05); }
+  50% { transform: translate(-24%, -20%) scale(1.42); }
+  100% { transform: translate(4%, 22%) scale(1.05); }
+}
+.aurora-blob {
+  animation: var(--blob-anim) ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none !important;
+  }
+}
+/* 旋转/轨道动画的统一降级保护 */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-core * {
+    animation: none !important;
+  }
+}
+/* 架构图数据流 */
+@keyframes dashflow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+.flow-line {
+  stroke-dasharray: 3 9;
+  animation: dashflow 1.4s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe,
+  .animate-spin-slow,
+  .flow-line {
+    animation: none;
+  }
+}
+
+/* 胶片颗粒叠加层（全站氛围） */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* 富文本排版 */
+.prose-tech {
+  line-height: 1.85;
+  color: var(--foreground);
+  font-size: 1.05rem;
+}
+.prose-tech h1,
+.prose-tech h2,
+.prose-tech h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  line-height: 1.25;
+}
+.prose-tech h2 {
+  font-size: 1.75rem;
+}
+.prose-tech h3 {
+  font-size: 1.3rem;
+}
+.prose-tech p {
+  margin: 1.1em 0;
+  color: var(--muted-foreground);
+}
+.prose-tech a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-tech ul,
+.prose-tech ol {
+  margin: 1.1em 0;
+  padding-left: 1.4em;
+  color: var(--muted-foreground);
+}
+.prose-tech li {
+  margin: 0.45em 0;
+}
+.prose-tech ul {
+  list-style: disc;
+}
+.prose-tech ol {
+  list-style: decimal;
+}
+.prose-tech blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1em;
+  margin: 1.4em 0;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+.prose-tech strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.prose-tech code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--muted);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* ===== 移动端性能优化 ===== */
+@media (max-width: 768px) {
+  /* 颗粒层在移动端关闭（mix-blend + fixed 开销大） */
+  .grain-overlay {
+    display: none;
+  }
+  /* 极光：停动画省电，但加大模糊、降低透明度，避免静态色块发死、发花，
+     让四个色块融为一层柔和的渐变光晕（opacity 为内联样式，需 !important 覆盖） */
+  .aurora-blob {
+    filter: blur(72px) !important;
+    animation: none !important;
+    opacity: 0.34 !important;
+  }
+}

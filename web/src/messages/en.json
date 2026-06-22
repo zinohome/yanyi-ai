@@ -1,0 +1,79 @@
+{
+  "brand": { "name": "Yanyi", "full": "Yanyi Data Technology Co., Ltd." },
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "technology": "Technology",
+    "clinical": "Research",
+    "safety": "Safety",
+    "about": "About",
+    "resources": "Resources",
+    "contact": "Contact",
+    "cta": "Partner with us"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "company": "Yanyi Data Technology Co., Ltd.",
+    "slogan": "Focused healthcare AI agents, delivering professional medical guidance for whole-life wellbeing",
+    "icp": "京ICP备2025154917号",
+    "police": "京公网安备11010802047148号"
+  },
+  "home": {
+    "heroTitle": "Focused healthcare AI agents, delivering professional medical guidance for whole-life wellbeing",
+    "heroSubtitle": "A long-term, stateful Health AI Agent platform for maternal & child health, youth mental wellness, adult well-being, sports nutrition and healthy aging.",
+    "ctaPrimary": "View Solutions",
+    "ctaSecondary": "Explore Technology"
+  },
+  "solutions": {
+    "title": "Life-Cycle Solutions",
+    "subtitle": "Extending professional care beyond the clinic — from a single visit to long-term state management.",
+    "eyebrow": "SOLUTIONS",
+    "audience": "Who it serves",
+    "capabilities": "Core capabilities",
+    "problem": "Problem solved",
+    "backToSolutions": "Back to solutions"
+  },
+  "blog": {
+    "title": "Insights",
+    "subtitle": "Company news, technical perspectives and industry insights.",
+    "eyebrow": "INSIGHTS",
+    "readMore": "Read more",
+    "backToBlog": "Back to insights",
+    "empty": "No articles yet — stay tuned."
+  },
+  "careers": {
+    "title": "Join Us",
+    "subtitle": "Build trustworthy AI for life-cycle health with us.",
+    "eyebrow": "CAREERS",
+    "empty": "No open roles right now — feel free to send your CV to the email below.",
+    "apply": "Apply"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We welcome hospitals, maternal & child health systems, mental-health specialists, key labs, research institutions and industry partners.",
+    "eyebrow": "CONTACT",
+    "formTitle": "Partnership Inquiry",
+    "name": "Name",
+    "company": "Organization / Company",
+    "email": "Email",
+    "phone": "Phone",
+    "intent": "Area of interest",
+    "message": "Message",
+    "submit": "Submit",
+    "submitting": "Submitting…",
+    "success": "Submitted — we'll be in touch shortly!",
+    "error": "Submission failed. Please retry later or email us directly.",
+    "intents": {
+      "business": "Clinical & research",
+      "trial": "Maternal & regional health",
+      "investment": "Mental health",
+      "careers": "Enterprise & industry",
+      "other": "Other"
+    },
+    "infoTitle": "Get in touch",
+    "emailLabel": "Email",
+    "wechatLabel": "WeChat",
+    "phoneLabel": "Phone",
+    "addressLabel": "Address"
+  }
+}
