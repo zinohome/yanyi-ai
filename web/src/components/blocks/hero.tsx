@@ -1,81 +1,115 @@
 import Link from 'next/link'
-import { Fragment } from 'react'
 import { ArrowRight } from 'lucide-react'
 import type { HeroBlock as HeroBlockType } from '@/payload-types'
 import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/reveal'
-import { AuroraField } from '@/components/aurora-field'
 import { localeHref } from '@/lib/utils'
 
 export function Hero({ block, locale }: { block: HeroBlockType; locale: string }) {
+  const lines = block.title.split('\n')
+  const mainLines = lines.slice(0, -1)
+  const lastLine = lines[lines.length - 1]!
+
   return (
-    <section className="relative overflow-hidden">
-      {/* 氛围层：流动极光 + 精密栅格 + 顶部柔光 */}
-      <AuroraField className="[mask-image:radial-gradient(ellipse_at_50%_40%,black_60%,transparent_92%)]" />
-      <div className="tech-grid pointer-events-none absolute inset-0 opacity-[0.3] [mask-image:radial-gradient(ellipse_at_50%_0%,black,transparent_75%)]" />
+    <section className="relative flex min-h-[92vh] items-end overflow-hidden">
+      {/* Blueprint engineering grid */}
+      <div className="tech-grid pointer-events-none absolute inset-0 opacity-[0.055]" />
+
+      {/* Amber glow — upper left source */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-48 top-[8%] h-[72vh] w-[58vw] rounded-full bg-primary/22 blur-[180px]"
+      />
+      {/* Steel-blue — upper right */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 top-[-8%] h-[50vh] w-[38vw] rounded-full bg-accent/14 blur-[150px]"
+      />
+
+      {/* Top scan-line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-      <div className="relative mx-auto flex max-w-5xl flex-col items-center px-5 pb-20 pt-24 text-center sm:px-6 sm:pb-32 sm:pt-36 lg:pt-40">
+      <div className="relative mx-auto w-full max-w-7xl px-6 pb-28 pt-36 lg:px-8 lg:pb-36 lg:pt-44">
+        {/* Eyebrow — uppercase mono tracking */}
         {block.eyebrow ? (
-          <Reveal
-            as="div"
-            className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur-md"
-          >
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary/60" />
-              <span className="relative inline-flex size-2 rounded-full bg-primary" />
-            </span>
-            {block.eyebrow}
+          <Reveal as="div" className="mb-10">
+            <span className="eyebrow tracking-[0.28em] text-primary/85">{block.eyebrow}</span>
           </Reveal>
         ) : null}
 
+        {/* H1 — left-aligned, extreme scale, two-tone */}
         <Reveal
           as="h1"
           delay={80}
-          className="font-display max-w-4xl text-[1.7rem] font-semibold leading-[1.25] tracking-[-0.01em] text-gradient-warm sm:text-4xl sm:leading-[1.2] lg:text-[3.25rem] lg:leading-[1.18]"
+          className="max-w-5xl font-black leading-[0.9] tracking-[-0.04em]"
         >
-          {block.title.split('\n').map((line, i, arr) => (
-            <Fragment key={i}>
-              {line}
-              {i < arr.length - 1 && <br />}
-            </Fragment>
-          ))}
+          {mainLines.length > 0 ? (
+            <span className="block text-foreground text-[3rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]">
+              {mainLines.join(' ')}
+            </span>
+          ) : null}
+          <span className="block text-primary text-[3rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]">
+            {lastLine}
+          </span>
         </Reveal>
 
+        {/* Subtitle */}
         {block.subtitle ? (
           <Reveal
             as="p"
-            delay={160}
-            className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            delay={180}
+            className="mt-10 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg lg:mt-12 lg:text-xl"
           >
             {block.subtitle}
           </Reveal>
         ) : null}
 
-        <Reveal delay={240} className="mt-11 flex flex-col items-center gap-3 sm:flex-row">
+        {/* CTAs */}
+        <Reveal delay={260} className="mt-12 flex flex-wrap items-center gap-6">
           {block.primaryCta?.label ? (
-            <Button asChild size="lg" className="group">
+            <Button
+              asChild
+              size="lg"
+              className="h-12 rounded-none px-8 text-sm font-bold uppercase tracking-[0.1em]"
+            >
               <Link href={localeHref(locale, block.primaryCta.href)}>
                 {block.primaryCta.label}
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </Button>
           ) : null}
           {block.secondaryCta?.label ? (
-            <Button asChild size="lg" variant="outline">
-              <Link href={localeHref(locale, block.secondaryCta.href)}>
-                {block.secondaryCta.label}
-              </Link>
-            </Button>
+            <Link
+              href={localeHref(locale, block.secondaryCta.href)}
+              className="group inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {block.secondaryCta.label}
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           ) : null}
         </Reveal>
 
-        <Reveal delay={320} className="mt-12 flex items-center justify-center gap-4 sm:mt-16 sm:gap-5">
-          <span className="hidden h-px w-10 bg-gradient-to-r from-transparent to-primary/50 sm:inline-block sm:w-16" />
-          <span className="font-display text-gradient-warm text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">
-            {locale === 'en' ? 'Technology, made for love' : '科技，为爱而生'}
-          </span>
-          <span className="hidden h-px w-10 bg-gradient-to-l from-transparent to-accent/50 sm:inline-block sm:w-16" />
+        {/* Stats strip — anchored below CTAs */}
+        <Reveal
+          delay={360}
+          className="mt-20 grid grid-cols-2 gap-x-14 gap-y-8 border-t border-border/25 pt-12 sm:grid-cols-4 lg:mt-28"
+        >
+          {(
+            [
+              { value: '10+', label: locale === 'en' ? 'Industries' : '行业覆盖' },
+              { value: '50+', label: locale === 'en' ? 'Deployments' : '落地项目' },
+              { value: '24/7', label: locale === 'en' ? 'Agent Runtime' : '智能体在线' },
+              { value: '<48h', label: locale === 'en' ? 'Deploy Cycle' : '部署周期' },
+            ] as const
+          ).map((s, i) => (
+            <div key={i}>
+              <div className="text-[2.75rem] font-black leading-none tracking-[-0.03em] text-foreground sm:text-[3.5rem]">
+                {s.value}
+              </div>
+              <div className="mt-3 text-[0.68rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                {s.label}
+              </div>
+            </div>
+          ))}
         </Reveal>
       </div>
     </section>

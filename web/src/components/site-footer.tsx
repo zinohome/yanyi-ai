@@ -9,7 +9,6 @@ export async function SiteFooter() {
   const base = `/${locale}`
 
   const items = [
-    { href: base, label: tn('home') },
     { href: `${base}/technology`, label: tn('technology') },
     { href: `${base}/products`, label: tn('products') },
     { href: `${base}/solutions`, label: tn('solutions') },
@@ -20,37 +19,52 @@ export async function SiteFooter() {
   ]
 
   return (
-    <footer className="border-t border-border/70 bg-card/30">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-sm">
+    <footer className="border-t border-border/30 bg-transparent">
+      {/* Manifesto tagline */}
+      <div className="border-b border-border/20 py-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <p className="text-[0.72rem] font-medium uppercase tracking-[0.3em] text-muted-foreground/60">
+            {locale === 'en'
+              ? 'The next AI revolution is in the physical world.'
+              : '下一场 AI 革命，发生在物理世界。'}
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+          {/* Brand */}
+          <div className="max-w-xs">
             <div className="flex items-center gap-2.5">
-              <LogoMark className="size-8" />
-              <span className="font-display text-base font-semibold">{t('company')}</span>
+              <LogoMark className="size-7" />
+              <span className="eyebrow tracking-[0.18em] text-foreground text-[0.68rem]">YANYI AI</span>
             </div>
-            <p className="mt-3 text-sm text-muted-foreground">{t('slogan')}</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t('slogan')}</p>
           </div>
-          <nav className="flex flex-wrap gap-x-8 gap-y-3">
+
+          {/* Nav */}
+          <nav className="flex flex-wrap gap-x-10 gap-y-3">
             {items.map((it) => (
               <Link
                 key={it.href}
                 href={it.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-[0.78rem] font-medium uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {it.label}
               </Link>
             ))}
           </nav>
         </div>
-        <div className="mt-10 flex flex-col gap-2 border-t border-border/60 pt-6 text-xs text-muted-foreground">
+
+        {/* Legal */}
+        <div className="mt-12 flex flex-col gap-2 border-t border-border/20 pt-6 text-[0.7rem] text-muted-foreground/60">
           <p>© 2026 {t('company')}. {t('rights')}.</p>
-          {/* 公安备案（带官方警徽）在左，ICP 备案在右，中间四个空格分隔 */}
           <p className="leading-relaxed">
             <a
               href="https://beian.mps.gov.cn/#/query/webSearch?code=11010802047148"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 align-middle opacity-70 transition-opacity hover:opacity-100"
+              className="inline-flex items-center gap-1.5 align-middle transition-opacity hover:opacity-100"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -58,16 +72,16 @@ export async function SiteFooter() {
                 alt="公安备案"
                 loading="lazy"
                 decoding="async"
-                className="h-[18px] w-auto shrink-0"
+                className="h-[16px] w-auto shrink-0"
               />
               {t('police')}
             </a>
-            {'    '}
+            {'    '}
             <a
               href="https://beian.miit.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="align-middle opacity-70 transition-opacity hover:opacity-100"
+              className="align-middle transition-opacity hover:opacity-100"
             >
               {t('icp')}
             </a>

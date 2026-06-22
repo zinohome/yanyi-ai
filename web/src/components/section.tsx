@@ -14,8 +14,8 @@ export function Section({
   id?: string
 }) {
   return (
-    <section id={id} className={cn('relative py-20 sm:py-28', className)}>
-      <div className={cn('mx-auto max-w-7xl px-4 sm:px-6 lg:px-8', containerClassName)}>
+    <section id={id} className={cn('relative py-24 sm:py-32', className)}>
+      <div className={cn('mx-auto max-w-7xl px-6 lg:px-8', containerClassName)}>
         {children}
       </div>
     </section>
@@ -38,17 +38,14 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        'flex flex-col gap-4',
+        'flex flex-col gap-5',
         align === 'center' && 'items-center text-center',
         className,
       )}
     >
       {eyebrow ? (
-        <Reveal
-          as="span"
-          className="eyebrow inline-flex items-center gap-2 text-primary"
-        >
-          <span className="inline-block h-px w-6 bg-primary" />
+        <Reveal as="span" className="eyebrow inline-flex items-center gap-3 text-primary tracking-[0.25em]">
+          <span className="inline-block h-px w-8 bg-primary/60" />
           {eyebrow}
         </Reveal>
       ) : null}
@@ -56,7 +53,7 @@ export function SectionHeader({
         <Reveal
           as="h2"
           delay={60}
-          className="font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl"
+          className="max-w-3xl text-balance font-black tracking-[-0.03em] leading-[1.05] text-[2.25rem] sm:text-[3rem] lg:text-[3.75rem]"
         >
           {title}
         </Reveal>

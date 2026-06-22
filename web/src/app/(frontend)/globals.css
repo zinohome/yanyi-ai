@@ -11,7 +11,7 @@
  * Light = 工业白；Dark = 深墨蓝（默认）
  */
 :root {
-  --radius: 0.375rem;
+  --radius: 0.25rem;
 
   --background: oklch(0.97 0.008 80);
   --foreground: oklch(0.15 0.025 262);
@@ -151,8 +151,8 @@
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-size: 0.72rem;
-    font-weight: 500;
+    font-size: 0.7rem;
+    font-weight: 600;
   }
   /* 冷色渐变文字（蓝） */
   .text-gradient {

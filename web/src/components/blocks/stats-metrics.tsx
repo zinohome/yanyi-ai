@@ -5,24 +5,21 @@ import { Reveal } from '@/components/reveal'
 export function StatsMetrics({ block }: { block: T }) {
   const stats = block.stats ?? []
   return (
-    <Section className="py-16">
+    <Section className="py-20 sm:py-24">
       {block.title ? (
-        <Reveal
-          as="h2"
-          className="font-display mb-10 text-center text-3xl font-bold tracking-tight text-balance sm:text-4xl"
-        >
+        <Reveal as="p" className="eyebrow mb-12 tracking-[0.25em] text-primary/70">
           {block.title}
         </Reveal>
       ) : null}
-      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-x-12 gap-y-12 border-t border-border/25 pt-12 sm:grid-cols-4">
         {stats.map((s, i) => (
-          <Reveal
-            key={s.id ?? i}
-            delay={i * 80}
-            className="bg-background p-8 text-center"
-          >
-            <div className="font-display text-3xl font-bold text-gradient-warm sm:text-4xl">{s.value}</div>
-            <div className="mt-2 text-sm text-muted-foreground">{s.label}</div>
+          <Reveal key={s.id ?? i} delay={i * 80}>
+            <div className="text-[3rem] font-black leading-none tracking-[-0.04em] text-foreground sm:text-[4rem] lg:text-[5rem]">
+              {s.value}
+            </div>
+            <div className="mt-3 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              {s.label}
+            </div>
           </Reveal>
         ))}
       </div>
