@@ -51,13 +51,11 @@ export default async function LocaleLayout({
       className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable}`}
     >
       <head>
-        {/* 在 next-themes 之前运行：未手动选择主题时，按访客本地时间预置 theme
-            （06:00–18:59 亮色 / 19:00–05:59 暗色），随后 next-themes 读取即套用，零闪烁。
+        {/* 强制暗色主题：直接在 html 上加 dark 类，零闪烁；
             同时标记 JS 可用（用于 reveal 动画的渐进增强）。 */}
         <script
           dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var m=localStorage.getItem('theme-manual')==='1';if(!m){localStorage.setItem('theme','dark');}}catch(e){}document.documentElement.classList.add('js');})();",
+            __html: "(function(){document.documentElement.classList.add('dark','js');})();",
           }}
         />
       </head>
@@ -65,7 +63,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            forcedTheme="dark"
             disableTransitionOnChange
           >
             <div className="flex min-h-screen flex-col">
