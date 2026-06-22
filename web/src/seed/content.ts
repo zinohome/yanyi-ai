@@ -174,36 +174,28 @@ export const buildCases = (lang: Lang) => {
   const t = L(lang)
   return [
     {
-      title: t('区域妇幼健康连续管理试点', 'Pilot: regional maternal & child continuous care'),
-      slug: 'case-maternal-pilot',
-      client: t('某区域妇幼保健机构', 'A regional maternal & child health institution'),
-      industry: 'maternal',
-      order: 1,
-      status: 'published',
-      summary: t(
-        '以孕产妇建档后 AI Agent 管理为核心，打通孕期—产后—新生儿连续状态管理与高危随访，验证院外连续管理价值。',
-        'Centered on post-registration AI agent management, connecting pregnancy-postpartum-newborn continuity and high-risk follow-up.',
-      ),
+      title: t('某汽车零部件头部企业 — 视觉质检 AI 上线', 'Leading Automotive Parts Manufacturer — Visual QC AI Go-Live'),
+      slug: 'auto-parts-visual-qc',
+      summary: t('视觉质检 AI 上线后不良率降低 62%，人工目检岗位转岗为数据分析。[待替换]', 'Defect rate reduced by 62% after Visual QC AI go-live; manual QC staff redeployed to data analysis. [待替换]'),
+      industry: 'industry',
       metrics: [
-        { value: t('连续管理', 'Continuous'), label: t('院外状态不中断', 'No out-of-clinic gap') },
-        { value: t('可追溯', 'Traceable'), label: t('建议有依据可审核', 'Auditable advice') },
+        { value: '62%', label: t('不良率降低 [待替换]', 'Defect rate reduction [待替换]') },
+        { value: '3×', label: t('检测吞吐量提升 [待替换]', 'Inspection throughput increase [待替换]') },
+        { value: '14mo', label: t('ROI 回收周期 [待替换]', 'ROI payback period [待替换]') },
       ],
+      status: 'published' as const,
     },
     {
-      title: t('医—校—家青少年心理协同试点', 'Pilot: hospital-school-family youth mental health'),
-      slug: 'case-youth-pilot',
-      client: t('某精神心理专科与试点学校', 'A psychiatry specialty & pilot schools'),
-      industry: 'youth',
-      order: 2,
-      status: 'published',
-      summary: t(
-        '连接医院心理门诊、学校与家庭，支持情绪压力识别、亲子支持与早期求助引导，隐私优先、可控授权。',
-        'Connecting clinics, schools and families for emotion detection, parent support and early help-seeking — privacy-first with controlled authorization.',
-      ),
+      title: t('某家电制造商 — 设备运维 Copilot 部署', 'Home Appliance Manufacturer — Equipment O&M Copilot Deployment'),
+      slug: 'home-appliance-oam',
+      summary: t('设备运维 Copilot 上线后非计划停机减少 45%，设备综合效率 OEE 从 71% 提升至 82%。[待替换]', 'Unplanned downtime reduced by 45% after O&M Copilot deployment; OEE improved from 71% to 82%. [待替换]'),
+      industry: 'industry',
       metrics: [
-        { value: t('医校家', 'Tri-party'), label: t('多方视角整合', 'Unified perspectives') },
-        { value: t('隐私优先', 'Privacy-first'), label: t('默认私密授权可控', 'Private by default') },
+        { value: '45%', label: t('非计划停机减少 [待替换]', 'Unplanned downtime reduction [待替换]') },
+        { value: '71%→82%', label: t('OEE 提升 [待替换]', 'OEE improvement [待替换]') },
+        { value: '72h', label: t('故障预警提前量 [待替换]', 'Fault warning lead time [待替换]') },
       ],
+      status: 'published' as const,
     },
   ]
 }

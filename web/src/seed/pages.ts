@@ -1,4 +1,4 @@
-import { L, type Lang } from './helpers'
+import { rt, L, type Lang } from './helpers'
 
 type Ids = { products: number[]; cases: number[] }
 
@@ -219,52 +219,109 @@ export const buildTechnology = (lang: Lang) => {
 export const buildAbout = (lang: Lang) => {
   const t = L(lang)
   return {
-    title: t('关于我们', 'About'),
+    title: t('关于我们', 'About Us'),
     slug: 'about',
-    status: 'published',
+    status: 'published' as const,
     meta: {
-      title: t('关于研翌科技', 'About Yanyi Technology'),
-      description: t('我们让 AI 从"回答问题"走向"长期理解状态"。', 'We move AI from answering to understanding state over time.'),
+      title: t('关于我们 — 衍绎 AI', 'About Us — Yanyi AI'),
+      description: t('衍绎人工智能科技有限公司 — 专注工业/制造业 AI 的技术团队。', 'Yanyi AI Technology Co., Ltd. — a technical team focused on industrial and manufacturing AI.'),
     },
     layout: [
       {
-        blockType: 'hero',
-        eyebrow: t('ABOUT', 'ABOUT'),
-        title: t('让 AI 从"回答问题"走向"长期理解状态"', 'From answering questions to understanding state over time'),
-        subtitle: t(
-          '研翌科技是一家专注于 AI Agent、长期记忆系统、多模态状态建模、风险分层与智能决策引擎的科技公司。我们相信，真正有价值的健康 AI，应能在长期关系中理解个体状态、识别趋势、支持专业决策。',
-          'Yanyi focuses on AI agents, long-term memory, multimodal modeling, risk tiering and decision engines. We believe valuable health AI understands individual state over a long relationship, spots trends and supports professional decisions.',
+        blockType: 'contentMedia',
+        title: t('我们的使命', 'Our Mission'),
+        body: t(
+          '用工业 AI 重塑制造业生产力，让每一座工厂都能用上世界级的智能决策能力。\n\n我们相信，制造业是国民经济的脊梁，而 AI 是让这根脊梁更强壮的关键技术。衍绎 AI 专注于将最新的 AI 能力转化为制造企业可用、可信、可扩展的工业级工具。',
+          'Reshape manufacturing productivity through industrial AI — giving every factory access to world-class intelligent decision-making.\n\nWe believe manufacturing is the backbone of the economy, and AI is the technology that makes that backbone stronger. Yanyi AI focuses on translating cutting-edge AI capabilities into industrial-grade tools that manufacturers can trust, use and scale.',
         ),
+        mediaPosition: 'right' as const,
       },
       {
         blockType: 'valueProps',
-        title: t('使命 · 愿景 · 定位', 'Mission · Vision · Position'),
+        title: t('我们的原则', 'Our Principles'),
         items: [
-          { icon: 'heart', title: t('使命', 'Mission'), description: t('用可信赖的 AI Agent 和长期记忆系统，帮助人更早理解自己的状态、更好获得专业支持、更持续地管理身心健康。', 'Help people understand their state earlier, get professional support and manage health continuously.') },
-          { icon: 'rocket', title: t('愿景', 'Vision'), description: t('让每个人、每个家庭、每个医疗健康机构，都拥有可持续、可信赖、可解释的长期健康智能系统。', 'A sustainable, trustworthy, explainable long-term health system for everyone, every family and every institution.') },
-          { icon: 'users', title: t('定位', 'Position'), description: t('做专家的智能助手，做个人健康的长期支持系统，做院外连续管理的 AI 基础设施。', "The expert's assistant, the long-term support for personal health, the infrastructure for out-of-clinic care.") },
+          { icon: 'factory', title: t('场景优先', 'Scenario First'), description: t('不卖通用平台，只做有工厂验证的场景化方案', 'No generic platforms — only factory-validated scenario solutions') },
+          { icon: 'shield', title: t('数据安全', 'Data Security'), description: t('所有产品支持完全私有化部署，数据不出厂', 'All products support full on-premise deployment; data stays in the factory') },
+          { icon: 'gauge', title: t('ROI 可量化', 'Measurable ROI'), description: t('每个项目在 POC 阶段即输出可量化的业务成效', 'Every project delivers quantifiable business results at POC stage') },
+          { icon: 'users', title: t('长期陪伴', 'Long-term Partnership'), description: t('从实施到迭代，持续的技术支持与模型优化', 'From implementation to iteration — continuous technical support and model optimization') },
         ],
       },
       {
         blockType: 'timeline',
-        title: t('发展历程', 'Milestones'),
+        title: t('发展历程', 'Our Journey'),
         milestones: [
-          { period: '2025', title: t('EvoMetaX 技术底座成型', 'EvoMetaX foundation built'), description: t('完成长期记忆、多模态建模与 Agent 工作流的底座搭建。', 'Built memory, multimodal modeling and agent workflows.') },
-          { period: '2026', title: t('多场景试点落地', 'Scenario pilots'), description: t('母婴、心理、运动营养与老年照护等场景陆续试点。', 'Pilots across maternal, mental, sports-nutrition and elderly care.') },
-          { period: t('未来', 'Next'), title: t('医疗科研协同与规模化', 'Research & scale'), description: t('联合医疗机构与重点实验室推进 AI 健康转化。', 'Advance AI health translation with hospitals and key labs.') },
+          { period: '2022', title: t('公司成立', 'Founded'), description: t('衍绎 AI 在北京成立，专注工业 AI 落地 [待替换]', 'Yanyi AI founded in Beijing, focused on industrial AI deployment [待替换]') },
+          { period: '2023', title: t('首批产品上线', 'First Products Launched'), description: t('视觉质检 AI 与设备运维 Copilot 首批客户上线 [待替换]', 'Visual QC AI and O&M Copilot deployed with first customers [待替换]') },
+          { period: '2024', title: t('规模化扩张', 'Scale-Up'), description: t('累计服务工厂 100+，完成 A 轮融资 [待替换]', 'Served 100+ factories; completed Series A funding [待替换]') },
+          { period: '2025', title: t('全产品矩阵', 'Full Product Matrix'), description: t('5 款产品全部发布，工业智能体四引擎平台正式推出 [待替换]', '5 products fully launched; Industrial AI Four-Engine Platform officially released [待替换]') },
         ],
       },
       {
         blockType: 'teamPreview',
-        title: t('核心团队', 'Core team'),
-        subtitle: t('来自科技、AI、产业数字化、医疗健康与商业化领域。', 'From tech, AI, digital industry, health and commercialization.'),
+        title: t('核心团队', 'Core Team'),
+        subtitle: t('来自顶尖工业 AI 研究机构与制造业一线的复合型团队', 'A cross-functional team from leading industrial AI research institutions and manufacturing frontlines'),
       },
       {
         blockType: 'ctaBanner',
-        title: t('与我们同行', 'Join us on the journey'),
-        subtitle: t('无论是合作还是加入我们，都欢迎联系。', 'Whether to partner or to join — get in touch.'),
-        primaryCta: { label: t('联系我们', 'Contact Us'), href: '/contact' },
-        secondaryCta: { label: t('加入我们', 'Careers'), href: '/careers' },
+        title: t('加入我们，一起让工厂更聪明', 'Join us — make factories smarter together'),
+        primaryCta: { label: t('查看开放职位', 'View Open Positions'), href: '/careers' },
+      },
+    ],
+  }
+}
+
+export const buildCareers = (lang: Lang) => {
+  const t = L(lang)
+  return {
+    title: t('加入我们', 'Careers'),
+    slug: 'careers',
+    status: 'published' as const,
+    meta: {
+      title: t('加入我们 — 衍绎 AI', 'Careers — Yanyi AI'),
+      description: t('衍绎 AI 招聘：算法工程师、工业 AI 解决方案架构师、前端工程师等岗位。', 'Yanyi AI is hiring: algorithm engineers, industrial AI solution architects, frontend engineers and more.'),
+    },
+    layout: [
+      {
+        blockType: 'contentMedia',
+        title: t('为什么加入衍绎 AI？', 'Why join Yanyi AI?'),
+        body: t(
+          '我们相信 AI 改变制造业是这个时代最重要的产业机会之一。在衍绎 AI，你将直接看到自己写的代码或设计的方案在工厂产线上产生真实效果——不良率下降的曲线、停机减少的日志、工人不再需要翻阅厚重手册的笑容。\n\n小团队，真问题，快迭代，高信任。',
+          "We believe AI transforming manufacturing is one of the most important industrial opportunities of our era. At Yanyi AI, you'll directly see your code or solution design making real impact on production lines — the defect rate curve declining, the downtime reduction logs, the smiles of workers who no longer need to flip through thick manuals.\n\nSmall team. Real problems. Fast iteration. High trust.",
+        ),
+        mediaPosition: 'right' as const,
+      },
+      {
+        blockType: 'richTextBlock',
+        content: rt([
+          t(
+            '## 开放职位\n\n### 算法工程师（视觉/NLP）\n**职责**：工业视觉模型开发与优化；RAG 系统设计与实现；模型训练、评估、部署全流程\n**要求**：计算机/电子/自动化相关本科及以上；熟悉 PyTorch；有工业视觉或 NLP 项目经验优先\n\n### 工业 AI 解决方案架构师\n**职责**：与客户工程团队对接，设计系统集成方案；主导 POC 实施，输出量化验证报告；收集一线需求反馈产品迭代\n**要求**：3 年以上制造业信息化/智能化项目经验；熟悉 MES/ERP/SCADA；有工业 AI 项目经验优先\n\n### 前端工程师\n**职责**：产品 Web 端界面开发；数据可视化看板；Admin 后台功能\n**要求**：熟练 React/Next.js；有 Tailwind CSS 使用经验；TypeScript 优先\n\n---\n\n简历请发送至：hr@yanyi-ai.com [待替换]',
+            '## Open Positions\n\n### Algorithm Engineer (Vision / NLP)\n**Responsibilities**: Industrial vision model development and optimization; RAG system design and implementation; full model training, evaluation and deployment pipeline\n**Requirements**: CS/EE/Automation bachelor\'s or above; proficient in PyTorch; industrial vision or NLP project experience preferred\n\n### Industrial AI Solution Architect\n**Responsibilities**: Interface with client engineering teams; design system integration solutions; lead POC implementations, deliver quantified validation reports; collect frontline feedback for product iteration\n**Requirements**: 3+ years manufacturing IT/AI project experience; familiar with MES/ERP/SCADA; industrial AI project experience preferred\n\n### Frontend Engineer\n**Responsibilities**: Product web UI development; data visualization dashboards; admin backend features\n**Requirements**: Proficient in React/Next.js; Tailwind CSS experience; TypeScript preferred\n\n---\n\nSend your CV to: hr@yanyi-ai.com [待替换]',
+          ),
+        ]),
+      },
+    ],
+  }
+}
+
+export const buildContact = (lang: Lang) => {
+  const t = L(lang)
+  return {
+    title: t('联系我们', 'Contact Us'),
+    slug: 'contact',
+    status: 'published' as const,
+    meta: {
+      title: t('联系我们 — 衍绎 AI', 'Contact Us — Yanyi AI'),
+      description: t('联系衍绎 AI，预约产品演示或方案咨询。', 'Contact Yanyi AI to book a product demo or solution consultation.'),
+    },
+    layout: [
+      {
+        blockType: 'richTextBlock',
+        content: rt([
+          t(
+            '## 预约演示\n\n我们的解决方案工程师将在 1 个工作日内与您联系。\n\n**邮箱**：contact@yanyi-ai.com\n**电话**：[待替换]\n**地址**：[待替换]',
+            '## Book a Demo\n\nOur solution engineers will contact you within 1 business day.\n\n**Email**: contact@yanyi-ai.com\n**Phone**: [待替换]\n**Address**: [待替换]',
+          ),
+        ]),
       },
     ],
   }
