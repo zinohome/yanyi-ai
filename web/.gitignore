@@ -53,3 +53,6 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# package-lock.json (use pnpm instead)
+package-lock.json

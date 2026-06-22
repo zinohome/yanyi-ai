@@ -17,30 +17,30 @@
 docker compose up -d
 
 # 2. 安装依赖
-npm install
+pnpm install
 
 # 3. 配置环境变量
 cp .env.example .env   # 填入 DATABASE_URL / PAYLOAD_SECRET / NEXT_PUBLIC_SITE_URL
 
 # 4. 开发服务器
-npm run dev            # http://localhost:3000  ·  后台 /admin
+pnpm dev            # http://localhost:3000  ·  后台 /admin
 
 # 5. 创建管理员（首次）
 NODE_OPTIONS="--import=tsx/esm" npx tsx scripts/create-admin.ts
 
 # 6. 灌入示例内容（双语）
-npm run seed
+pnpm seed
 ```
 
 ## 常用命令
 
 | 命令 | 说明 |
 |---|---|
-| `npm run dev` | 开发服务器 |
-| `npm run build` | 生产构建 |
-| `npm run seed` | 重新灌入双语示例内容（会清空后重灌） |
-| `npm run generate:types` | 生成 Payload 类型 |
-| `npm run test` | 单元测试（Vitest） |
+| `pnpm dev` | 开发服务器 |
+| `pnpm build` | 生产构建 |
+| `pnpm seed` | 重新灌入双语示例内容（会清空后重灌） |
+| `pnpm generate:types` | 生成 Payload 类型 |
+| `pnpm test` | 单元测试（Vitest） |
 
 ## 内容管理
 
