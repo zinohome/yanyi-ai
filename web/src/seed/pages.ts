@@ -369,6 +369,128 @@ export const buildSafety = (lang: Lang) => {
   }
 }
 
+export const buildProductsPage = (lang: Lang, ids: { products: number[] }) => {
+  const t = L(lang)
+  return {
+    title: t('产品', 'Products'),
+    slug: 'products',
+    status: 'published' as const,
+    meta: {
+      title: t('产品 — 衍绎 AI', 'Products — Yanyi AI'),
+      description: t('5款工业 AI 产品：知识大脑、视觉质检、设备运维 Copilot、智能排产、产线数据平台。', '5 industrial AI products: Knowledge Brain, Visual QC, O&M Copilot, Smart Scheduling, Shopfloor Analytics.'),
+    },
+    layout: [
+      {
+        blockType: 'hero',
+        eyebrow: t('工业 AI 产品矩阵', 'Industrial AI Product Matrix'),
+        title: t('5 款产品\n覆盖制造业核心场景', '5 products covering core\nmanufacturing scenarios'),
+        subtitle: t('从知识管理到产线分析，从质检到排产，每款产品均可独立部署或组合使用。', 'From knowledge management to shopfloor analytics, from QC to scheduling — each product deploys standalone or in combination.'),
+        primaryCta: { label: t('预约演示', 'Book a Demo'), href: '/contact' },
+      },
+      {
+        blockType: 'productMatrix',
+        title: t('全部产品', 'All Products'),
+        products: ids.products,
+      },
+      {
+        blockType: 'ctaBanner',
+        title: t('不确定哪款产品适合您？', 'Not sure which product fits?'),
+        subtitle: t('告诉我们您的场景，30 分钟帮您找到最佳切入点', 'Tell us your scenario — 30 minutes to find the best entry point'),
+        primaryCta: { label: t('联系我们', 'Contact Us'), href: '/contact' },
+      },
+    ],
+  }
+}
+
+export const buildSolutions = (lang: Lang) => {
+  const t = L(lang)
+  return {
+    title: t('解决方案', 'Solutions'),
+    slug: 'solutions',
+    status: 'published' as const,
+    meta: {
+      title: t('解决方案 — 衍绎 AI', 'Solutions — Yanyi AI'),
+      description: t('针对汽车零部件、3C 电子、离散制造等场景的工业 AI 解决方案，4 周 POC 验证，8 周生产上线。', 'Industrial AI solutions for automotive parts, 3C electronics and discrete manufacturing. 4-week POC, 8-week production go-live.'),
+    },
+    layout: [
+      {
+        blockType: 'hero',
+        eyebrow: t('行业解决方案', 'Industry Solutions'),
+        title: t('针对您的场景\n开箱即用的 AI 方案', 'Ready-to-deploy AI\nfor your specific scenario'),
+        subtitle: t('我们不卖通用 AI 平台，只做适合制造业的场景化解决方案。', "We don't sell generic AI platforms — we build scenario-specific solutions designed for manufacturing."),
+        primaryCta: { label: t('联系方案团队', 'Contact Solution Team'), href: '/contact' },
+      },
+      {
+        blockType: 'scenarioShowcase',
+        title: t('三大行业场景', 'Three Industry Scenarios'),
+        subtitle: t('每个场景均有完整的产品组合、实施方法论与参考案例', 'Each scenario includes a complete product bundle, implementation methodology and reference cases'),
+        scenarios: [
+          {
+            icon: 'wrench',
+            name: t('汽车零部件制造', 'Automotive Parts Manufacturing'),
+            description: t(
+              '核心痛点：外观缺陷漏检、设备突发停机、排产响应慢。\n推荐组合：视觉质检 AI + 设备运维 Copilot + 智能排产 Agent。\n典型成效：不良率降低 60%+，非计划停机减少 40%+，交期准时率提升至 95%+。[待替换]',
+              'Core pain points: missed surface defects, unexpected equipment failures, slow scheduling response.\nRecommended bundle: Visual QC AI + Equipment O&M Copilot + Smart Scheduling Agent.\nTypical results: Defect rate -60%+, unplanned downtime -40%+, on-time delivery >95%. [待替换]',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'layers',
+            name: t('3C 电子制造', '3C Electronics Manufacturing'),
+            description: t(
+              '核心痛点：换型频繁导致质检参数难以同步、产线数据看板缺失。\n推荐组合：视觉质检 AI + 产线数据平台。\n典型成效：换型后质检模型切换 <4 小时，OEE 可视化实时掌握。[待替换]',
+              'Core pain points: frequent changeovers making QC parameter sync difficult, no shopfloor visibility.\nRecommended bundle: Visual QC AI + Shopfloor Analytics Platform.\nTypical results: QC model switching <4 hours after changeover, real-time OEE visibility. [待替换]',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'factory',
+            name: t('离散制造通用快速启动', 'General Discrete Manufacturing Fast Start'),
+            description: t(
+              '核心痛点：知识依赖老员工、维修响应慢、AI 落地不知从哪里开始。\n推荐组合：工业知识大脑 + 设备运维 Copilot（快速启动包）。\n典型成效：4 周 POC 出量化数据，8 周生产上线。[待替换]',
+              'Core pain points: knowledge depends on senior staff, slow maintenance response, unsure where to start with AI.\nRecommended bundle: Industrial Knowledge Brain + Equipment O&M Copilot (rapid starter pack).\nTypical results: Quantified POC results in 4 weeks, production go-live in 8 weeks. [待替换]',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+        ],
+      },
+      {
+        blockType: 'timeline',
+        title: t('实施方法论', 'Implementation Methodology'),
+        subtitle: t('四步走，从诊断到规模化', 'Four steps: from diagnosis to scale'),
+        milestones: [
+          {
+            period: t('第一步', 'Step 1'),
+            title: t('现状诊断（2周）', 'As-Is Diagnosis (2 weeks)'),
+            description: t('现场走访，梳理痛点、数据现状、系统架构，输出诊断报告与优先级建议。', 'On-site visits to map pain points, data landscape and system architecture. Deliverable: diagnostic report with prioritized recommendations.'),
+          },
+          {
+            period: t('第二步', 'Step 2'),
+            title: t('方案设计（1周）', 'Solution Design (1 week)'),
+            description: t('基于诊断结果，设计产品组合、数据流、系统集成方案，输出可落地的实施蓝图。', 'Based on diagnosis, design product bundle, data flow and system integration plan. Deliverable: actionable implementation blueprint.'),
+          },
+          {
+            period: t('第三步', 'Step 3'),
+            title: t('快速验证 POC（4周）', 'Rapid POC Validation (4 weeks)'),
+            description: t('在客户真实环境中部署最小可行版本，输出可量化的 KPI 验证报告。', "Deploy minimum viable version in client's real environment. Deliverable: quantified KPI validation report."),
+          },
+          {
+            period: t('第四步', 'Step 4'),
+            title: t('规模化落地', 'Scale-Up Deployment'),
+            description: t('基于 POC 成果全面铺开，持续优化，建立长效运营机制。', 'Roll out across production based on POC results, with continuous optimization and long-term operations framework.'),
+          },
+        ],
+      },
+      {
+        blockType: 'ctaBanner',
+        title: t('找不到您所在的行业？', "Don't see your industry?"),
+        subtitle: t('联系我们，我们会评估是否能为您的场景提供定制方案', "Contact us — we'll assess whether we can build a customized solution for your scenario"),
+        primaryCta: { label: t('联系方案团队', 'Contact Solution Team'), href: '/contact' },
+      },
+    ],
+  }
+}
+
 export const buildResources = (lang: Lang) => {
   const t = L(lang)
   return {
