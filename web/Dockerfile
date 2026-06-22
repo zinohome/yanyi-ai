@@ -10,18 +10,8 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # ---------- 依赖层 ----------
 FROM base AS deps
 WORKDIR /app
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN if [ -f package-lock.json ]; then \
-      for i in 1 2 3; do \
-        echo "npm ci attempt $i ..."; \
-        npm ci --no-audit --no-fund && exit 0; \
-        rm -rf node_modules; sleep 3; \
-      done; \
-      echo "npm ci failed after 3 attempts" >&2; exit 1; \
-    elif [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
-    else npm install --no-audit --no-fund; \
-    fi
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable pnpm && pnpm install --frozen-lockfile
 
 # ---------- 构建层 ----------
 FROM base AS builder
@@ -31,12 +21,7 @@ ENV NEXT_STANDALONE=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # 构建期不连接数据库（页面均为 force-dynamic；PAYLOAD_SECRET/DATABASE_URL 缺省为空字符串）
-RUN \
-  if [ -f yarn.lock ]; then yarn run build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN corepack enable pnpm && pnpm run build
 
 # ---------- 运行层 ----------
 FROM base AS runner
