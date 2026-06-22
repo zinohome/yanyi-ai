@@ -15,15 +15,15 @@ import { fontSans, fontDisplay, fontMono } from '@/fonts'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: '研翌科技 · Yanyi Technology',
-    template: '%s · 研翌科技',
+    default: '衍绎 AI · 工业智能体平台',
+    template: '%s · 衍绎 AI',
   },
-  description: '科技为爱而生，让健康与品质同行。研翌科技以自研 AI 技术底座赋能多场景智能体。',
+  description: '让工厂更聪明，让决策更精准。工业 AI 闭环平台——感知·决策·执行·进化。',
   openGraph: {
     type: 'website',
-    siteName: '研翌科技 · Yanyi Technology',
-    title: '研翌科技 · AI + HI 健康智能体',
-    description: '以自研 AI 技术底座，打造懂情感、懂健康的智能伙伴。',
+    siteName: '衍绎 AI · Yanyi AI',
+    title: '衍绎 AI · 工业智能体平台',
+    description: '工业 AI 闭环平台，赋能制造业感知·决策·执行·进化。',
   },
   twitter: { card: 'summary_large_image' },
   alternates: { languages: { zh: `${SITE_URL}/zh`, en: `${SITE_URL}/en` } },
@@ -57,7 +57,7 @@ export default async function LocaleLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){try{var m=localStorage.getItem('theme-manual')==='1';if(!m){var h=new Date().getHours();localStorage.setItem('theme',(h>=19||h<6)?'dark':'light');}}catch(e){}document.documentElement.classList.add('js');})();",
+              "(function(){try{var m=localStorage.getItem('theme-manual')==='1';if(!m){localStorage.setItem('theme','dark');}}catch(e){}document.documentElement.classList.add('js');})();",
           }}
         />
       </head>
@@ -65,7 +65,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             disableTransitionOnChange
           >
             <div className="flex min-h-screen flex-col">
