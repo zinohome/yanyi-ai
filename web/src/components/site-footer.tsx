@@ -10,12 +10,12 @@ export async function SiteFooter() {
 
   const items = [
     { href: base, label: tn('home') },
-    { href: `${base}/solutions`, label: tn('solutions') },
     { href: `${base}/technology`, label: tn('technology') },
-    { href: `${base}/clinical-research`, label: tn('clinical') },
-    { href: `${base}/safety`, label: tn('safety') },
+    { href: `${base}/products`, label: tn('products') },
+    { href: `${base}/solutions`, label: tn('solutions') },
+    { href: `${base}/cases`, label: tn('cases') },
     { href: `${base}/about`, label: tn('about') },
-    { href: `${base}/resources`, label: tn('resources') },
+    { href: `${base}/careers`, label: tn('careers') },
     { href: `${base}/contact`, label: tn('contact') },
   ]
 

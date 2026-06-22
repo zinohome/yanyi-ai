@@ -2,12 +2,12 @@
   "brand": { "name": "Yanyi", "full": "Yanyi Data Technology Co., Ltd." },
   "nav": {
     "home": "Home",
-    "solutions": "Solutions",
     "technology": "Technology",
-    "clinical": "Research",
-    "safety": "Safety",
+    "products": "Products",
+    "solutions": "Solutions",
+    "cases": "Cases",
     "about": "About",
-    "resources": "Resources",
+    "careers": "Careers",
     "contact": "Contact",
     "cta": "Partner with us"
   },

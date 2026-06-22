@@ -2,12 +2,12 @@
   "brand": { "name": "研翌科技", "full": "北京研翌数据科技有限公司" },
   "nav": {
     "home": "首页",
-    "solutions": "解决方案",
     "technology": "核心技术",
-    "clinical": "科研合作",
-    "safety": "安全合规",
+    "products": "产品",
+    "solutions": "解决方案",
+    "cases": "客户案例",
     "about": "关于我们",
-    "resources": "资料下载",
+    "careers": "加入我们",
     "contact": "联系我们",
     "cta": "联系合作"
   },

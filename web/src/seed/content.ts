@@ -64,7 +64,7 @@ export const buildProducts = (lang: Lang) => {
       name: t('视觉质检 AI', 'Visual QC AI'),
       slug: 'visual-qc',
       tagline: t('缺陷一眼识别，质量零遗漏', 'Spot every defect. Miss nothing.'),
-      icon: 'eye',
+      icon: 'gauge',
       scenario: 'vision',
       summary: t(
         '基于工业视觉大模型的在线质检系统，缺陷检测准确率 >99%，实时替代人工目检。',
@@ -91,7 +91,7 @@ export const buildProducts = (lang: Lang) => {
       name: t('设备运维 Copilot', 'Equipment O&M Copilot'),
       slug: 'oam-copilot',
       tagline: t('提前 72 小时预知故障，告别非计划停机', 'Predict failures 72 hours out. Eliminate unplanned downtime.'),
-      icon: 'settings',
+      icon: 'wrench',
       scenario: 'maintenance',
       summary: t(
         '融合传感器数据与设备知识库的预测性维护 AI Copilot，提前 72h 预警设备故障，非计划停机减少 >40%。',
@@ -118,7 +118,7 @@ export const buildProducts = (lang: Lang) => {
       name: t('智能排产 Agent', 'Smart Scheduling Agent'),
       slug: 'scheduling-agent',
       tagline: t('供应链与产能一体化排程，交期准时率 >95%', 'End-to-end scheduling. On-time delivery >95%.'),
-      icon: 'calendar',
+      icon: 'workflow',
       scenario: 'scheduling',
       summary: t(
         '基于 AI Agent 的智能排产系统，综合供应链、产能、工艺约束，实时生成最优排程方案，交期准时率显著提升。',
@@ -145,7 +145,7 @@ export const buildProducts = (lang: Lang) => {
       name: t('产线数据平台', 'Shopfloor Analytics Platform'),
       slug: 'shopfloor-analytics',
       tagline: t('实时数据看板 + 异常根因分析，让管理者看透产线', 'Real-time dashboards + root-cause AI. See through your production floor.'),
-      icon: 'bar-chart',
+      icon: 'database',
       scenario: 'analytics',
       summary: t(
         '工厂实时数据采集与分析平台，集成 OEE、良率、能耗等核心指标看板，AI 自动定位异常根因。',
@@ -342,15 +342,14 @@ export const buildPosts = (lang: Lang) => {
       ]),
     },
     {
-      slug: 'evometax-long-term-state-engine',
+      slug: 'industrial-rag-production',
       categoryKey: 'tech',
       publishedAt: '2026-05-12',
       author: t('技术团队', 'Engineering'),
-      title: t('EvoMetaX：长期状态智能引擎解读', 'Inside EvoMetaX: a long-term state engine'),
-      excerpt: t('长期记忆、多模态状态建模、Agent 工作流、风险分层与可解释治理。', 'Long-term memory, multimodal modeling, agent workflows, risk tiering and explainable governance.'),
+      title: t('深度解析：工业 RAG 知识库的落地挑战与解决方案', 'Industrial RAG in Production: Challenges and Solutions'),
+      excerpt: t('本文探讨如何将 RAG 技术落地到工业制造场景，克服文档碎片化、多模态数据和低延迟推理等核心挑战。[待替换]', 'How to deploy Retrieval-Augmented Generation in manufacturing contexts — fragmented documentation, multimodal data, and latency constraints. [待替换]'),
       content: rt([
-        t('EvoMetaX 由长期记忆、多模态状态建模、Agent 工作流、风险分层和可解释治理组成。', 'EvoMetaX combines memory, multimodal modeling, agent workflows, risk tiering and explainable governance.'),
-        t('它让 AI 从"回答问题"走向"长期理解状态"，并在需要时连接专家与医疗流程。', 'It moves AI from answering to understanding state over time, connecting experts and clinical processes when needed.'),
+        t('本文探讨如何将 RAG 技术落地到工业制造场景，克服文档碎片化、多模态数据和低延迟推理等核心挑战。[待替换]', 'How to deploy Retrieval-Augmented Generation in manufacturing contexts — fragmented documentation, multimodal data, and latency constraints. [待替换]'),
       ]),
     },
     {

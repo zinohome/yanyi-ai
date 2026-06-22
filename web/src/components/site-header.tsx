@@ -20,10 +20,9 @@ export function SiteHeader() {
 
   const items = [
     { href: base, label: t('home') },
-    { href: `${base}/solutions`, label: t('solutions') },
     { href: `${base}/technology`, label: t('technology') },
-    { href: `${base}/clinical-research`, label: t('clinical') },
-    { href: `${base}/safety`, label: t('safety') },
+    { href: `${base}/products`, label: t('products') },
+    { href: `${base}/solutions`, label: t('solutions') },
     { href: `${base}/about`, label: t('about') },
   ]
 

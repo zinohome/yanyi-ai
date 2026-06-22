@@ -52,7 +52,7 @@ export default buildConfig({
   email: process.env.SMTP_HOST
     ? nodemailerAdapter({
         defaultFromName: '研翌科技官网',
-        defaultFromAddress: process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@yanyi-health.com',
+        defaultFromAddress: process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@yanyi-ai.com',
         transportOptions: {
           host: process.env.SMTP_HOST,
           port: Number(process.env.SMTP_PORT || 465),
