@@ -63,15 +63,8 @@ async function main() {
     solutionIds[zhProducts[i].slug] = doc.id as number
   }
   const ids = {
-    health: [
-      'maternal-care',
-      'perinatal-mental-health',
-      'youth-mental-health',
-      'adult-wellness',
-      'sports-nutrition',
-      'elderly-care',
-    ].map((s) => solutionIds[s]),
-    industry: ['insurevertex-ai', 'industriax'].map((s) => solutionIds[s]),
+    products: Object.values(solutionIds),
+    cases: [] as number[],
   }
 
   // 案例
