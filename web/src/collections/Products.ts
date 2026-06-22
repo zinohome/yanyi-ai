@@ -3,10 +3,10 @@ import { slugField, statusField, orderField, publicRead } from '../fields/slug'
 import { seoField } from '../fields/seo'
 import { iconField } from '../fields/link'
 
-// 内部 slug 沿用 'products'，对外呈现为「解决方案 Solutions」（生命全周期健康）
+// 内部 slug 沿用 'products'，对外呈现为「产品 Products」（工业AI）
 export const Products: CollectionConfig = {
   slug: 'products',
-  labels: { singular: '解决方案', plural: '解决方案 Solutions' },
+  labels: { singular: '产品', plural: '产品 Products' },
   admin: { useAsTitle: 'name', defaultColumns: ['name', 'scenario', 'order', 'status'] },
   access: publicRead,
   fields: [
@@ -17,15 +17,13 @@ export const Products: CollectionConfig = {
     {
       name: 'scenario',
       type: 'select',
-      label: '生命全周期分类',
+      label: '产品分类',
       options: [
-        { label: '母婴安全', value: 'maternal' },
-        { label: '围产期心理', value: 'perinatal' },
-        { label: '儿童青少年心理', value: 'youth' },
-        { label: '成人身心健康', value: 'adult' },
-        { label: '运动健康与营养代谢', value: 'sports' },
-        { label: '老年照护与慢病', value: 'elderly' },
-        { label: '产业/行业拓展', value: 'industry' },
+        { label: '知识与决策', value: 'knowledge' },
+        { label: '视觉质检', value: 'vision' },
+        { label: '设备运维', value: 'maintenance' },
+        { label: '生产排程', value: 'scheduling' },
+        { label: '数据分析', value: 'analytics' },
       ],
     },
     { name: 'summary', type: 'textarea', localized: true, admin: { description: '简介（卡片/列表用，一句话）' } },
