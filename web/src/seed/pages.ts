@@ -43,7 +43,7 @@ export const buildHome = (lang: Lang, ids: Ids) => {
         subtitle: t('感知·决策·执行·进化 — 构成自我强化的工业 AI 闭环', 'Perceive · Decide · Execute · Evolve — a self-reinforcing industrial AI closed loop'),
         domains: [
           {
-            icon: 'radar',
+            icon: 'activity',
             name: t('感知', 'Perceive'),
             role: t('数据入口', 'Data Ingestion'),
             description: t('工业视觉 · 传感器融合 · 边缘采集 · 多模态输入', 'Industrial vision · Sensor fusion · Edge collection · Multimodal input'),
@@ -61,7 +61,7 @@ export const buildHome = (lang: Lang, ids: Ids) => {
             description: t('MES/ERP 集成 · 机器人控制 · 流程自动化 · 告警响应', 'MES/ERP integration · Robot control · Process automation · Alert response'),
           },
           {
-            icon: 'trending-up',
+            icon: 'rocket',
             name: t('进化', 'Evolve'),
             role: t('持续优化', 'Continuous Improvement'),
             description: t('持续学习 · 数据回流 · 模型迭代 · 效果闭环', 'Continuous learning · Data flyback · Model iteration · Effect closed-loop'),
@@ -81,13 +81,13 @@ export const buildHome = (lang: Lang, ids: Ids) => {
         subtitle: t('针对不同制造场景，提供开箱即用的 AI 方案组合', 'Ready-to-deploy AI solution bundles for different manufacturing contexts'),
         scenarios: [
           {
-            icon: 'car',
+            icon: 'factory',
             name: t('汽车零部件制造', 'Automotive Parts Manufacturing'),
             description: t('视觉质检 + 智能排产 + 设备运维 Copilot 组合，降低不良率、提升交期准时率', 'Visual QC + Smart Scheduling + O&M Copilot bundle. Reduce defect rates and improve on-time delivery.'),
             link: { label: t('查看方案', 'View Solution'), href: '/solutions' },
           },
           {
-            icon: 'smartphone',
+            icon: 'layers',
             name: t('3C 电子制造', '3C Electronics Manufacturing'),
             description: t('高精度视觉质检 + 产线数据平台，应对高频换型与良率压力', 'High-precision visual QC + Shopfloor Analytics. Handle frequent changeovers and yield pressure.'),
             link: { label: t('查看方案', 'View Solution'), href: '/solutions' },
@@ -147,7 +147,7 @@ export const buildTechnology = (lang: Lang) => {
         subtitle: t('每一层各司其职，共同构成工业 AI 闭环', 'Each layer has one purpose; together they form the industrial AI closed loop'),
         domains: [
           {
-            icon: 'radar',
+            icon: 'activity',
             name: t('感知层', 'Perceive Layer'),
             role: t('数据入口 & 多模态采集', 'Data Ingestion & Multimodal Capture'),
             description: t(
@@ -174,7 +174,7 @@ export const buildTechnology = (lang: Lang) => {
             ),
           },
           {
-            icon: 'trending-up',
+            icon: 'rocket',
             name: t('进化层', 'Evolve Layer'),
             role: t('持续学习 & 效果强化', 'Continuous Learning & Effect Reinforcement'),
             description: t(
@@ -189,12 +189,12 @@ export const buildTechnology = (lang: Lang) => {
         title: t('核心技术能力', 'Core Technical Capabilities'),
         subtitle: t('每项能力均在工厂环境下验证', 'Every capability validated in factory environments'),
         capabilities: [
-          { icon: 'eye', title: t('工业视觉', 'Industrial Vision'), description: t('毫秒级缺陷检测，支持多光源、多角度', 'Millisecond defect detection, multi-lighting and multi-angle') },
-          { icon: 'book-open', title: t('RAG 知识库', 'RAG Knowledge Base'), description: t('私有文档向量化，自然语言精准检索', 'Private doc vectorization, natural language retrieval') },
-          { icon: 'git-branch', title: t('多 Agent 协同', 'Multi-Agent Coordination'), description: t('任务分解、并行推理、结果聚合', 'Task decomposition, parallel reasoning, result aggregation') },
+          { icon: 'gauge', title: t('工业视觉', 'Industrial Vision'), description: t('毫秒级缺陷检测，支持多光源、多角度', 'Millisecond defect detection, multi-lighting and multi-angle') },
+          { icon: 'brain', title: t('RAG 知识库', 'RAG Knowledge Base'), description: t('私有文档向量化，自然语言精准检索', 'Private doc vectorization, natural language retrieval') },
+          { icon: 'workflow', title: t('多 Agent 协同', 'Multi-Agent Coordination'), description: t('任务分解、并行推理、结果聚合', 'Task decomposition, parallel reasoning, result aggregation') },
           { icon: 'shield', title: t('私有化部署', 'On-Premise Deployment'), description: t('完全内网运行，数据不出厂', 'Fully air-gapped; data never leaves the factory') },
-          { icon: 'plug', title: t('工业协议适配', 'Industrial Protocol Adapters'), description: t('OPC-UA / MQTT / Modbus / OPC-DA', 'OPC-UA / MQTT / Modbus / OPC-DA') },
-          { icon: 'refresh-cw', title: t('持续学习', 'Continual Learning'), description: t('生产数据自动回流，模型持续迭代', 'Production data auto-flyback; models continuously iterate') },
+          { icon: 'network', title: t('工业协议适配', 'Industrial Protocol Adapters'), description: t('OPC-UA / MQTT / Modbus / OPC-DA', 'OPC-UA / MQTT / Modbus / OPC-DA') },
+          { icon: 'activity', title: t('持续学习', 'Continual Learning'), description: t('生产数据自动回流，模型持续迭代', 'Production data auto-flyback; models continuously iterate') },
         ],
       },
       {
