@@ -4,18 +4,17 @@ import { rt, L, type Lang } from './helpers'
 export const buildSiteSettings = (lang: Lang) => {
   const t = L(lang)
   return {
-    companyName: t('北京研翌数据科技有限公司', 'Yanyi Data Technology Co., Ltd.'),
-    slogan: t('专注医疗健康AI智能体，以专业医学护航全周期身心健康', 'Focused healthcare AI agents, delivering professional medical guidance for whole-life wellbeing'),
+    companyName: t('衍绎人工智能科技有限公司', 'Yanyi AI Technology Co., Ltd.'),
+    slogan: t('让工厂更聪明，让决策更精准', 'Making factories smarter. Making decisions sharper.'),
     email: 'contact@yanyi-ai.com',
-    wechatId: 'perffie',
-    phone: '18600576849',
-    address: '',
-    icp: '京ICP备2025154917号',
+    phone: '[待替换]',
+    address: '[待替换]',
+    icp: '[待替换]',
     defaultMeta: {
-      title: t('研翌科技 · 生命全周期健康 AI Agent 平台', 'Yanyi Technology · Life-Cycle Health AI Agent Platform'),
+      title: t('衍绎 AI · 工业智能体平台', 'Yanyi AI · Industrial Intelligence Platform'),
       description: t(
-        '研翌科技构建面向生命全周期健康管理的长期状态 AI Agent 平台，覆盖母婴安全、心理健康、运动营养、老年照护等场景。',
-        'A long-term, stateful Health AI Agent platform for maternal & child health, mental wellness, sports nutrition and healthy aging.',
+        '衍绎 AI 构建面向制造业的工业智能体闭环平台，覆盖知识大脑、视觉质检、设备运维、智能排产与产线数据分析，助力工厂提效降本。',
+        'Yanyi AI builds industrial AI agent platforms for manufacturing — covering knowledge management, visual QC, predictive maintenance, smart scheduling and shopfloor analytics to help factories cut costs and boost efficiency.',
       ),
     },
   }
@@ -28,406 +27,144 @@ export const categories = [
   { slug: 'industry', build: (l: Lang) => ({ title: L(l)('行业洞察', 'Industry') }) },
 ]
 
-/* ============================ 解决方案（生命全周期） ============================ */
+/* ============================ 产品（5款工业 AI 产品）============================ */
 export const buildProducts = (lang: Lang) => {
   const t = L(lang)
-  const aud = (...xs: [string, string][]) => xs.map(([zh, en]) => ({ value: t(zh, en) }))
-  const pts = (...xs: [string, string][]) => xs.map(([zh, en]) => ({ value: t(zh, en) }))
-  const feat = (...xs: [string, string, string, string][]) =>
-    xs.map(([zt, et, zd, ed]) => ({ title: t(zt, et), description: t(zd, ed) }))
-  // 闭环步骤与价值成效同为 {title, description}
-  const flow = feat
-  const hl = feat
 
   return [
+    /* 1 ── 工业知识大脑 */
     {
-      name: t('母婴安全 AI Agent', 'Maternal & Child Safety AI Agent'),
-      slug: 'maternal-care',
-      overview: t(
-        '从孕妇建册开始，把分散在产检、打卡与日常里的健康信号串成一条连续的状态轨迹；让医院的专业照护延伸到家庭，覆盖孕期、分娩、产后恢复到新生儿 0–1 岁成长。',
-        'From hospital registration, we weave scattered signals from checkups, check-ins and daily life into one continuous trajectory — extending professional care into the home across pregnancy, delivery, postpartum recovery and the baby’s first year.',
-      ),
-      painPoints: pts(
-        ['两次产检之间风险难以连续监测', 'Risks go unmonitored between checkups'],
-        ['出院后家庭照护出现断档', 'Care breaks down after discharge'],
-        ['高危孕产妇随访成本高、易遗漏', 'High-risk follow-up is costly and easily missed'],
-      ),
-      workflow: flow(
-        ['建档开通', 'Onboarding', '孕妇建册后手机端 Agent 一键开通', 'One-tap mobile agent after registration'],
-        ['孕期管理', 'Pregnancy', '按孕周科普、产检提醒与多维打卡', 'Week-based education, reminders and check-ins'],
-        ['异常初筛', 'Screening', '结构化交互识别异常、风险分层', 'Structured screening and risk tiering'],
-        ['高危随访', 'Follow-up', '高危分层随访 + 医护看板', 'Tiered high-risk follow-up with a clinician dashboard'],
-        ['产后照护', 'Postpartum', '产后恢复、母乳喂养与新生儿成长', 'Recovery, breastfeeding and newborn growth'],
-      ),
-      highlights: hl(
-        ['院外不断档', 'Continuous', '院内照护延伸到家庭，状态不中断', 'Care extends from clinic to home'],
-        ['风险早识别', 'Early detection', '分层预警，把风险前移', 'Tiered alerts move risk upstream'],
-        ['医护减负', 'Lighter load', '看板化管理，随访更高效', 'Dashboard-driven, efficient follow-up'],
-      ),
-      icon: 'heart',
-      scenario: 'maternal',
-      order: 3,
-      status: 'published',
-      tagline: t('从建档到孩子 1 岁，陪伴每一次关键变化', 'From registration to age one — by your side at every milestone'),
+      name: t('工业知识大脑', 'Industrial Knowledge Brain'),
+      slug: 'knowledge-brain',
+      tagline: t('企业知识一键问答，消化存量文档', 'Ask anything, across all your enterprise docs'),
+      icon: 'brain',
+      scenario: 'knowledge',
       summary: t(
-        '从孕妇建册/医院建档开始，覆盖孕期、分娩、产后恢复、新生儿照护与 0–1 岁成长发育，提供孕周科普 · 产检提醒与准备 · 报告解释辅助 · 血压/血糖/体重/胎动记录 · 饮食运动睡眠提醒 · 异常症状主动追问 · 分层就医引导等全程支持。',
-        'From hospital registration through pregnancy, delivery, postpartum recovery, newborn care and 0–1 development — weekly education, checkup reminders & prep, report interpretation, BP/glucose/weight/fetal-movement logging, diet/exercise/sleep reminders, proactive symptom follow-up, and tiered referral guidance.',
+        '基于 RAG 的工业知识库平台，将技术手册、工艺规程、SOP 等企业文档转化为可问答的智能知识体系。',
+        'A RAG-powered industrial knowledge platform that turns technical manuals, SOPs and process docs into a queryable AI knowledge base.',
       ),
-      problem: t(
-        '母婴风险大量发生在两次产检之间与出院之后，单次问诊难以连续跟进。我们用长期记忆与风险分层补上"院外连续状态管理"的空白。',
-        'Maternal and infant risks largely occur between checkups and after discharge, where single visits fall short. We close the gap with long-term memory and risk tiering for continuous out-of-clinic management.',
+      overview: t(
+        '工业知识大脑以检索增强生成（RAG）为核心，将企业海量非结构化文档——技术手册、工艺规程、设备 SOP、质量标准——统一接入，构建持续更新的向量知识库；员工与一线工人可通过自然语言随时查询，AI 给出有出处的精准答案。',
+        'Industrial Knowledge Brain uses Retrieval-Augmented Generation (RAG) to ingest enterprise documents—technical manuals, process specs, equipment SOPs, quality standards—into a continuously updated vector knowledge base. Operators and engineers query in plain language and receive sourced, accurate answers instantly.',
       ),
-      audience: aud(
-        ['医院妇产科', 'Hospital OB/GYN'],
-        ['妇幼保健院', 'Maternal & child health centers'],
-        ['区域卫健委', 'Regional health authorities'],
-        ['社区妇幼网络', 'Community maternal networks'],
-        ['孕产妇和家庭', 'Mothers & families'],
-      ),
-      features: feat(
-        ['孕周科普与产检提醒准备', 'Weekly education & checkup prep', '建档后按孕周推送科普内容，并提前提醒产检时间与注意事项。', 'Week-based education and advance checkup reminders with preparation tips after registration.'],
-        ['报告解释辅助', 'Report interpretation', '产检报告关键指标解读与异常提示，帮助孕妇理解检查结果。', 'Key indicator explanation and anomaly flagging on prenatal reports to help mothers understand results.'],
-        ['多维健康记录', 'Multi-dimensional health logging', '血压、血糖、体重、胎动、饮食、运动、睡眠等结构化打卡与趋势追踪。', 'Structured logging of BP, glucose, weight, fetal movement, diet, exercise and sleep with trend tracking.'],
-        ['异常症状主动追问', 'Proactive symptom follow-up', '对录入的异常症状主动追问细节，辅助早期风险识别。', 'Proactively follows up on reported symptoms to capture details and support early risk detection.'],
-        ['分层就医引导', 'Tiered referral guidance', '根据风险分级给出居家观察、门诊复查或急诊就医的分层建议。', 'Tiered guidance — home observation, outpatient review or emergency visit — based on risk level.'],
-        ['高危随访与分层管理', 'High-risk follow-up & tiering', '高危孕产妇随访提醒，医护端分层管理看板。', 'Follow-up reminders for high-risk pregnancies and a tiered management dashboard for clinicians.'],
-        ['产后与新生儿照护', 'Postpartum & newborn care', '分娩准备、产后恢复、母乳喂养、新生儿照护与 0–1 岁发育提醒。', 'Delivery prep, postpartum recovery, breastfeeding, newborn care and 0–1 development guidance.'],
-      ),
+      painPoints: [
+        { value: t('技术文档分散，新员工培训周期长', 'Technical docs are siloed; new employee ramp-up takes months') },
+        { value: t('一线工人遇到异常无法快速找到处理规程', "Floor workers can't quickly locate procedures during anomalies") },
+        { value: t('知识随老员工流失，无法沉淀传承', 'Tribal knowledge walks out the door when experienced staff leave') },
+      ],
+      highlights: [
+        { title: t('准确率', 'Accuracy'), description: t('知识检索准确率 >95% [待替换]', 'Knowledge retrieval accuracy >95% [待替换]') },
+        { title: t('接入时间', 'Setup Time'), description: t('文档接入到可查询 <48 小时', 'Docs to queryable knowledge base <48 hours') },
+        { title: t('支持格式', 'Formats'), description: t('PDF / Word / Excel / 图纸 / 图片', 'PDF / Word / Excel / Drawings / Images') },
+      ],
     },
+
+    /* 2 ── 视觉质检 AI */
     {
-      name: t('围产期心理健康 AI Agent', 'Perinatal Mental Health AI Agent'),
-      slug: 'perinatal-mental-health',
-      overview: t(
-        '把产科安全与心理安全放进同一个连续系统，持续关注孕期焦虑、产后抑郁风险、睡眠剥夺与家庭支持，并打通妇产科—精神心理科的协同转介。',
-        'Bringing physical and emotional safety into one continuous system — antenatal anxiety, postpartum depression risk, sleep deprivation and family support, with OB/GYN–psychiatry referral.',
-      ),
-      painPoints: pts(
-        ['产后情绪问题常被忽视', 'Postpartum emotions are often overlooked'],
-        ['心理与产科服务相互割裂', 'Mental and obstetric care are siloed'],
-        ['家庭支持与沟通不足', 'Family support and communication fall short'],
-      ),
-      workflow: flow(
-        ['情绪科普', 'Education', '孕期焦虑与产前心理支持', 'Antenatal anxiety & prenatal support'],
-        ['状态打卡', 'Check-in', '产后情绪与睡眠状态打卡', 'Postpartum mood & sleep check-ins'],
-        ['风险识别', 'Screening', '产后抑郁风险分级提示', 'Tiered postpartum-depression alerts'],
-        ['协同转介', 'Referral', '妇产—精神科协同与人工介入', 'OB/GYN–psychiatry referral & human review'],
-      ),
-      highlights: hl(
-        ['身心一体', 'Whole-person', '心理与产科在同一系统', 'Mental & obstetric in one system'],
-        ['风险分级', 'Tiered risk', '分级提示、人工复核', 'Tiered alerts with human review'],
-        ['家庭参与', 'Family in loop', '家属支持与沟通建议', 'Family support and guidance'],
-      ),
-      icon: 'heart',
-      scenario: 'perinatal',
-      order: 2,
-      status: 'published',
-      tagline: t('把产科安全与心理安全放进同一个连续管理系统', 'Physical and emotional safety in one continuous system'),
+      name: t('视觉质检 AI', 'Visual QC AI'),
+      slug: 'visual-qc',
+      tagline: t('缺陷一眼识别，质量零遗漏', 'Spot every defect. Miss nothing.'),
+      icon: 'eye',
+      scenario: 'vision',
       summary: t(
-        '面向孕期与产后女性，关注孕期焦虑、产后抑郁风险、睡眠剥夺、育儿压力与家庭支持，支持妇产科—精神心理科协同转介。',
-        'For pregnant and postpartum women — addressing antenatal anxiety, postpartum depression risk, sleep deprivation and family support, with OB/GYN–psychiatry referral.',
+        '基于工业视觉大模型的在线质检系统，缺陷检测准确率 >99%，实时替代人工目检。',
+        'Online QC system powered by industrial vision AI. Defect detection accuracy >99%, replacing manual visual inspection in real time.',
       ),
-      problem: t(
-        '产后情绪问题常被忽视，且分散在产科与精神心理科之间。我们让心理安全与产科安全在同一连续系统中被持续看见。',
-        'Postpartum emotional issues are often overlooked and split across departments. We keep mental and physical safety visible within one continuous system.',
+      overview: t(
+        '视觉质检 AI 在产线末端部署工业相机与边缘推理单元，利用经过百万级缺陷样本训练的视觉大模型，对每个工件进行毫秒级全覆盖扫描；检测结果实时回传 MES，不良品自动触发分拣或停线告警。',
+        'Visual QC AI deploys industrial cameras and edge inference units at the end of production lines. A vision model trained on millions of defect samples performs millisecond full-coverage scans on every part. Results feed directly into MES; defective parts trigger automatic sorting or line-stop alerts.',
       ),
-      audience: aud(
-        ['医院妇产科', 'Hospital OB/GYN'],
-        ['精神心理专科', 'Psychiatry & psychology'],
-        ['妇幼保健院', 'Maternal & child health centers'],
-        ['产后康复机构', 'Postpartum recovery centers'],
-        ['孕产妇和家庭', 'Mothers & families'],
-      ),
-      features: feat(
-        ['孕期焦虑与产前支持', 'Antenatal anxiety support', '孕期焦虑与压力科普、产前恐惧支持。', 'Education on antenatal anxiety and stress, and prenatal fear support.'],
-        ['产后情绪随访', 'Postpartum mood follow-up', '产后情绪打卡、睡眠剥夺与育儿压力支持、产后抑郁风险提示。', 'Mood check-ins, sleep-deprivation and parenting-stress support, postpartum depression risk alerts.'],
-        ['家庭支持', 'Family support', '家属支持与沟通建议，营造支持性家庭环境。', 'Guidance for family members to build a supportive environment.'],
-        ['协同转介与人工介入', 'Referral & human-in-the-loop', '妇产科—精神心理科协同转介，高风险状态人工介入流程。', 'OB/GYN–psychiatry referral and human intervention for high-risk states.'],
-      ),
+      painPoints: [
+        { value: t('人工目检效率低、漏检率高', 'Manual visual inspection is slow and prone to misses') },
+        { value: t('换型时需重新培训质检员，周期长', 'Product changeover requires lengthy retraining of QC staff') },
+        { value: t('质检数据无法沉淀，难以溯源', 'QC data is lost; traceability is limited') },
+      ],
+      highlights: [
+        { title: t('检测准确率', 'Detection Accuracy'), description: t('>99.2% [待替换]', '>99.2% [待替换]') },
+        { title: t('检测速度', 'Speed'), description: t('<20ms / 件', '<20ms per part') },
+        { title: t('换型适应', 'Changeover'), description: t('新产品模型训练 <4 小时', 'New product model training <4 hours') },
+      ],
     },
+
+    /* 3 ── 设备运维 Copilot */
     {
-      name: t('儿童青少年心理健康 AI Agent', 'Youth Mental Health AI Agent'),
-      slug: 'youth-mental-health',
-      overview: t(
-        '连接医院、学校、家庭与社区，把"感觉孩子不对劲"变成可被理解、可被改善的连续过程；覆盖情绪、学业、亲子与同伴，隐私优先、授权可控。',
-        'Connecting hospital, school, family and community — turning "something feels off" into an understandable, improvable process across emotion, study, parenting and peers, privacy-first with controlled authorization.',
-      ),
-      painPoints: pts(
-        ['早期心理信号难被及时发现', 'Early signals go unnoticed'],
-        ['亲子沟通困难、冲突升级', 'Parent-child communication breaks down'],
-        ['医、校、家信息相互割裂', 'Hospital, school and family stay siloed'],
-      ),
-      workflow: flow(
-        ['记录表达', 'Express', '学生隐私倾诉与情绪记录', 'Private expression & mood logging'],
-        ['理解评估', 'Assess', '情绪状态评估与沟通模式识别', 'State assessment & pattern detection'],
-        ['陪练建议', 'Coach', '亲子沟通陪练与成长建议', 'Parent-child practice & growth advice'],
-        ['干预转介', 'Intervene', '风险分级与转介建议', 'Tiered risk & referral'],
-        ['跟踪复盘', 'Follow-up', '阶段报告与多方协同跟进', 'Stage reports & coordinated follow-up'],
-      ),
-      highlights: hl(
-        ['隐私优先', 'Privacy-first', '默认私密、授权可控', 'Private by default, controlled access'],
-        ['医校家协同', 'Tri-party', '多方视角整合', 'Unified perspectives'],
-        ['风险分级', 'Tiered', '关注/预警/高危分级处置', 'Tiered handling of risk'],
-      ),
-      icon: 'graduation-cap',
-      scenario: 'youth',
-      order: 4,
-      status: 'published',
-      tagline: t('连接医院、学校、家庭与社区的青少年心理支持系统', 'Connecting hospital, school, family and community for youth mental health'),
+      name: t('设备运维 Copilot', 'Equipment O&M Copilot'),
+      slug: 'oam-copilot',
+      tagline: t('提前 72 小时预知故障，告别非计划停机', 'Predict failures 72 hours out. Eliminate unplanned downtime.'),
+      icon: 'settings',
+      scenario: 'maintenance',
       summary: t(
-        '面向儿童青少年、家长、学校与医院心理门诊，支持情绪压力识别、亲子关系支持、学习压力管理、早期求助引导与医—校—家协同。',
-        'For children, teens, parents, schools and clinics — emotion/stress detection, parent-child support, study-stress management, early help-seeking and hospital-school-family collaboration.',
+        '融合传感器数据与设备知识库的预测性维护 AI Copilot，提前 72h 预警设备故障，非计划停机减少 >40%。',
+        'Predictive maintenance AI Copilot combining sensor data and equipment knowledge base. Predicts failures 72h ahead, reducing unplanned downtime by >40%.',
       ),
-      problem: t(
-        '青少年情绪问题与亲子、学业压力交织，早期信号难被及时发现与回应。我们构建医—校—家—社协同的连续支持网络。',
-        'Youth emotional issues intertwine with family and academic stress, and early signals go unnoticed. We build a continuous hospital-school-family-community network.',
+      overview: t(
+        '设备运维 Copilot 持续采集振动、温度、电流等多源传感器数据，结合设备工艺知识库，通过时序异常检测与根因分析模型，在设备故障发生前 72 小时发出精准预警；维修建议直接推送给班组长，工单自动生成。',
+        'Equipment O&M Copilot continuously collects vibration, temperature and current data from multiple sensors. Combined with equipment knowledge base, its time-series anomaly detection and root-cause models issue precise 72-hour fault warnings. Maintenance recommendations push directly to shift supervisors; work orders auto-generate.',
       ),
-      audience: aud(
-        ['精神心理专科医院', 'Mental health hospitals'],
-        ['儿童心理卫生中心', 'Child psychology centers'],
-        ['学校心理中心', 'School counseling centers'],
-        ['家庭', 'Families'],
-        ['区域心理健康服务平台', 'Regional mental-health platforms'],
-      ),
-      features: feat(
-        ['情绪与压力管理', 'Emotion & stress management', '情绪压力记录、睡眠与学习压力管理、相关科普。', 'Emotion logging, sleep and study-stress management, and education.'],
-        ['亲子与求助支持', 'Parent-child & help-seeking', '亲子沟通支持、主动求助引导、家长支持 Agent。', 'Parent-child communication support, help-seeking guidance and a parent-support agent.'],
-        ['医—校—家协同', 'Hospital-school-family link', '学校心理老师辅助 Agent，医—校—家协同管理。', 'A counselor-assist agent and coordinated hospital-school-family management.'],
-        ['风险提示与危机干预', 'Risk & crisis flow', '厌学/拒学风险提示，高风险危机干预提示（非诊断）。', 'School-refusal risk alerts and crisis-intervention prompts (non-diagnostic).'],
-      ),
+      painPoints: [
+        { value: t('设备故障突发，停机损失难以承受', 'Sudden equipment failures cause costly unplanned downtime') },
+        { value: t('维修依赖经验，知识无法标准化', "Maintenance relies on tribal knowledge that can't be standardized") },
+        { value: t('备件库存盲目，要么积压要么缺货', 'Spare parts inventory is either overstocked or out of stock') },
+      ],
+      highlights: [
+        { title: t('预警提前量', 'Warning Lead Time'), description: t('>72 小时 [待替换]', '>72 hours [待替换]') },
+        { title: t('停机减少', 'Downtime Reduction'), description: t('非计划停机减少 >40% [待替换]', 'Unplanned downtime reduced by >40% [待替换]') },
+        { title: t('接入方式', 'Integration'), description: t('OPC-UA / MQTT / Modbus 均支持', 'OPC-UA / MQTT / Modbus supported') },
+      ],
     },
+
+    /* 4 ── 智能排产 Agent */
     {
-      name: t('成人身心健康 AI Agent', 'Adult Well-being AI Agent'),
-      slug: 'adult-wellness',
-      overview: t(
-        '面向高压人群，用长期记忆理解情绪、压力、睡眠与身体状态的变化趋势，提供可持续、个性化的身心支持，并在需要时连接专业服务。',
-        'For high-pressure lives — long-term memory to understand trends in emotion, stress, sleep and body state, offering sustainable, personalized support and connecting to professionals when needed.',
-      ),
-      painPoints: pts(
-        ['长期压力缺乏连续关注', 'Chronic stress lacks continuity'],
-        ['睡眠与情绪问题反复出现', 'Sleep and mood issues recur'],
-        ['自助工具难以长期坚持', 'Self-help tools are hard to sustain'],
-      ),
-      workflow: flow(
-        ['状态记录', 'Record', '情绪、压力、睡眠与身体状态记录', 'Logging emotion, stress, sleep and body'],
-        ['趋势洞察', 'Insight', '长期趋势与个体化基线', 'Long-term trends & personalized baselines'],
-        ['自我调适', 'Regulate', '个性化调适与练习', 'Personalized self-regulation'],
-        ['专业连接', 'Connect', '必要时连接心理/睡眠门诊', 'Connect to clinics when needed'],
-      ),
-      highlights: hl(
-        ['长期理解', 'Long-term', '越用越懂你', 'Understands you over time'],
-        ['节律平衡', 'Rhythm', '情绪与生活节律支持', 'Emotion & rhythm support'],
-        ['适时转介', 'Referral', '必要时连接专业服务', 'Professional connection when needed'],
-      ),
-      icon: 'activity',
-      scenario: 'adult',
-      order: 5,
-      status: 'published',
-      tagline: t('面向高压人群的长期身心状态支持', 'Long-term mind-body support for high-pressure lives'),
+      name: t('智能排产 Agent', 'Smart Scheduling Agent'),
+      slug: 'scheduling-agent',
+      tagline: t('供应链与产能一体化排程，交期准时率 >95%', 'End-to-end scheduling. On-time delivery >95%.'),
+      icon: 'calendar',
+      scenario: 'scheduling',
       summary: t(
-        '面向高压职场人、长期疲劳与睡眠问题人群，提供情绪、压力、睡眠、身体状态与生活节律的长期支持。',
-        'For high-pressure professionals and people with fatigue or sleep issues — long-term support for emotion, stress, sleep, body state and life rhythm.',
+        '基于 AI Agent 的智能排产系统，综合供应链、产能、工艺约束，实时生成最优排程方案，交期准时率显著提升。',
+        'AI Agent-powered scheduling system that considers supply chain, capacity and process constraints to generate optimal production schedules in real time.',
       ),
-      problem: t(
-        '成人长期压力与睡眠问题往往得不到连续关注。我们提供可持续、个性化的身心状态长期支持。',
-        'Chronic stress and sleep problems rarely get continuous attention. We provide sustainable, personalized long-term support.',
+      overview: t(
+        '智能排产 Agent 接入 ERP 订单数据、MES 产能数据、供应商 BOM 信息，通过约束满足与强化学习模型，自动求解多品种混线排程难题；突发插单、设备故障、物料短缺等异常发生时，Agent 秒级重排并推送影响分析报告。',
+        'Smart Scheduling Agent integrates ERP order data, MES capacity data and supplier BOM information. Using constraint satisfaction and reinforcement learning, it solves mixed-model multi-product scheduling. When disruptions occur—rush orders, equipment failures, material shortages—the agent reschedules in seconds and pushes impact analysis reports.',
       ),
-      audience: aud(
-        ['高压职场人', 'High-pressure professionals'],
-        ['企业员工健康平台', 'Corporate wellness platforms'],
-        ['心理门诊 / 睡眠门诊', 'Psychology & sleep clinics'],
-        ['心身医学科', 'Psychosomatic medicine'],
-        ['家庭用户', 'Individuals & families'],
-      ),
-      features: feat(
-        ['情绪与压力理解', 'Emotion & stress', '长期理解情绪与压力，提供自我调适训练。', 'Long-term understanding of emotion and stress with self-regulation training.'],
-        ['睡眠与生活节律', 'Sleep & rhythm', '睡眠与生活节律支持、身体状态记录。', 'Sleep and life-rhythm support with body-state tracking.'],
-        ['职场与关系支持', 'Work & relationships', '职场压力、家庭与亲密关系支持。', 'Support for workplace stress and family/intimate relationships.'],
-        ['必要时连接专业', 'Connect to professionals', '必要时连接心理门诊、睡眠门诊等专业服务。', 'Connect to clinics and professional services when needed.'],
-      ),
+      painPoints: [
+        { value: t('排产依赖人工 Excel，响应慢、质量差', 'Manual Excel-based scheduling is slow and low quality') },
+        { value: t('插单频繁导致生产计划频繁推翻', 'Frequent rush orders constantly derail production plans') },
+        { value: t('供应链与产能信息割裂，排程不可执行', "Supply chain and capacity data are siloed; schedules aren't feasible") },
+      ],
+      highlights: [
+        { title: t('交期准时率', 'On-Time Delivery'), description: t('>95% [待替换]', '>95% [待替换]') },
+        { title: t('排程响应', 'Scheduling Response'), description: t('重排计划 <30 秒', 'Rescheduling in <30 seconds') },
+        { title: t('集成', 'Integration'), description: t('SAP / 用友 / 金蝶 / 自有 ERP', 'SAP / Yonyou / Kingdee / custom ERP') },
+      ],
     },
+
+    /* 5 ── 产线数据平台 */
     {
-      name: t('运动健康与营养代谢 AI Agent', 'Sports & Nutrition AI Agent'),
-      slug: 'sports-nutrition',
-      overview: t(
-        '面向运动健康、主动健康与智慧营养场景，我们打造"运动健康与营养代谢 AI Agent"，围绕运动机能监测、营养代谢评估、个性化运动营养干预、健康长期状态跟踪、运动性疾病与损伤预警、智能配餐与营养品适配六大能力，帮助用户建立连续、动态、个性化的健康管理闭环。',
-        'For active health and smart nutrition, our Sports & Nutrition AI Agent delivers six capabilities: fitness monitoring, metabolic assessment, personalized intervention, long-term health tracking, injury and sports-disease alerts, and intelligent meal & supplement planning — building a continuous, dynamic, personalized health management loop.',
-      ),
-      painPoints: pts(
-        ['数据零散、缺乏纵向分析', 'Fragmented data, no longitudinal view'],
-        ['营养与训练干预效果难追踪', 'Intervention effects are hard to track'],
-        ['缺乏专业 Agent 协同工作流', 'No professional agent workflow'],
-      ),
-      workflow: flow(
-        ['多模态采集', 'Capture', '训练、营养、睡眠与体征采集', 'Training, nutrition, sleep and vitals'],
-        ['机能建模', 'Model', '长期机能档案与负荷分析', 'Performance profiles & load analysis'],
-        ['个体化建议', 'Advise', '营养与运动个体化建议', 'Personalized nutrition & training'],
-        ['干预追踪', 'Track', '干预效果与损伤风险追踪', 'Effect & injury-risk tracking'],
-      ),
-      highlights: hl(
-        ['长期机能档案', 'Profiles', '可研究的纵向数据', 'Researchable longitudinal data'],
-        ['多模态融合', 'Fusion', '多源数据统一理解', 'Unified multimodal view'],
-        ['专业 Agent', 'Agents', '队医/营养/康复/科研', 'Doctor / nutrition / rehab / research'],
-      ),
-      icon: 'gauge',
-      scenario: 'sports',
-      order: 1,
-      status: 'published',
-      tagline: t('让运动和营养数据拥有长期记忆', 'Give sports and nutrition data a long-term memory'),
+      name: t('产线数据平台', 'Shopfloor Analytics Platform'),
+      slug: 'shopfloor-analytics',
+      tagline: t('实时数据看板 + 异常根因分析，让管理者看透产线', 'Real-time dashboards + root-cause AI. See through your production floor.'),
+      icon: 'bar-chart',
+      scenario: 'analytics',
       summary: t(
-        '面向运动医学、营养代谢与科研转化场景，融合多模态健康数据与长期机能档案，提供个性化运动营养建议、训练恢复分析、风险预警和专业个人运动健康&营养代谢 AI 助手。',
-        'For sports medicine, metabolic nutrition and research translation — fusing multimodal health data with long-term performance profiles to deliver personalized sports-nutrition advice, training-recovery analysis, risk alerts and a professional personal sports-health & metabolic AI assistant.',
+        '工厂实时数据采集与分析平台，集成 OEE、良率、能耗等核心指标看板，AI 自动定位异常根因。',
+        'Factory real-time data collection and analytics platform. Integrates OEE, yield, energy and quality dashboards with AI root-cause analysis.',
       ),
-      problem: t(
-        '运动与营养数据零散、缺乏长期纵向理解。我们用长期记忆与多模态建模沉淀可研究、可干预的机能档案，建立连续、动态、个性化的健康管理闭环。',
-        'Sports and nutrition data are fragmented and lack longitudinal understanding. We use memory and multimodal modeling to build researchable profiles and a continuous, dynamic, personalized health management loop.',
-      ),
-      audience: aud(
-        ['运动医学研究团队', 'Sports-medicine research teams'],
-        ['营养代谢实验室', 'Metabolic nutrition labs'],
-        ['专业运动队', 'Professional sports teams'],
-        ['医院运动医学科', 'Hospital sports-medicine depts'],
-        ['健康管理机构', 'Health-management organizations'],
-      ),
-      features: feat(
-        ['长期机能档案', 'Long-term performance profile', '运动员长期机能档案，训练负荷与恢复状态分析。', 'Athlete performance profiles with training-load and recovery analysis.'],
-        ['营养代谢融合', 'Nutrition & metabolism', '营养代谢数据融合、个体化智能配餐。', 'Metabolic-data fusion and personalized meal planning.'],
-        ['干预效果追踪', 'Intervention tracking', '功能营养干预效果追踪、疲劳与损伤风险提示。', 'Functional-nutrition effect tracking and fatigue/injury risk alerts.'],
-        ['专业 Agent 工作流', 'Professional agent workflows', '队医 Agent、营养师 Agent、康复教练 Agent、科研分析 Agent。', 'Team-doctor, dietitian, rehab-coach and research-analysis agents.'],
-      ),
-    },
-    {
-      name: t('老年照护与慢病陪伴 AI Agent', 'Elderly & Chronic Care AI Agent'),
-      slug: 'elderly-care',
       overview: t(
-        '面向老年与慢病人群，提供日常状态记录、用药提醒、情绪陪伴与异常提示，连接家庭与社区，让长期独立生活的人被持续看见、被及时支持。',
-        'For older adults and chronic-care — daily check-ins, medication reminders, companionship and anomaly alerts, connecting family and community so independent lives are continuously seen and supported.',
+        '产线数据平台通过边缘网关统一采集各设备、传感器与 MES 数据，构建实时数字孪生看板；管理层可在任何设备上实时掌握 OEE、良率、能耗走势；当指标异常时，AI 自动溯源并给出根因报告，推送到责任人。',
+        'Shopfloor Analytics Platform collects data from all equipment, sensors and MES via edge gateways, building real-time digital twin dashboards. Management can monitor OEE, yield, energy and quality trends from any device. When metrics deviate, AI automatically traces root causes and pushes reports to responsible owners.',
       ),
-      painPoints: pts(
-        ['独居日常状态无人连续关注', 'Day-to-day state goes unwatched'],
-        ['用药与复诊容易遗漏', 'Medication and follow-ups get missed'],
-        ['情绪孤独、缺乏陪伴', 'Loneliness without companionship'],
-      ),
-      workflow: flow(
-        ['日常打卡', 'Check-in', '日常健康与慢病状态记录', 'Daily health & chronic-care logging'],
-        ['异常识别', 'Detect', '异常状态识别与提示', 'Anomaly detection & alerts'],
-        ['提醒陪伴', 'Care', '用药复诊提醒与情绪陪伴', 'Reminders & emotional companionship'],
-        ['家庭社区协同', 'Coordinate', '家庭成员与社区服务协同', 'Family & community coordination'],
-      ),
-      highlights: hl(
-        ['持续被看见', 'Always seen', '日常状态不被忽视', 'Daily states never ignored'],
-        ['异常早提示', 'Early alert', '风险及时通知家庭', 'Timely alerts to family'],
-        ['家庭协同', 'Family', '多方共同照护', 'Shared, coordinated care'],
-      ),
-      icon: 'users',
-      scenario: 'elderly',
-      order: 6,
-      status: 'published',
-      tagline: t('让长期独立生活的人被持续看见和支持', 'Keep those living independently continuously seen and supported'),
-      summary: t(
-        '面向老年人、慢病人群与家庭照护者，提供日常状态记录、用药提醒、情绪陪伴、异常提示与家庭协同支持。',
-        'For older adults, people with chronic conditions and caregivers — daily check-ins, medication reminders, companionship, anomaly alerts and family collaboration.',
-      ),
-      problem: t(
-        '独居老人与慢病人群的日常状态缺乏连续关注。我们提供长期陪伴、异常提示与家庭—社区协同。',
-        'Daily states of seniors living alone and chronic patients lack continuous attention. We offer long-term companionship, alerts and family-community collaboration.',
-      ),
-      audience: aud(
-        ['老年人', 'Older adults'],
-        ['慢病人群', 'People with chronic conditions'],
-        ['家庭照护者', 'Family caregivers'],
-        ['社区健康服务机构', 'Community health services'],
-        ['养老机构', 'Eldercare institutions'],
-      ),
-      features: feat(
-        ['日常健康打卡', 'Daily check-ins', '日常健康打卡、慢病生活方式支持。', 'Daily health check-ins and chronic-care lifestyle support.'],
-        ['用药与复诊提醒', 'Medication & follow-up', '用药与复诊提醒，异常状态提醒。', 'Medication and follow-up reminders with anomaly alerts.'],
-        ['情绪与孤独陪伴', 'Companionship', '情绪与孤独感支持，温暖陪伴。', 'Emotional and loneliness support with warm companionship.'],
-        ['家庭与社区协同', 'Family & community', '家庭成员协同，必要时连接医生与社区服务。', 'Family collaboration and connection to doctors/community when needed.'],
-      ),
-    },
-    {
-      name: t('保智通 InsureVertex AI Agent', 'InsureVertex AI Agent'),
-      slug: 'insurevertex-ai',
-      overview: t(
-        '面向保险、财富管理等专业金融服务场景，我们打造金融服务 AI Agent，围绕专业知识问答、AI 销售训练、客户洞察分析与个性化方案生成，帮助金融从业人员提升专业服务能力和客户经营效率。该方案基于专业知识库、长期记忆与 Agent 工作流，能够为代理人、理财顾问、客户经理等角色提供产品知识解读、销售话术训练、客户需求分析、场景化沟通建议和定制化方案辅助。通过"学习—训练—沟通—方案—复盘"的闭环，金融服务 AI Agent 可持续提升团队的专业表达、客户转化、方案匹配和长期经营能力。',
-        'For insurance, wealth management and professional financial services, our Financial Services AI Agent covers professional Q&A, AI sales training, customer insight analysis and personalized proposal generation — helping financial professionals improve service quality and client management efficiency. Built on a professional knowledge base, long-term memory and agent workflows, it supports agents, advisors and relationship managers with product knowledge, sales coaching, client-needs analysis, contextual communication guidance and proposal assistance. The "learn–train–communicate–propose–review" loop continuously raises team capability in professional expression, conversion, proposal matching and long-term client development.',
-      ),
-      painPoints: pts(
-        ['专业知识更新快、难以掌握', 'Fast-changing professional knowledge'],
-        ['培训与陪练成本高', 'Costly training and coaching'],
-        ['展业口径不统一、难合规', 'Inconsistent, hard-to-govern messaging'],
-      ),
-      workflow: flow(
-        ['专业问答', 'Q&A', '带引用、口径可治理的问答', 'Cited, governed answers'],
-        ['培训生产', 'Training', '课件与题库自动生产', 'Auto courseware & question banks'],
-        ['场景对练', 'Practice', '角色扮演式对练与评分', 'Role-play practice & scoring'],
-        ['复盘提升', 'Improve', '复盘与持续训练', 'Review & continuous training'],
-      ),
-      highlights: hl(
-        ['可追溯', 'Traceable', '答案有据可查', 'Cited and auditable'],
-        ['训练闭环', 'Closed loop', '越练越强', 'Stronger with practice'],
-        ['可治理', 'Governable', '口径与合规前置', 'Governance built in'],
-      ),
-      icon: 'shield',
-      scenario: 'industry',
-      order: 7,
-      status: 'published',
-      tagline: t('技术底座的行业拓展：保险与财富管理专业金融服务 AI Agent', 'Industry extension: AI Agent for insurance and wealth management'),
-      summary: t(
-        '面向保险、财富管理等专业金融服务场景，构建"知识问答—销售训练—客户洞察—方案生成"的 Agent 工作流，帮助金融从业人员提升专业表达、客户经营与方案转化能力。',
-        'For insurance, wealth management and professional financial services — an Agent workflow spanning knowledge Q&A, sales training, customer insight and proposal generation, helping financial professionals improve professional expression, client management and conversion.',
-      ),
-      problem: t(
-        '金融从业人员面临专业知识快速更新、培训成本高、展业口径不一致等挑战。同一套技术底座在强监管行业落地负责任 AI：可追溯、可治理、人类监督前置。',
-        'Financial professionals face rapidly evolving knowledge, high training costs and inconsistent client messaging. The same foundation deploys responsible, auditable, human-supervised AI in regulated industries.',
-      ),
-      audience: aud(['保险代理人', 'Insurance agents'], ['团队负责人', 'Team leaders'], ['保险机构', 'Insurers']),
-      features: feat(
-        ['专业知识问答', 'Knowledge Q&A', '带引用、可追溯、口径可治理的专业问答。', 'Cited, traceable, governable professional answers.'],
-        ['数字化培训与对练', 'Training & practice', '课件题库生产与角色扮演式对练评分。', 'Courseware generation and role-play practice with scoring.'],
-      ),
-    },
-    {
-      name: t('IndustriaX 产业智能应用场景', 'IndustriaX'),
-      slug: 'industriax',
-      overview: t(
-        '用 AI 重构市场感知、工程研发与业务决策效率，提升中国先进制造业的市场快速精准反应力，解决中国制造业从「制造效率」走向研发效率 · 业务决策效率 · 市场快速反应力的问题。',
-        'Rebuilding market sensing, R&D and business-decision efficiency with AI — improving rapid, precise market response for advanced Chinese manufacturing, moving the industry beyond production efficiency toward R&D efficiency, decision efficiency and market agility.',
-      ),
-      painPoints: pts(
-        ['工业知识分散、难以沉淀', 'Scattered, hard-to-retain knowledge'],
-        ['老师傅经验难以传承', 'Expert experience is hard to pass on'],
-        ['一线查询效率低', 'Slow frontline lookups'],
-      ),
-      workflow: flow(
-        ['知识沉淀', 'Capture', '工艺/设备/运维知识结构化', 'Structure process/equipment/O&M knowledge'],
-        ['智能问答', 'Q&A', '面向一线的可追溯问答', 'Traceable frontline Q&A'],
-        ['流程辅助', 'Assist', '关键流程的智能辅助', 'Assistance on key processes'],
-        ['私有化部署', 'Deploy', '企业内网部署、安全合规', 'Intranet deployment, compliant'],
-      ),
-      highlights: hl(
-        ['知识资产化', 'Knowledge asset', '经验沉淀为可复用资产', 'Experience becomes a reusable asset'],
-        ['可追溯', 'Traceable', '答案可溯源', 'Traceable answers'],
-        ['安全可控', 'Secure', '私有化与权限隔离', 'Private with access isolation'],
-      ),
-      icon: 'factory',
-      scenario: 'industry',
-      order: 8,
-      status: 'published',
-      tagline: t('AI 技术底座的跨行业拓展：面向先进制造业的产业智能 AI 应用场景', 'Cross-industry AI extension: intelligent AI applications for advanced manufacturing'),
-      summary: t(
-        'AI 技术底座的跨行业拓展：面向先进制造业的产业智能 AI 应用场景。用 AI 重构市场感知、工程研发与业务决策效率，提升中国先进制造业的市场快速精准反应力。',
-        'Cross-industry extension of the AI foundation: intelligent AI applications for advanced manufacturing. Rebuilding market sensing, R&D and business-decision efficiency to improve rapid, precise market response.',
-      ),
-      problem: t(
-        '中国制造业亟需从「制造效率」走向研发效率 · 业务决策效率 · 市场快速反应力。工业知识分散，经验难以沉淀。我们用 AI 把分散知识变为可复用资产，支持私有化部署与安全合规。',
-        "Chinese manufacturing needs to move beyond production efficiency toward R&D efficiency, decision efficiency and market agility. Industrial knowledge is scattered; we turn it into reusable assets with private, compliant deployment.",
-      ),
-      audience: aud(['工业企业', 'Industrial enterprises'], ['关键资产运营方', 'Critical-asset operators']),
-      features: feat(
-        ['工业知识沉淀', 'Industrial knowledge', '把分散的工艺、设备与运维知识结构化、可检索。', 'Structure scattered process/equipment/O&M knowledge into a searchable base.'],
-        ['智能问答与私有化', 'Q&A & private deploy', '面向一线的可追溯问答，支持私有化部署。', 'Traceable frontline Q&A with private deployment.'],
-      ),
+      painPoints: [
+        { value: t('数据散落各系统，管理层无法实时掌握', 'Data is scattered across systems; management has no real-time visibility') },
+        { value: t('异常发生后靠人工排查，效率低', 'Anomaly root-cause analysis relies on manual investigation') },
+        { value: t('OEE 等核心指标计算依赖人工汇总', 'Key metrics like OEE require manual data compilation') },
+      ],
+      highlights: [
+        { title: t('数据刷新', 'Data Refresh'), description: t('实时 <1 秒延迟', 'Real-time, <1 second latency') },
+        { title: t('接入协议', 'Protocols'), description: t('OPC-UA / MQTT / Modbus / REST API', 'OPC-UA / MQTT / Modbus / REST API') },
+        { title: t('根因定位', 'Root Cause'), description: t('平均 <5 分钟出报告', 'Average <5 minutes to root-cause report') },
+      ],
     },
   ]
 }
