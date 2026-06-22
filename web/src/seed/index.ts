@@ -15,9 +15,10 @@ import {
   buildHome,
   buildTechnology,
   buildAbout,
-  buildClinical,
-  buildSafety,
-  buildResources,
+  buildProductsPage,
+  buildSolutions,
+  buildCareers,
+  buildContact,
 } from './pages'
 
 async function main() {
@@ -70,7 +71,10 @@ async function main() {
   // 案例
   const zhCases = buildCases('zh')
   const enCases = buildCases('en')
-  for (let i = 0; i < zhCases.length; i++) await create('cases', zhCases[i], enCases[i])
+  for (let i = 0; i < zhCases.length; i++) {
+    const doc = await create('cases', zhCases[i], enCases[i])
+    ids.cases.push(doc.id as number)
+  }
 
   // 团队
   const zhTeam = buildTeam('zh')
@@ -97,9 +101,10 @@ async function main() {
     [buildHome('zh', ids), buildHome('en', ids)],
     [buildTechnology('zh'), buildTechnology('en')],
     [buildAbout('zh'), buildAbout('en')],
-    [buildClinical('zh'), buildClinical('en')],
-    [buildSafety('zh'), buildSafety('en')],
-    [buildResources('zh'), buildResources('en')],
+    [buildProductsPage('zh', ids), buildProductsPage('en', ids)],
+    [buildSolutions('zh'), buildSolutions('en')],
+    [buildCareers('zh'), buildCareers('en')],
+    [buildContact('zh'), buildContact('en')],
   ] as const
   for (const [zh, en] of pages) await create('pages', zh, en)
 
