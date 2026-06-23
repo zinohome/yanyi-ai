@@ -58,9 +58,9 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
             </span>
           ) : null}
 
-          {/* Accent line — max weight, amber gradient glow */}
+          {/* Accent line — max weight, violet gradient glow */}
           <span
-            className="block font-black leading-[0.88] tracking-[-0.04em] text-[2.6rem] sm:text-[4.5rem] lg:text-[6rem] xl:text-[7.5rem]"
+            className="mt-3 block font-black leading-[0.88] tracking-[-0.04em] text-[2.6rem] sm:mt-5 sm:text-[4.5rem] lg:mt-6 lg:text-[6rem] xl:text-[7.5rem]"
             style={{
               background:
                 'linear-gradient(105deg, var(--color-primary) 0%, color-mix(in oklch, var(--color-primary) 80%, white) 55%, var(--color-primary) 100%)',
