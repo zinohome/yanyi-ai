@@ -52,7 +52,7 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
           {/* Main line — ultra thin, enormous. Weight contrast IS the design. */}
           {mainLines.length > 0 ? (
             <span
-              className="block font-light leading-[0.88] tracking-[-0.02em] text-foreground/90 text-[3.2rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]"
+              className="block font-light leading-[0.88] tracking-[-0.02em] text-foreground/90 text-[2.6rem] sm:text-[4.5rem] lg:text-[6rem] xl:text-[7.5rem]"
             >
               {mainLines.join(' ')}
             </span>
@@ -60,7 +60,7 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
 
           {/* Accent line — max weight, amber gradient glow */}
           <span
-            className="block font-black leading-[0.88] tracking-[-0.04em] text-[3.2rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]"
+            className="block font-black leading-[0.88] tracking-[-0.04em] text-[2.6rem] sm:text-[4.5rem] lg:text-[6rem] xl:text-[7.5rem]"
             style={{
               background:
                 'linear-gradient(105deg, var(--color-primary) 0%, color-mix(in oklch, var(--color-primary) 80%, white) 55%, var(--color-primary) 100%)',
