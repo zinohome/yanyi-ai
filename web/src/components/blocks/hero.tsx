@@ -12,8 +12,8 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
 
   return (
     <section className="relative flex min-h-[92vh] items-end overflow-hidden">
-      {/* Blueprint engineering grid */}
-      <div className="tech-grid pointer-events-none absolute inset-0 opacity-[0.055]" />
+      {/* Blueprint engineering grid — tuned per theme for equal visibility */}
+      <div className="tech-grid pointer-events-none absolute inset-0 opacity-[0.4] dark:opacity-[0.75]" />
 
       {/* Amber glow — upper left */}
       <div

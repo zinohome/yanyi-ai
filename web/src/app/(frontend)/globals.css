@@ -221,12 +221,12 @@
   }
 }
 
-/* 精密网格背景 */
+/* 精密工业网格 — 亮/暗模式均可见 */
 @utility tech-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklch, var(--foreground) 13%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 13%, transparent) 1px, transparent 1px);
-  background-size: 46px 46px;
+    linear-gradient(to right, color-mix(in oklch, var(--foreground) 22%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 22%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 @utility glow {
