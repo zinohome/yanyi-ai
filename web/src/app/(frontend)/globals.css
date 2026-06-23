@@ -6,68 +6,70 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * 衍绎 AI — 工业深科技设计系统 (Industrial Deep-Tech)
- * 工业双色：暖琥珀橙(primary) × 钢蓝/石墨(accent) —— 呼应「精密·可靠·工业级」
- * Light = 工业白；Dark = 深墨蓝（默认）
+ * 衍绎 AI — 工业 AI 神经网络配色系统
+ * 电气紫(primary) × 霓虹绿(accent) —— 完全区别于 yanyi-health 的蓝+橙体系
+ * Light = 极浅紫灰；Dark = 深邃紫黑（默认）
  */
 :root {
   --radius: 0.25rem;
 
-  --background: oklch(0.97 0.008 80);
-  --foreground: oklch(0.15 0.025 262);
+  /* ---- Light ---- */
+  --background: oklch(0.97 0.006 285);
+  --foreground: oklch(0.12 0.022 285);
 
-  --card: oklch(0.99 0.005 80);
-  --card-foreground: oklch(0.15 0.025 262);
-  --popover: oklch(0.99 0.005 80);
-  --popover-foreground: oklch(0.15 0.025 262);
+  --card: oklch(0.99 0.004 285);
+  --card-foreground: oklch(0.12 0.022 285);
+  --popover: oklch(0.99 0.004 285);
+  --popover-foreground: oklch(0.12 0.022 285);
 
-  --primary: oklch(0.68 0.18 55);
-  --primary-foreground: oklch(0.15 0.03 55);
+  --primary: oklch(0.50 0.26 292);
+  --primary-foreground: oklch(0.97 0.008 292);
 
-  --secondary: oklch(0.94 0.015 225);
-  --secondary-foreground: oklch(0.28 0.04 230);
+  --secondary: oklch(0.93 0.012 285);
+  --secondary-foreground: oklch(0.25 0.028 285);
 
-  --muted: oklch(0.94 0.010 250);
-  --muted-foreground: oklch(0.48 0.022 250);
+  --muted: oklch(0.93 0.010 285);
+  --muted-foreground: oklch(0.46 0.018 285);
 
-  --accent: oklch(0.45 0.08 230);
-  --accent-foreground: oklch(0.97 0.01 230);
+  --accent: oklch(0.42 0.24 138);
+  --accent-foreground: oklch(0.97 0.010 138);
 
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.88 0.010 80);
-  --input: oklch(0.88 0.010 80);
-  --ring: oklch(0.68 0.18 55);
+  --border: oklch(0.88 0.010 285);
+  --input: oklch(0.88 0.010 285);
+  --ring: oklch(0.50 0.26 292);
 }
 
 .dark {
-  --background: oklch(0.05 0.015 255);
-  --foreground: oklch(0.94 0.010 80);
+  /* ---- Dark ---- */
+  --background: oklch(0.06 0.016 285);
+  --foreground: oklch(0.94 0.008 285);
 
-  --card: oklch(0.11 0.018 250);
-  --card-foreground: oklch(0.94 0.010 80);
-  --popover: oklch(0.11 0.018 250);
-  --popover-foreground: oklch(0.94 0.010 80);
+  --card: oklch(0.11 0.022 285);
+  --card-foreground: oklch(0.94 0.008 285);
+  --popover: oklch(0.11 0.022 285);
+  --popover-foreground: oklch(0.94 0.008 285);
 
-  --primary: oklch(0.76 0.17 55);
-  --primary-foreground: oklch(0.12 0.03 55);
+  --primary: oklch(0.72 0.24 292);
+  --primary-foreground: oklch(0.08 0.025 292);
 
-  --secondary: oklch(0.18 0.025 250);
-  --secondary-foreground: oklch(0.94 0.010 250);
+  --secondary: oklch(0.17 0.026 285);
+  --secondary-foreground: oklch(0.94 0.008 285);
 
-  --muted: oklch(0.18 0.022 250);
-  --muted-foreground: oklch(0.65 0.020 250);
+  --muted: oklch(0.17 0.022 285);
+  --muted-foreground: oklch(0.60 0.018 285);
 
-  --accent: oklch(0.55 0.10 230);
-  --accent-foreground: oklch(0.97 0.008 230);
+  --accent: oklch(0.80 0.25 138);
+  --accent-foreground: oklch(0.08 0.025 138);
 
   --destructive: oklch(0.62 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.20 0.022 250);
-  --input: oklch(0.20 0.022 250);
-  --ring: oklch(0.76 0.17 55);
+  --border: oklch(0.19 0.024 285);
+  --input: oklch(0.19 0.024 285);
+  --ring: oklch(0.72 0.24 292);
 }
 
 @theme inline {
@@ -154,7 +156,7 @@
     font-size: 0.7rem;
     font-weight: 600;
   }
-  /* 冷色渐变文字（蓝） */
+  /* 紫色渐变文字 */
   .text-gradient {
     background-image: linear-gradient(
       115deg,
@@ -166,7 +168,7 @@
     background-clip: text;
     color: transparent;
   }
-  /* 冷暖渐变文字（蓝→暖）—— 用于情感标语 */
+  /* 紫→绿渐变文字 —— 工业 AI 神经网络感 */
   .text-gradient-warm {
     background-image: linear-gradient(
       115deg,
