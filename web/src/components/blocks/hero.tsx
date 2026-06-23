@@ -15,40 +15,61 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
       {/* Blueprint engineering grid */}
       <div className="tech-grid pointer-events-none absolute inset-0 opacity-[0.055]" />
 
-      {/* Amber glow — upper left source */}
+      {/* Amber glow — upper left */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-48 top-[8%] h-[72vh] w-[58vw] rounded-full bg-primary/22 blur-[180px]"
+        className="pointer-events-none absolute -left-64 top-[0%] h-[85vh] w-[65vw] rounded-full bg-primary/18 blur-[200px]"
       />
-      {/* Steel-blue — upper right */}
+      {/* Steel-blue accent — upper right */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 top-[-8%] h-[50vh] w-[38vw] rounded-full bg-accent/14 blur-[150px]"
+        className="pointer-events-none absolute -right-32 top-[-12%] h-[55vh] w-[42vw] rounded-full bg-accent/12 blur-[160px]"
       />
+
+      {/* Decorative large background numeral */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[4%] top-[12%] select-none font-black text-[28vw] leading-none tracking-[-0.06em] text-foreground/[0.025] sm:text-[22vw]"
+        style={{ fontVariantNumeric: 'tabular-nums' }}
+      >
+        AI
+      </div>
 
       {/* Top scan-line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-28 pt-36 lg:px-8 lg:pb-36 lg:pt-44">
-        {/* Eyebrow — uppercase mono tracking */}
+        {/* Eyebrow */}
         {block.eyebrow ? (
-          <Reveal as="div" className="mb-10">
-            <span className="eyebrow tracking-[0.28em] text-primary/85">{block.eyebrow}</span>
+          <Reveal as="div" className="mb-12 flex items-center gap-4">
+            <span className="h-px w-10 bg-primary/50" />
+            <span className="eyebrow tracking-[0.28em] text-primary/80">{block.eyebrow}</span>
           </Reveal>
         ) : null}
 
-        {/* H1 — left-aligned, extreme scale, two-tone */}
-        <Reveal
-          as="h1"
-          delay={80}
-          className="max-w-5xl font-black leading-[0.9] tracking-[-0.04em]"
-        >
+        {/* H1 — typographic tension: light weight main + black weight amber accent */}
+        <Reveal as="h1" delay={80} className="max-w-5xl">
+          {/* Main line — ultra thin, enormous. Weight contrast IS the design. */}
           {mainLines.length > 0 ? (
-            <span className="block text-foreground text-[3rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]">
+            <span
+              className="block font-light leading-[0.88] tracking-[-0.02em] text-foreground/90 text-[3.2rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]"
+            >
               {mainLines.join(' ')}
             </span>
           ) : null}
-          <span className="block text-primary text-[3rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]">
+
+          {/* Accent line — max weight, amber gradient glow */}
+          <span
+            className="block font-black leading-[0.88] tracking-[-0.04em] text-[3.2rem] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[9rem]"
+            style={{
+              background:
+                'linear-gradient(105deg, var(--color-primary) 0%, color-mix(in oklch, var(--color-primary) 80%, white) 55%, var(--color-primary) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              filter: 'drop-shadow(0 0 48px color-mix(in oklch, var(--color-primary) 55%, transparent))',
+            }}
+          >
             {lastLine}
           </span>
         </Reveal>
@@ -57,20 +78,20 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
         {block.subtitle ? (
           <Reveal
             as="p"
-            delay={180}
-            className="mt-10 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg lg:mt-12 lg:text-xl"
+            delay={200}
+            className="mt-12 max-w-md text-base leading-loose text-muted-foreground sm:text-lg lg:text-xl"
           >
             {block.subtitle}
           </Reveal>
         ) : null}
 
         {/* CTAs */}
-        <Reveal delay={260} className="mt-12 flex flex-wrap items-center gap-6">
+        <Reveal delay={280} className="mt-12 flex flex-wrap items-center gap-6">
           {block.primaryCta?.label ? (
             <Button
               asChild
               size="lg"
-              className="h-12 rounded-none px-8 text-sm font-bold uppercase tracking-[0.1em]"
+              className="h-12 rounded-none px-8 text-sm font-bold uppercase tracking-[0.12em]"
             >
               <Link href={localeHref(locale, block.primaryCta.href)}>
                 {block.primaryCta.label}
@@ -80,7 +101,7 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
           {block.secondaryCta?.label ? (
             <Link
               href={localeHref(locale, block.secondaryCta.href)}
-              className="group inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:text-foreground"
+              className="group inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
             >
               {block.secondaryCta.label}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -88,10 +109,10 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
           ) : null}
         </Reveal>
 
-        {/* Stats strip — anchored below CTAs */}
+        {/* Stats strip */}
         <Reveal
-          delay={360}
-          className="mt-20 grid grid-cols-2 gap-x-14 gap-y-8 border-t border-border/25 pt-12 sm:grid-cols-4 lg:mt-28"
+          delay={380}
+          className="mt-20 grid grid-cols-2 gap-x-14 gap-y-8 border-t border-border/20 pt-12 sm:grid-cols-4 lg:mt-28"
         >
           {(
             [
@@ -105,7 +126,7 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
               <div className="text-[2.75rem] font-black leading-none tracking-[-0.03em] text-foreground sm:text-[3.5rem]">
                 {s.value}
               </div>
-              <div className="mt-3 text-[0.68rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              <div className="mt-3 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground">
                 {s.label}
               </div>
             </div>

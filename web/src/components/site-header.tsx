@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { Menu, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import { LogoMark } from '@/components/brand/logo'
 import { cn } from '@/lib/utils'
@@ -24,6 +25,7 @@ export function SiteHeader() {
   }, [])
 
   const items = [
+    { href: base, label: t('home') },
     { href: `${base}/technology`, label: t('technology') },
     { href: `${base}/products`, label: t('products') },
     { href: `${base}/solutions`, label: t('solutions') },
@@ -41,11 +43,11 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
-        {/* Logo */}
-        <Link href={base} className="flex items-center gap-2.5">
+        {/* Logo — not a link */}
+        <div className="flex items-center gap-2.5">
           <LogoMark className="size-7" />
           <span className="eyebrow text-foreground tracking-[0.15em] text-[0.7rem]">YANYI AI</span>
-        </Link>
+        </div>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
@@ -60,8 +62,9 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <LocaleSwitcher locale={locale} />
+          <ThemeToggle />
           <Button
             asChild
             size="sm"
@@ -70,7 +73,7 @@ export function SiteHeader() {
             <Link href={`${base}/contact`}>{t('cta')}</Link>
           </Button>
           <button
-            className="lg:hidden p-1.5 text-muted-foreground hover:text-foreground"
+            className="p-1.5 text-muted-foreground hover:text-foreground lg:hidden"
             aria-label="菜单 / Menu"
             onClick={() => setOpen((v) => !v)}
           >
@@ -98,7 +101,7 @@ export function SiteHeader() {
               {it.label}
             </Link>
           ))}
-          <Button asChild size="sm" className="mt-4 rounded-none w-full uppercase tracking-[0.12em] text-xs font-bold">
+          <Button asChild size="sm" className="mt-4 w-full rounded-none text-xs font-bold uppercase tracking-[0.12em]">
             <Link href={`${base}/contact`} onClick={() => setOpen(false)}>
               {t('cta')}
             </Link>

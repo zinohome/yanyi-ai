@@ -51,11 +51,11 @@ export default async function LocaleLayout({
       className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable}`}
     >
       <head>
-        {/* 强制暗色主题：直接在 html 上加 dark 类，零闪烁；
-            同时标记 JS 可用（用于 reveal 动画的渐进增强）。 */}
+        {/* 读取 yanyi-theme 偏好；无存储值时默认 dark，零闪烁 */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "(function(){document.documentElement.classList.add('dark','js');})();",
+            __html:
+              "(function(){try{var t=localStorage.getItem('yanyi-theme');var d=!t||t==='dark';document.documentElement.classList.add(d?'dark':'light','js');}catch(e){document.documentElement.classList.add('dark','js');}})();",
           }}
         />
       </head>
@@ -63,7 +63,9 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ThemeProvider
             attribute="class"
-            forcedTheme="dark"
+            defaultTheme="dark"
+            enableSystem={false}
+            storageKey="yanyi-theme"
             disableTransitionOnChange
           >
             <div className="flex min-h-screen flex-col">
