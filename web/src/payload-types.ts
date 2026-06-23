@@ -452,7 +452,7 @@ export interface Product {
         | 'workflow'
       )
     | null;
-  scenario?: ('maternal' | 'perinatal' | 'youth' | 'adult' | 'sports' | 'elderly' | 'industry') | null;
+  scenario?: ('knowledge' | 'vision' | 'maintenance' | 'scheduling' | 'analytics') | null;
   /**
    * 简介（卡片/列表用，一句话）
    */
@@ -1611,6 +1611,9 @@ export interface SiteSetting {
  */
 export interface Header {
   id: number;
+  /**
+   * 导航链接（/technology, /products, /solutions, /cases, /blog, /about, /careers, /contact）
+   */
   navItems?:
     | {
         label?: string | null;
