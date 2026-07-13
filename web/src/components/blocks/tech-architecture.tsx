@@ -28,14 +28,14 @@ export function TechArchitecture({ block, locale }: { block: T; locale: string }
         <SectionHeader eyebrow="TECHNOLOGY FOUNDATION" title={block.title} subtitle={block.subtitle} align="center" />
 
         {/* 分层平台架构图（移动端保持最小宽度，横向滑动查看） */}
-        <Reveal delay={80} className="mx-auto mt-14 max-w-5xl">
+        <Reveal delay={80} className="mx-auto mt-10 max-w-5xl">
           <div className="card-glow rounded-3xl border border-border bg-card/40 p-4 backdrop-blur sm:p-8">
             <PlatformArchitecture locale={locale} />
           </div>
         </Reveal>
 
         {/* 四域详解 —— 每个域配一张架构图 */}
-        <div className="mx-auto mt-20 flex max-w-5xl flex-col gap-8">
+        <div className="mx-auto mt-12 flex max-w-5xl flex-col gap-8">
           {domains.map((d, i) => {
             const kind = (d.icon && KIND_BY_ICON[d.icon]) || 'brain'
             const accent = ACCENT[kind]

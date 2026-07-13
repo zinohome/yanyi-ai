@@ -8,7 +8,7 @@ export function CapabilityGrid({ block }: { block: T }) {
   return (
     <Section className="border-y border-border/50 bg-card/20">
       <SectionHeader eyebrow="CAPABILITIES" title={block.title} subtitle={block.subtitle} />
-      <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {caps.map((c, i) => (
           <Reveal
             key={c.id ?? i}

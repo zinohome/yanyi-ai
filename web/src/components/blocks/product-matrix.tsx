@@ -14,7 +14,7 @@ export async function ProductMatrix({ block, locale }: { block: T; locale: strin
   return (
     <Section>
       <SectionHeader eyebrow="PRODUCTS" title={block.title} subtitle={block.subtitle} />
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((p, i) => (
           <Reveal key={p.id} delay={(i % 3) * 80} className="h-full">
             <ProductCard product={p} locale={locale} />

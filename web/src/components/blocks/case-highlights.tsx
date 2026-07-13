@@ -15,7 +15,7 @@ export async function CaseHighlights({ block, locale }: { block: T; locale: stri
   return (
     <Section className="border-y border-border/50 bg-card/20">
       <SectionHeader eyebrow="CASES" title={block.title} subtitle={block.subtitle} />
-      <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {cases.map((c, i) => (
           <Reveal
             key={c.id}

@@ -7,7 +7,7 @@ export function Timeline({ block }: { block: T }) {
   return (
     <Section>
       <SectionHeader eyebrow="ROADMAP" title={block.title} subtitle={block.subtitle} />
-      <div className="relative mt-14 pl-8">
+      <div className="relative mt-10 pl-8">
         <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-primary via-border to-transparent" />
         <div className="flex flex-col gap-10">
           {milestones.map((m, i) => (

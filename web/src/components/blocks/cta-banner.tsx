@@ -8,8 +8,8 @@ import { localeHref } from '@/lib/utils'
 
 export function CtaBanner({ block, locale }: { block: T; locale: string }) {
   return (
-    <Section className="py-24 sm:py-32">
-      <Reveal className="relative overflow-hidden border border-border/30 bg-card/40 px-8 py-20 sm:px-16 sm:py-28">
+    <Section className="py-14 sm:py-16">
+      <Reveal className="relative overflow-hidden border border-border/30 bg-card/40 px-8 py-14 sm:px-16 sm:py-20">
         {/* Blueprint grid */}
         <div className="tech-grid pointer-events-none absolute inset-0 opacity-[0.08]" />
         {/* Amber glow */}

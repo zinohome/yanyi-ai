@@ -8,7 +8,7 @@ export function ValueProps({ block }: { block: T }) {
   return (
     <Section>
       <SectionHeader title={block.title} subtitle={block.subtitle} />
-      <div className="mt-16 grid gap-0 border border-border/30 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-0 border border-border/30 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((it, i) => (
           <Reveal
             key={it.id ?? i}

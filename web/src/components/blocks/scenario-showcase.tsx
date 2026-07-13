@@ -11,7 +11,7 @@ export function ScenarioShowcase({ block, locale }: { block: T; locale: string }
   return (
     <Section>
       <SectionHeader eyebrow="AI SCENARIOS" title={block.title} subtitle={block.subtitle} />
-      <div className="mt-14 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
         {items.map((s, i) => {
           const href = s.link?.href ? localeHref(locale, s.link.href) : null
           const Card = (

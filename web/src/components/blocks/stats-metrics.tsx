@@ -5,7 +5,7 @@ import { Reveal } from '@/components/reveal'
 export function StatsMetrics({ block }: { block: T }) {
   const stats = block.stats ?? []
   return (
-    <Section className="py-20 sm:py-24">
+    <Section className="py-14 sm:py-16">
       {block.title ? (
         <Reveal as="p" className="eyebrow mb-12 tracking-[0.25em] text-primary/70">
           {block.title}

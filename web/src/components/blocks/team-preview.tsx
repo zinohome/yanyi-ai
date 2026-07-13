@@ -16,7 +16,7 @@ export async function TeamPreview({ block, locale }: { block: T; locale: string 
   return (
     <Section>
       <SectionHeader eyebrow="TEAM" title={block.title} subtitle={block.subtitle} />
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {members.map((m, i) => {
           const photo = (typeof m.photo === 'object' ? m.photo : null) as Media | null
           return (
