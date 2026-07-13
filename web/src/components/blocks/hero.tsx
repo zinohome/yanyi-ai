@@ -11,7 +11,7 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
   const lastLine = lines[lines.length - 1]!
 
   return (
-    <section className="relative flex min-h-[92vh] items-end overflow-hidden">
+    <section className="relative flex min-h-[68vh] items-end overflow-hidden">
       {/* Blueprint engineering grid — tuned per theme for equal visibility */}
       <div className="tech-grid pointer-events-none absolute inset-0 opacity-[0.4] dark:opacity-[0.75]" />
 
@@ -38,10 +38,10 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
       {/* Top scan-line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 pb-28 pt-36 lg:px-8 lg:pb-36 lg:pt-44">
+      <div className="relative mx-auto w-full max-w-7xl px-6 pb-14 pt-10 lg:px-8 lg:pb-16 lg:pt-12">
         {/* Eyebrow */}
         {block.eyebrow ? (
-          <Reveal as="div" className="mb-12 flex items-center gap-4">
+          <Reveal as="div" className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-primary/50" />
             <span className="eyebrow tracking-[0.28em] text-primary/80">{block.eyebrow}</span>
           </Reveal>
@@ -112,7 +112,7 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
         {/* Stats strip */}
         <Reveal
           delay={380}
-          className="mt-20 grid grid-cols-2 gap-x-14 gap-y-8 border-t border-border/20 pt-12 sm:grid-cols-4 lg:mt-28"
+          className="mt-10 grid grid-cols-2 gap-x-14 gap-y-8 border-t border-border/20 pt-8 sm:grid-cols-4 lg:mt-14"
         >
           {(
             [
