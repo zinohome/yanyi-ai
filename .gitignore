@@ -1,0 +1,8 @@
+# 公司内部参考资料 —— 不同步到 GitHub
+/Reference/
+
+# macOS
+.DS_Store
+
+# Claude Code 本地配置
+.claude/

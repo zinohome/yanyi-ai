@@ -5,7 +5,7 @@
     "technology": "Technology",
     "products": "Products",
     "solutions": "Solutions",
-    "cases": "Cases",
+    "cases": "Applications",
     "about": "About",
     "careers": "Careers",
     "contact": "Contact",
@@ -14,19 +14,19 @@
   "footer": {
     "rights": "All rights reserved",
     "company": "Yanyi Data Technology Co., Ltd.",
-    "slogan": "Focused healthcare AI agents, delivering professional medical guidance for whole-life wellbeing",
+    "slogan": "Turn expert knowledge into an organizational asset — reusable, traceable, continuously improving",
     "icp": "京ICP备2025154917号",
     "police": "京公网安备11010802047148号"
   },
   "home": {
-    "heroTitle": "Focused healthcare AI agents, delivering professional medical guidance for whole-life wellbeing",
-    "heroSubtitle": "A long-term, stateful Health AI Agent platform for maternal & child health, youth mental wellness, adult well-being, sports nutrition and healthy aging.",
+    "heroTitle": "Turn expert knowledge\ninto an asset",
+    "heroSubtitle": "Guided by AI-Aided Engineering, Yanyi builds IndustrialX — a private, traceable, auditable intelligent-workflow platform for advanced manufacturers.",
     "ctaPrimary": "View Solutions",
     "ctaSecondary": "Explore Technology"
   },
   "solutions": {
-    "title": "Life-Cycle Solutions",
-    "subtitle": "Extending professional care beyond the clinic — from a single visit to long-term state management.",
+    "title": "Industrial AI Solutions",
+    "subtitle": "Intelligent workflows built around your existing processes, expert rules, engineering documents and business data.",
     "eyebrow": "SOLUTIONS",
     "audience": "Who it serves",
     "capabilities": "Core capabilities",
@@ -43,14 +43,14 @@
   },
   "careers": {
     "title": "Join Us",
-    "subtitle": "Build trustworthy AI for life-cycle health with us.",
+    "subtitle": "Sediment expertise into continuously evolving intelligent productivity with us.",
     "eyebrow": "CAREERS",
     "empty": "No open roles right now — feel free to send your CV to the email below.",
     "apply": "Apply"
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "We welcome hospitals, maternal & child health systems, mental-health specialists, key labs, research institutions and industry partners.",
+    "subtitle": "We welcome R&D, quality, process, planning and IT teams at manufacturers, along with ecosystem partners.",
     "eyebrow": "CONTACT",
     "formTitle": "Partnership Inquiry",
     "name": "Name",
@@ -64,10 +64,10 @@
     "success": "Submitted — we'll be in touch shortly!",
     "error": "Submission failed. Please retry later or email us directly.",
     "intents": {
-      "business": "Clinical & research",
-      "trial": "Maternal & regional health",
-      "investment": "Mental health",
-      "careers": "Enterprise & industry",
+      "business": "Business & solution consulting",
+      "trial": "Product trial / POC",
+      "investment": "Investment",
+      "careers": "Careers",
       "other": "Other"
     },
     "infoTitle": "Get in touch",

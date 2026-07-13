@@ -15,15 +15,15 @@ import { fontSans, fontDisplay, fontMono } from '@/fonts'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: '衍绎 AI · 工业智能体平台',
-    template: '%s · 衍绎 AI',
+    default: '研翌科技 · 工业智能生产力底座',
+    template: '%s · 研翌科技',
   },
-  description: '让工厂更聪明，让决策更精准。工业 AI 闭环平台——感知·决策·执行·进化。',
+  description: '让专家知识成为组织资产。研翌科技以 AI Aided Engineering 为方向，构建可私有化部署、可追溯可审计的智能工作流决策底座 IndustrialX。',
   openGraph: {
     type: 'website',
-    siteName: '衍绎 AI · Yanyi AI',
-    title: '衍绎 AI · 工业智能体平台',
-    description: '工业 AI 闭环平台，赋能制造业感知·决策·执行·进化。',
+    siteName: '研翌科技 · Yanyi',
+    title: '研翌科技 · 工业智能生产力底座',
+    description: '面向先进制造企业的智能生产力与智能工作流决策技术提供商。',
   },
   twitter: { card: 'summary_large_image' },
   alternates: { languages: { zh: `${SITE_URL}/zh`, en: `${SITE_URL}/en` } },

@@ -4,44 +4,44 @@ type Item = { zh: string; en: string }
 const L = (locale: string) => (i: Item) => (locale === 'en' ? i.en : i.zh)
 
 const APP: Item[] = [
-  { zh: '围产期心理', en: 'Perinatal' },
-  { zh: '母婴安全', en: 'Maternal' },
-  { zh: '儿童青少年', en: 'Youth' },
-  { zh: '成人身心', en: 'Adult' },
-  { zh: '运动营养', en: 'Sports' },
-  { zh: '老年照护', en: 'Elderly' },
+  { zh: 'FA 失效分析', en: 'FA Analysis' },
+  { zh: '工程变更', en: 'ECN / PCN' },
+  { zh: '工程知识库', en: 'Knowledge Base' },
+  { zh: '测试验证', en: 'Verification' },
+  { zh: '生产计划', en: 'Planning' },
+  { zh: '工艺沉淀', en: 'Process' },
 ]
 const AGENT: Item[] = [
-  { zh: '孕产 Agent', en: 'Maternity' },
-  { zh: '高危随访', en: 'Follow-up' },
-  { zh: '心理健康', en: 'Mental health' },
-  { zh: '营养 / 康复', en: 'Nutrition' },
-  { zh: '老年照护', en: 'Eldercare' },
-  { zh: '医护协同', en: 'Care team' },
+  { zh: '知识问答', en: 'Knowledge Q&A' },
+  { zh: '失效分析', en: 'Failure analysis' },
+  { zh: '变更评估', en: 'Change impact' },
+  { zh: '测试验证', en: 'Verification' },
+  { zh: '计划辅助', en: 'Planning' },
+  { zh: '报告生成', en: 'Reporting' },
 ]
 const ENGINE: Item[] = [
-  { zh: '长期记忆', en: 'Long-term Memory' },
-  { zh: '多模态状态建模', en: 'Multimodal Modeling' },
-  { zh: '风险分层与异常识别', en: 'Risk Tiering' },
-  { zh: 'AI Agent 编排', en: 'Agent Orchestration' },
-  { zh: '可解释 AI 与治理', en: 'Explainable AI' },
+  { zh: '专家知识资产化', en: 'Knowledge Assets' },
+  { zh: '业务工程语义建模', en: 'Semantic Modeling' },
+  { zh: '智能工作流编排', en: 'Workflow Orchestration' },
+  { zh: '检索增强', en: 'Retrieval (RAG)' },
+  { zh: '本地小模型推理', en: 'Local Inference' },
 ]
 const DATA: Item[] = [
-  { zh: '对话', en: 'Dialogue' },
-  { zh: '打卡', en: 'Check-ins' },
-  { zh: '检查报告', en: 'Reports' },
-  { zh: '体征', en: 'Vitals' },
-  { zh: '睡眠 / 运动', en: 'Sleep/Move' },
-  { zh: '营养', en: 'Nutrition' },
-  { zh: '情绪 / 量表', en: 'Mood/Scales' },
+  { zh: '工程文档', en: 'Docs' },
+  { zh: '测试报告', en: 'Test Reports' },
+  { zh: '8D · FA', en: '8D · FA' },
+  { zh: '变更记录', en: 'Change Logs' },
+  { zh: '设计规范', en: 'Specs' },
+  { zh: '工艺文件', en: 'Process Docs' },
+  { zh: '质量记录', en: 'Quality Data' },
 ]
 const GOV: Item[] = [
-  { zh: '审核知识库', en: 'Reviewed KB' },
-  { zh: '风险分层', en: 'Risk tiering' },
-  { zh: '可解释', en: 'Explainable' },
-  { zh: '权限隔离', en: 'Isolation' },
   { zh: '私有化部署', en: 'Private deploy' },
-  { zh: '全链路审计', en: 'Full audit' },
+  { zh: '数据不出厂', en: 'Data in-plant' },
+  { zh: '来源可追溯', en: 'Traceable' },
+  { zh: '过程可审计', en: 'Auditable' },
+  { zh: '权限隔离', en: 'Isolation' },
+  { zh: '版本留痕', en: 'Versioned' },
 ]
 
 const CX = 40
@@ -172,13 +172,13 @@ function PlatformArchitectureMobile({ locale }: { locale: string }) {
   const band = (zh: string, enL: string) => (en ? enL : zh)
   return (
     <div className="flex flex-col">
-      <MobileLayer label={band('应用层 · 生命全周期解决方案', 'APPLICATIONS · SOLUTIONS')} items={APP} t={t} />
+      <MobileLayer label={band('应用层 · 工业场景解决方案', 'APPLICATIONS · SCENARIOS')} items={APP} t={t} />
       <DownArrow />
       <MobileLayer label={band('AI Agent 工作流', 'AI AGENT WORKFLOWS')} items={AGENT} t={t} />
       <DownArrow />
       <MobileLayer
-        label={band('EvoMetaX 核心引擎', 'EVOMETAX CORE ENGINE')}
-        title={band('EvoMetaX 长期状态智能引擎', 'EvoMetaX — Long-term State Engine')}
+        label={band('IndustrialX 核心底座', 'INDUSTRIALX CORE')}
+        title={band('IndustrialX 智能生产力底座', 'IndustrialX — Intelligence Platform')}
         items={ENGINE}
         t={t}
         highlight
@@ -236,7 +236,7 @@ export function PlatformArchitecture({ locale, className }: { locale: string; cl
       </div>
 
       {/* 桌面端：分层 SVG */}
-      <svg viewBox="0 0 1000 620" className={cn('hidden w-full lg:block', className)} role="img" aria-label="EvoMetaX 平台架构">
+      <svg viewBox="0 0 1000 620" className={cn('hidden w-full lg:block', className)} role="img" aria-label="IndustrialX 平台架构">
       <defs>
         <linearGradient id="pa-engine" x1={CX} y1={b3} x2={CX + CW} y2={b3 + HE} gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="color-mix(in oklch, var(--primary) 22%, var(--card))" />
@@ -265,7 +265,7 @@ export function PlatformArchitecture({ locale, className }: { locale: string; cl
       })}
 
       {/* 应用层 */}
-      {layerLabel(en, b1 + 8, '应用层 · 生命全周期解决方案', 'APPLICATIONS · SOLUTIONS')}
+      {layerLabel(en, b1 + 8, '应用层 · 工业场景解决方案', 'APPLICATIONS · SCENARIOS')}
       <rect x={CX} y={b1 + 16} width={CW} height={H1} rx="14" fill="var(--card)" stroke="var(--border)" />
       {chips(APP, t, b1 + 36, 56)}
 
@@ -279,12 +279,12 @@ export function PlatformArchitecture({ locale, className }: { locale: string; cl
       {arrow(b2 + 16 + H1, b3 + 16)}
 
       {/* 核心引擎层 */}
-      {layerLabel(en, b3 + 8, 'EvoMetaX 核心引擎', 'EVOMETAX CORE ENGINE')}
+      {layerLabel(en, b3 + 8, 'IndustrialX 核心底座', 'INDUSTRIALX CORE')}
       <g filter="url(#pa-glow)">
         <rect x={CX} y={b3 + 16} width={CW} height={HE} rx="16" fill="url(#pa-engine)" stroke="color-mix(in oklch, var(--primary) 45%, transparent)" strokeWidth="1.5" />
       </g>
       <text x={CX + 16} y={b3 + 44} fontSize="14" fontWeight="700" fill="var(--foreground)">
-        {band('EvoMetaX 长期状态智能引擎', 'EvoMetaX — Long-term State Engine')}
+        {band('IndustrialX 智能生产力底座', 'IndustrialX — Intelligence Platform')}
       </text>
       {chips(ENGINE, t, b3 + 60, 74, { engine: true })}
 

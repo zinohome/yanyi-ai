@@ -116,14 +116,14 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
         >
           {(
             [
-              { value: '10+', label: locale === 'en' ? 'Industries' : '行业覆盖' },
-              { value: '50+', label: locale === 'en' ? 'Deployments' : '落地项目' },
-              { value: '24/7', label: locale === 'en' ? 'Agent Runtime' : '智能体在线' },
-              { value: '<48h', label: locale === 'en' ? 'Deploy Cycle' : '部署周期' },
+              { value: 'AAE', label: locale === 'en' ? 'AI Aided Engineering' : 'AI 辅助工程' },
+              { value: locale === 'en' ? 'Local' : '私有化', label: locale === 'en' ? 'Data stays in-plant' : '数据不出厂' },
+              { value: locale === 'en' ? 'Audit' : '可追溯', label: locale === 'en' ? 'Auditable output' : '过程可审计' },
+              { value: locale === 'en' ? 'Reuse' : '可复用', label: locale === 'en' ? 'Knowledge as asset' : '沉淀为资产' },
             ] as const
           ).map((s, i) => (
             <div key={i}>
-              <div className="text-[2.75rem] font-black leading-none tracking-[-0.03em] text-foreground sm:text-[3.5rem]">
+              <div className="font-display text-2xl font-black leading-none tracking-[-0.02em] text-foreground sm:text-3xl">
                 {s.value}
               </div>
               <div className="mt-3 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground">

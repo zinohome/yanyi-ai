@@ -7,23 +7,17 @@ import { AbstractCover } from '@/components/brand/abstract-cover'
 import { localeHref } from '@/lib/utils'
 
 const scenarioLabel: Record<string, { zh: string; en: string }> = {
-  maternal: { zh: '母婴安全', en: 'Maternal & Child' },
-  perinatal: { zh: '围产期心理', en: 'Perinatal Mental Health' },
-  youth: { zh: '儿童青少年心理', en: 'Youth Mental Health' },
-  adult: { zh: '成人身心健康', en: 'Adult Wellness' },
-  sports: { zh: '运动与营养代谢', en: 'Sports & Nutrition' },
-  elderly: { zh: '老年照护与慢病', en: 'Elderly & Chronic Care' },
-  industry: { zh: '产业拓展', en: 'Industry' },
+  platform: { zh: '智能生产力底座', en: 'Productivity Platform' },
+  brain: { zh: '智能体大脑', en: 'Agent Brain' },
+  memory: { zh: '记忆平台', en: 'Memory Platform' },
+  voice: { zh: '语音底座', en: 'Voice Platform' },
 }
 
 const scenarioTone: Record<string, 'blue' | 'warm' | 'mix'> = {
-  maternal: 'warm',
-  perinatal: 'warm',
-  youth: 'warm',
-  adult: 'mix',
-  sports: 'blue',
-  elderly: 'warm',
-  industry: 'blue',
+  platform: 'blue',
+  brain: 'mix',
+  memory: 'blue',
+  voice: 'warm',
 }
 
 export function ProductCard({ product, locale }: { product: Product; locale: string }) {

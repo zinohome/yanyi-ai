@@ -452,7 +452,7 @@ export interface Product {
         | 'workflow'
       )
     | null;
-  scenario?: ('knowledge' | 'vision' | 'maintenance' | 'scheduling' | 'analytics') | null;
+  scenario?: ('platform' | 'brain' | 'memory' | 'voice') | null;
   /**
    * 简介（卡片/列表用，一句话）
    */

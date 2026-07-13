@@ -49,13 +49,13 @@ export default function OgImage() {
             />
             <div style={{ marginTop: 8 }}>Y</div>
           </div>
-          <div style={{ fontSize: 30, fontWeight: 600, letterSpacing: 1 }}>Yanyi Technology</div>
+          <div style={{ fontSize: 30, fontWeight: 600, letterSpacing: 1 }}>Yanyi 研翌科技</div>
         </div>
-        <div style={{ fontSize: 76, fontWeight: 800, lineHeight: 1.1, maxWidth: 920 }}>
-          AI + HI — companions that understand emotion & health
+        <div style={{ fontSize: 72, fontWeight: 800, lineHeight: 1.15, maxWidth: 960 }}>
+          Turn expert knowledge into an organizational asset
         </div>
         <div style={{ fontSize: 30, marginTop: 36, color: 'rgba(255,255,255,0.7)', letterSpacing: 6 }}>
-          Technology, made for love
+          Industrial Intelligence Platform · IndustrialX
         </div>
       </div>
     ),

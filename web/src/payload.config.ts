@@ -30,7 +30,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     meta: {
-      titleSuffix: '· 衍绎 AI',
+      titleSuffix: '· 研翌科技',
     },
   },
   collections: [

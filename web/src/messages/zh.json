@@ -1,11 +1,11 @@
 {
-  "brand": { "name": "研翌科技", "full": "北京研翌数据科技有限公司" },
+  "brand": { "name": "研翌科技", "full": "北京研翌数据技术有限公司" },
   "nav": {
     "home": "首页",
     "technology": "核心技术",
     "products": "产品",
     "solutions": "解决方案",
-    "cases": "客户案例",
+    "cases": "应用场景",
     "about": "关于我们",
     "careers": "加入我们",
     "contact": "联系我们",
@@ -13,20 +13,20 @@
   },
   "footer": {
     "rights": "保留所有权利",
-    "company": "北京研翌数据科技有限公司",
-    "slogan": "专注医疗健康AI智能体，以专业医学护航全周期身心健康",
+    "company": "北京研翌数据技术有限公司",
+    "slogan": "让专家知识成为组织资产，让复杂业务流程可复用、可追溯、可持续优化",
     "icp": "京ICP备2025154917号",
     "police": "京公网安备11010802047148号"
   },
   "home": {
-    "heroTitle": "专注医疗健康AI智能体\n以专业医学护航全周期身心健康",
-    "heroSubtitle": "研翌科技构建面向生命全周期健康管理的长期状态 AI Agent 平台，覆盖母婴安全、儿童青少年心理健康、成人身心健康、运动营养与机能监测、老年照护等场景。",
+    "heroTitle": "让专家知识\n成为组织资产",
+    "heroSubtitle": "研翌科技以 AI Aided Engineering 为方向，为先进制造企业构建可私有化部署、可追溯可审计的智能工作流决策底座 IndustrialX。",
     "ctaPrimary": "查看解决方案",
     "ctaSecondary": "了解核心技术"
   },
   "solutions": {
-    "title": "生命全周期解决方案",
-    "subtitle": "把专业健康服务从院内延伸到院外，从单次问诊延伸到长期状态管理。",
+    "title": "工业 AI 解决方案",
+    "subtitle": "围绕客户已有流程、专家规则、工程文档与业务数据，构建服务具体业务任务的智能工作流决策能力。",
     "eyebrow": "SOLUTIONS",
     "audience": "适用对象",
     "capabilities": "核心功能",
@@ -43,14 +43,14 @@
   },
   "careers": {
     "title": "加入我们",
-    "subtitle": "与我们一起，用可信赖的 AI 守护生命全周期健康。",
+    "subtitle": "与我们一起，把专家经验沉淀为可持续演进的智能生产力。",
     "eyebrow": "CAREERS",
     "empty": "暂无在招岗位，欢迎投递简历至下方邮箱。",
     "apply": "投递简历"
   },
   "contact": {
     "title": "联系我们",
-    "subtitle": "欢迎与医院、妇幼保健体系、精神心理专科、重点实验室、科研机构和产业伙伴联系。",
+    "subtitle": "欢迎制造企业的研发、质量、工艺、生产计划与 IT 团队，以及生态伙伴与我们联系。",
     "eyebrow": "CONTACT",
     "formTitle": "合作咨询",
     "name": "姓名",
@@ -64,10 +64,10 @@
     "success": "提交成功，我们会尽快与您联系！",
     "error": "提交失败，请稍后重试或直接邮件联系我们。",
     "intents": {
-      "business": "医疗科研合作",
-      "trial": "妇幼与区域卫健",
-      "investment": "精神心理健康合作",
-      "careers": "企业与产业合作",
+      "business": "业务合作 / 方案咨询",
+      "trial": "产品试用 / POC",
+      "investment": "投资合作",
+      "careers": "招聘应聘",
       "other": "其他"
     },
     "infoTitle": "联系方式",

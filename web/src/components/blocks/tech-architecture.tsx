@@ -9,6 +9,7 @@ type Kind = 'brain' | 'cerebellum' | 'voice' | 'memory'
 const KIND_BY_ICON: Record<string, Kind> = {
   brain: 'brain',
   wrench: 'cerebellum',
+  cpu: 'cerebellum',
   mic: 'voice',
   database: 'memory',
 }

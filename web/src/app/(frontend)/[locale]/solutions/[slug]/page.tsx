@@ -16,13 +16,10 @@ import type { Locale } from '@/i18n/routing'
 import type { Media } from '@/payload-types'
 
 const scenarioTone: Record<string, 'blue' | 'warm' | 'mix'> = {
-  maternal: 'warm',
-  perinatal: 'warm',
-  youth: 'warm',
-  adult: 'mix',
-  sports: 'blue',
-  elderly: 'warm',
-  industry: 'blue',
+  platform: 'blue',
+  brain: 'mix',
+  memory: 'blue',
+  voice: 'warm',
 }
 
 export const dynamic = 'force-dynamic'
