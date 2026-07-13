@@ -36,6 +36,8 @@ export const buildHome = (lang: Lang, ids: Ids) => {
           { icon: 'layers', title: t('平台自研，持续演进', 'Self-built, evolving platform'), description: t('每个场景交付都沉淀为 IndustrialX 上的可复用组件、知识模型与方法，而非一次性定制。', 'Every delivery sediments into reusable components on IndustrialX — not one-off customization.') },
           { icon: 'shield', title: t('私有化优先，安全可控', 'Private-first, secure'), description: t('支持私有化部署与离线运行，敏感数据不出厂，核心知识资产留在客户内网。', 'On-premise and offline-capable; sensitive data and core knowledge stay in the customer network.') },
           { icon: 'workflow', title: t('可追溯、可审计', 'Traceable & auditable'), description: t('关键输出保留来源引用、过程记录与版本痕迹，便于专家复核与责任追溯。', 'Key outputs keep source citations, process logs and version history for review and accountability.') },
+          { icon: 'users', title: t('人机协同，专家把关', 'Human-in-the-loop'), description: t('AI 提供建议与初稿，专家保留审核与最终决策权；系统在持续使用中不断沉淀领域经验。', 'AI drafts and suggests; experts keep review and final decisions — and the system accrues domain experience in use.') },
+          { icon: 'cpu', title: t('小模型驱动，降本可控', 'Small-model-driven'), description: t('把智能压进结构而非押注模型规模，本地小模型即可拿到工业级可靠性，降低算力门槛与成本。', 'Intelligence pressed into structure, not model scale — local small models reach industrial reliability at lower cost.') },
         ],
       },
       {
@@ -435,6 +437,15 @@ export const buildSolutions = (lang: Lang) => {
             description: t(
               '把病历摘要、环境语音文书与循证问答打包为一体（RTVoice + CozyMemory + IndustrialX），减轻医生非临床负担、支持床旁快速查证。',
               'Bundles record summarization, ambient documentation and evidence-based Q&A (RTVoice + CozyMemory + IndustrialX) to cut paperwork and speed lookups.',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'sparkles',
+            name: t('药物研发与临床试验平台', 'Drug Discovery & Clinical Trials'),
+            description: t(
+              '面向药企与研究机构——分子筛选、靶点与文献分析加速候选化合物发现，患者匹配与入组加速临床试验；研究数据私有化、全程可审计。',
+              'For pharma and research — molecular screening, target and literature analysis speed candidate discovery, while patient matching accelerates trials, on private and auditable infrastructure.',
             ),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
