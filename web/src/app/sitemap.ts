@@ -5,7 +5,7 @@ import { SITE_URL, LOCALES } from '@/lib/site'
 export const dynamic = 'force-dynamic'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticPaths = ['', '/technology', '/products', '/solutions', '/about', '/blog', '/careers', '/contact']
+  const staticPaths = ['', '/technology', '/products', '/cases', '/about', '/blog', '/careers', '/contact']
 
   const products = await getProducts('zh')
   const posts = await getPosts('zh')

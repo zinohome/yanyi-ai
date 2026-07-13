@@ -85,25 +85,25 @@ export const buildHome = (lang: Lang, ids: Ids) => {
             icon: 'cpu',
             name: t('研发侧', 'R&D'),
             description: t('围绕设计规范、工程变更、测试验证、设计手册与历史质量问题，加快知识检索、风险预审与经验复用。', 'Speed up knowledge lookup, risk pre-review and experience reuse around specs, ECN, verification and design manuals.'),
-            link: { label: t('查看方案', 'View Solution'), href: '/solutions' },
+            link: { label: t('查看场景', 'View Scenarios'), href: '/cases' },
           },
           {
             icon: 'shield',
             name: t('质量侧', 'Quality'),
             description: t('围绕 FA 失效分析、8D 报告、质量异常与客户现场问题，提升问题定位效率、缩短闭环周期。', 'Improve problem localization and shorten closure cycles around FA, 8D reports and field issues.'),
-            link: { label: t('查看方案', 'View Solution'), href: '/solutions' },
+            link: { label: t('查看场景', 'View Scenarios'), href: '/cases' },
           },
           {
             icon: 'workflow',
             name: t('生产与供应链侧', 'Production & Supply Chain'),
             description: t('围绕 Master Planning、物料风险、供应商风险与产能约束，提升计划协同效率、减少交付风险。', 'Improve planning coordination and reduce delivery risk around master planning, material and supplier risk.'),
-            link: { label: t('查看方案', 'View Solution'), href: '/solutions' },
+            link: { label: t('查看场景', 'View Scenarios'), href: '/cases' },
           },
           {
             icon: 'message-circle',
             name: t('市场与销售侧', 'Market & Sales'),
             description: t('围绕客户需求变化、VOC 洞察与销量预测，把市场端信号更快传递到研发、质量与计划体系。', 'Relay market signals faster to R&D, quality and planning around demand changes, VOC and forecasting.'),
-            link: { label: t('查看方案', 'View Solution'), href: '/solutions' },
+            link: { label: t('查看场景', 'View Scenarios'), href: '/cases' },
           },
         ],
       },
@@ -451,7 +451,7 @@ export const buildSolutions = (lang: Lang) => {
   }
 }
 
-export const buildCasesPage = (lang: Lang, ids: Ids) => {
+export const buildScenariosPage = (lang: Lang) => {
   const t = L(lang)
   return {
     title: t('应用场景', 'Applications'),
@@ -460,30 +460,119 @@ export const buildCasesPage = (lang: Lang, ids: Ids) => {
     meta: {
       title: t('应用场景', 'Applications'),
       description: t(
-        '研翌科技工业 AI 的典型应用方向——FA 失效分析、工程变更、工程知识库。',
-        'Typical industrial AI applications — FA analysis, engineering change and knowledge base.',
+        '研翌科技以智能生产力底座与四引擎，赋能制造与医疗两大方向的知识密集型 AI 场景：质检、预测性维护、失效分析、工程变更、影像诊断、临床文书、药物研发等。',
+        'Powered by the IndustrialX platform and four engines, Yanyi enables knowledge-intensive AI scenarios across manufacturing and healthcare — from visual QC and predictive maintenance to imaging triage and clinical documentation.',
       ),
     },
     layout: [
       {
         blockType: 'hero',
-        title: t('典型应用场景', 'Typical Applications'),
+        eyebrow: t('应用场景', 'Application Scenarios'),
+        title: t('AI 的落地场景\n从制造到医疗', 'Where AI lands —\nmanufacturing to medicine'),
         subtitle: t(
-          '边界清晰 · 价值直接 · 数据可获得',
-          'Bounded scope · direct value · available data',
+          '同一套智能生产力底座与四引擎，可服务不同行业中知识密集、流程复杂、对安全与可追溯要求高的业务场景。以下是我们聚焦的两大方向。',
+          'The same platform and four engines serve knowledge-intensive, process-heavy scenarios with high safety and traceability demands — across industries. Here are the two directions we focus on.',
         ),
+        primaryCta: { label: t('联系我们', 'Contact Us'), href: '/contact' },
       },
       {
-        blockType: 'caseHighlights',
-        title: t('应用方向', 'Application Directions'),
-        cases: ids.cases,
+        blockType: 'scenarioShowcase',
+        title: t('制造与工业', 'Manufacturing & Industry'),
+        subtitle: t(
+          '从研发、质量到生产与供应链——把专家经验与工程知识转化为可复用能力，并延伸至生成式设计、数字孪生、能耗优化等场景。',
+          'From R&D and quality to production and supply chain — turning expertise into reusable capability, extending to generative design, digital twins and energy optimization.',
+        ),
+        scenarios: [
+          {
+            icon: 'gauge',
+            name: t('AI 视觉质检', 'Visual Quality Inspection'),
+            description: t('工业相机结合视觉模型在线检测微米级缺陷，实时替代人工目检，降低漏检、沉淀质检数据。', 'Industrial cameras and vision models detect micron-level defects online, replacing manual inspection and cutting misses.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'activity',
+            name: t('预测性维护', 'Predictive Maintenance'),
+            description: t('融合振动、温度、电流等传感数据与设备知识，提前数周预警故障，显著减少非计划停机。', 'Fuse vibration, temperature and current data with equipment knowledge to warn of failures weeks ahead and cut unplanned downtime.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'shield',
+            name: t('FA 失效分析与 8D 报告', 'Failure Analysis & 8D'),
+            description: t('检索历史案例、生成根因假设、拆解验证任务，辅助形成 8D/FA 报告，缩短问题定位周期。', 'Retrieve cases, generate root-cause hypotheses and break down verification to assist 8D/FA reports and shorten localization.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'workflow',
+            name: t('ECN/PCN 工程变更影响分析', 'Engineering Change Impact'),
+            description: t('识别设计变更、材料替代对性能、质量、测试、工艺与文档的连锁影响，降低变更遗漏风险。', 'Identify how design changes and substitutions ripple across performance, quality, verification, process and documents.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'brain',
+            name: t('工程知识库与智能问答', 'Engineering Knowledge Base'),
+            description: t('设计规范、工艺文件、历史项目与专家经验沉淀为可检索、可问答、可持续维护的工程知识库。', 'Turn specs, process docs, historical projects and expertise into a searchable, answerable, maintained knowledge base.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'network',
+            name: t('生产计划与供应链协同', 'Planning & Supply Chain'),
+            description: t('结合订单、产能、物料与供应风险，辅助主计划生成与动态调整，提升跨部门计划协同效率。', 'Combine orders, capacity, materials and supply risk to assist master planning and dynamic adjustment.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+        ],
+      },
+      {
+        blockType: 'scenarioShowcase',
+        title: t('医疗与健康', 'Healthcare & Life Sciences'),
+        subtitle: t(
+          '以人机协同与私有化合规为前提，AI 辅助医生与研究者提升效率——不替代临床决策，让专家经验被更好沉淀与复用。',
+          'With human-in-the-loop and private, compliant deployment, AI assists clinicians and researchers — augmenting, never replacing, clinical judgment.',
+        ),
+        scenarios: [
+          {
+            icon: 'activity',
+            name: t('医学影像辅助诊断', 'Medical Imaging Triage'),
+            description: t('影像分级与危急值优先，辅助放射科更快识别卒中、肺栓塞等急症，缩短诊断响应时间。', 'Worklist triage and critical-finding prioritization help radiology flag strokes, PE and other emergencies faster.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'message-circle',
+            name: t('临床文书与病历摘要', 'Clinical Documentation'),
+            description: t('环境语音记录与病历自动摘要，快速梳理复杂病史，减少医生的非临床文书负担。', 'Ambient documentation and record summarization surface key history and reduce clinicians’ paperwork burden.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'users',
+            name: t('智能分诊与随访', 'Triage & Follow-up'),
+            description: t('急诊分诊、风险分层与自动化随访，帮助医护把有限资源投向最需要关注的患者。', 'ED triage, risk stratification and automated follow-up direct limited resources to the patients who need them most.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'sparkles',
+            name: t('药物研发辅助', 'Drug Discovery'),
+            description: t('分子筛选、靶点与文献分析，加速候选化合物发现与临床试验的患者匹配与招募。', 'Molecular screening, target and literature analysis accelerate candidate discovery and trial patient matching.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'brain',
+            name: t('医疗知识库与循证问答', 'Medical Knowledge Base'),
+            description: t('临床指南、文献与病例沉淀为可检索、可溯源的循证知识库，支持医护快速查证与新人培养。', 'Turn guidelines, literature and cases into a searchable, source-traceable evidence base for fast lookup and training.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'heart',
+            name: t('慢病与健康管理', 'Chronic Care & Wellness'),
+            description: t('把服务从院内延伸到院外——连续状态管理、身心节律与个性化健康陪伴，沉淀长期健康画像。', 'Extend care beyond the clinic — continuous state management, mind-body rhythms and personalized long-term wellbeing.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+        ],
       },
       {
         blockType: 'ctaBanner',
-        title: t('有相似的挑战？', 'Facing similar challenges?'),
+        title: t('有相似的场景？', 'Have a similar scenario?'),
         subtitle: t(
-          '与我们的解决方案团队预约一次 30 分钟的深度交流。',
-          'Book a 30-minute deep-dive with our solutions team.',
+          '告诉我们您的业务场景与数据现状，30 分钟识别最适合先落地的高价值切入点。',
+          'Tell us your scenario and data landscape — 30 minutes to find the highest-value entry point.',
         ),
         primaryCta: { label: t('预约咨询', 'Book a Consultation'), href: '/contact' },
       },
