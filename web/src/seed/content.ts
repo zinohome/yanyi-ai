@@ -96,7 +96,7 @@ export const buildProducts = (lang: Lang) => {
         'The "brain" of a multi-agent system — responsible for thinking, persona and organization, memory scheduling and tool routing; the single source of truth for conversation and decision.',
       ),
       overview: t(
-        'CozyEngine 将语言理解、任务规划、记忆调度与工具调用决策统一编排：由它决定"想什么、记什么、调用哪个能力"，再把工具执行委托给专用执行层，形成清晰的大脑—小脑分工。',
+        'CozyEngine 将语言理解、任务规划、记忆调度与工具调用决策统一编排：由它决定"想什么、记什么、调用哪个能力"，再把工具执行委托给底座的执行层，形成清晰的思考—执行分离。',
         'CozyEngine unifies language understanding, task planning, memory scheduling and tool-call decisioning: it decides what to think, what to remember and which capability to invoke, then delegates execution to a dedicated layer — a clean brain-and-cerebellum division of labor.',
       ),
       problem: t(
@@ -121,7 +121,7 @@ export const buildProducts = (lang: Lang) => {
       features: [
         { title: t('思考与语言编排', 'Thinking & language'), description: t('意图理解、任务规划与多轮对话统一编排。', 'Unified intent understanding, task planning and multi-turn dialogue.') },
         { title: t('记忆与路由', 'Memory & routing'), description: t('作为唯一会话事实源，调度记忆并决策工具调用。', 'The single conversation fact source; schedules memory and decides tool calls.') },
-        { title: t('大脑—小脑分工', 'Brain–cerebellum split'), description: t('思考归大脑、执行归执行层，职责清晰、可维护。', 'Thinking in the brain, execution in the cerebellum — clear and maintainable.') },
+        { title: t('思考与执行分离', 'Thinking–Execution Split'), description: t('思考归大脑、执行归底座执行层，职责清晰、可维护。', 'Thinking in the engine, execution in the platform — clear and maintainable.') },
       ],
       highlights: [
         { title: t('单一事实源', 'Single source'), description: t('会话历史、记忆、人格集中管理', 'History, memory and persona centrally managed') },

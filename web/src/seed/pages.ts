@@ -40,8 +40,8 @@ export const buildHome = (lang: Lang, ids: Ids) => {
       },
       {
         blockType: 'techArchitecture',
-        title: t('智能体四引擎架构', 'Four-Engine Agent Architecture'),
-        subtitle: t('大脑 · 记忆 · 感官 · 小脑 —— 组合为可靠、可组合的工业智能体', 'Brain · Memory · Senses · Cerebellum — composed into reliable industrial agents'),
+        title: t('一个底座，三个引擎', 'One Platform, Three Engines'),
+        subtitle: t('大脑 · 记忆 · 感官 —— 由 IndustrialX 底座编排为可靠、可组合的工业智能体', 'Brain · Memory · Senses — orchestrated by the IndustrialX platform into reliable, composable industrial agents'),
         domains: [
           {
             icon: 'brain',
@@ -61,19 +61,13 @@ export const buildHome = (lang: Lang, ids: Ids) => {
             role: t('RTVoice · 实时语音', 'RTVoice · Real-time Voice'),
             description: t('实时语音转写、流式合成与语音对话，全栈本地推理，数据不出网。', 'Real-time transcription, streaming synthesis and voice chat — fully local, data on-prem.'),
           },
-          {
-            icon: 'cpu',
-            name: t('小脑', 'Cerebellum'),
-            role: t('工具执行 · Skill', 'Execution · Skills'),
-            description: t('专注工具执行与技能调用，与大脑分工清晰，行为可控可追踪。', 'Focused on tool execution and skills — a clean split from the brain, controllable and traceable.'),
-          },
         ],
-        note: t('IndustrialX 将四引擎组合为面向工业场景的智能工作流', 'IndustrialX composes the four engines into industrial intelligent workflows'),
+        note: t('IndustrialX 底座负责编排、工作流与工具执行，将三引擎组合为面向工业场景的智能体', 'The IndustrialX platform handles orchestration, workflows and tool execution — composing the three engines into industrial agents'),
       },
       {
         blockType: 'productMatrix',
         title: t('产品矩阵', 'Product Matrix'),
-        subtitle: t('以 IndustrialX 智能生产力底座为核心，四引擎协同支撑', 'Centered on the IndustrialX platform, powered by four collaborating engines'),
+        subtitle: t('以 IndustrialX 智能生产力底座为核心，三引擎协同支撑', 'Centered on the IndustrialX platform, powered by three collaborating engines'),
         products: ids.products,
       },
       {
@@ -150,16 +144,16 @@ export const buildTechnology = (lang: Lang) => {
       },
       {
         blockType: 'techArchitecture',
-        title: t('智能体四引擎', 'Four Agent Engines'),
-        subtitle: t('大脑、记忆、感官与小脑各司其职，组合为可靠的工业智能体', 'Brain, memory, senses and cerebellum — composed into reliable industrial agents'),
+        title: t('底座 + 三引擎', 'Platform + Three Engines'),
+        subtitle: t('大脑、记忆、感官各司其职，由 IndustrialX 底座编排；每个能力独立、可组合、可替换。', 'Brain, memory and senses each with one job — orchestrated by the IndustrialX platform; every capability independent, composable and replaceable.'),
         domains: [
           {
             icon: 'brain',
             name: t('大脑 · CozyEngine', 'Brain · CozyEngine'),
             role: t('思考与语言编排', 'Thinking & Orchestration'),
             description: t(
-              '统一意图理解、任务规划、记忆调度与工具路由决策；作为唯一会话事实源，把工具执行委托给专用执行层，形成清晰的大脑—小脑分工。',
-              'Unifies intent understanding, planning, memory scheduling and tool routing; the single fact source that delegates execution to a dedicated layer.',
+              '统一意图理解、任务规划、记忆调度与工具路由决策；作为唯一会话事实源，把工具执行委托给底座的执行层。',
+              'Unifies intent understanding, planning, memory scheduling and tool routing; the single fact source that delegates execution to the platform.',
             ),
           },
           {
@@ -178,15 +172,6 @@ export const buildTechnology = (lang: Lang) => {
             description: t(
               '实时语音转写、流式合成与端到端语音对话，全栈本地推理，单 GPU 即可运行；通过标准 API 接入应用，敏感语音数据无需出网。',
               'Real-time STT, streaming TTS and end-to-end voice chat on local inference and a single GPU, reachable via standard APIs with data kept on-prem.',
-            ),
-          },
-          {
-            icon: 'cpu',
-            name: t('小脑 · 执行层', 'Cerebellum · Execution'),
-            role: t('工具执行与技能', 'Tool Execution & Skills'),
-            description: t(
-              '专注工具执行与技能调用，走标准协议与大脑通信；每个能力是独立服务、可单独替换、可按客户重组，任何一块都能换。',
-              'Focused on tool execution and skills over standard protocols; every capability is an independent, replaceable, recomposable service.',
             ),
           },
         ],
@@ -344,14 +329,14 @@ export const buildProductsPage = (lang: Lang, ids: { products: number[] }) => {
     status: 'published' as const,
     meta: {
       title: t('产品', 'Products'),
-      description: t('IndustrialX 智能生产力底座，以及 CozyEngine、CozyMemory、RTVoice 四引擎产品。', 'IndustrialX platform plus the CozyEngine, CozyMemory and RTVoice engines.'),
+      description: t('IndustrialX 智能生产力底座，以及 CozyEngine、CozyMemory、RTVoice 三引擎产品。', 'IndustrialX platform plus the three engines — CozyEngine, CozyMemory and RTVoice.'),
     },
     layout: [
       {
         blockType: 'hero',
         eyebrow: t('产品矩阵', 'Product Matrix'),
-        title: t('一个底座\n四引擎协同', 'One platform,\nfour engines'),
-        subtitle: t('以 IndustrialX 智能生产力底座为核心，CozyEngine、CozyMemory 与 RTVoice 协同支撑，可独立部署或组合使用。', 'Centered on the IndustrialX platform, powered by CozyEngine, CozyMemory and RTVoice — deployable standalone or combined.'),
+        title: t('一个底座\n三引擎协同', 'One platform,\nthree engines'),
+        subtitle: t('以 IndustrialX 智能生产力底座为核心，CozyEngine、CozyMemory 与 RTVoice 三引擎协同支撑，可独立部署或组合使用。', 'Centered on the IndustrialX platform, powered by three engines — CozyEngine, CozyMemory and RTVoice — deployable standalone or combined.'),
         primaryCta: { label: t('预约演示', 'Book a Demo'), href: '/contact' },
       },
       {
@@ -494,8 +479,8 @@ export const buildScenariosPage = (lang: Lang) => {
     meta: {
       title: t('应用场景', 'Applications'),
       description: t(
-        '研翌科技以智能生产力底座与四引擎，赋能制造与医疗两大方向的知识密集型 AI 场景：质检、预测性维护、失效分析、工程变更、影像诊断、临床文书、药物研发等。',
-        'Powered by the IndustrialX platform and four engines, Yanyi enables knowledge-intensive AI scenarios across manufacturing and healthcare — from visual QC and predictive maintenance to imaging triage and clinical documentation.',
+        '研翌科技以智能生产力底座与三引擎，赋能制造与医疗两大方向的知识密集型 AI 场景：质检、预测性维护、失效分析、工程变更、影像诊断、临床文书、药物研发等。',
+        'Powered by the IndustrialX platform and three engines, Yanyi enables knowledge-intensive AI scenarios across manufacturing and healthcare — from visual QC and predictive maintenance to imaging triage and clinical documentation.',
       ),
     },
     layout: [
@@ -504,8 +489,8 @@ export const buildScenariosPage = (lang: Lang) => {
         eyebrow: t('应用场景', 'Application Scenarios'),
         title: t('AI 的落地场景\n从制造到医疗', 'Where AI lands —\nmanufacturing to medicine'),
         subtitle: t(
-          '同一套智能生产力底座与四引擎，可服务不同行业中知识密集、流程复杂、对安全与可追溯要求高的业务场景。以下是我们聚焦的两大方向。',
-          'The same platform and four engines serve knowledge-intensive, process-heavy scenarios with high safety and traceability demands — across industries. Here are the two directions we focus on.',
+          '同一套智能生产力底座与三引擎，可服务不同行业中知识密集、流程复杂、对安全与可追溯要求高的业务场景。以下是我们聚焦的两大方向。',
+          'The same platform and three engines serve knowledge-intensive, process-heavy scenarios with high safety and traceability demands — across industries. Here are the two directions we focus on.',
         ),
         primaryCta: { label: t('联系我们', 'Contact Us'), href: '/contact' },
       },
