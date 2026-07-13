@@ -4,16 +4,16 @@ type Item = { zh: string; en: string }
 const L = (locale: string) => (i: Item) => (locale === 'en' ? i.en : i.zh)
 
 const APP: Item[] = [
-  { zh: 'FA 失效分析', en: 'FA Analysis' },
-  { zh: '工程变更', en: 'ECN / PCN' },
-  { zh: '工程知识库', en: 'Knowledge Base' },
-  { zh: '测试验证', en: 'Verification' },
-  { zh: '生产计划', en: 'Planning' },
-  { zh: '工艺沉淀', en: 'Process' },
+  { zh: '知识库问答', en: 'Knowledge Q&A' },
+  { zh: '质量与缺陷分析', en: 'Quality & Defects' },
+  { zh: '变更影响评估', en: 'Change Impact' },
+  { zh: '测试与验证', en: 'Verification' },
+  { zh: '排产协同', en: 'Scheduling' },
+  { zh: '报告生成', en: 'Reporting' },
 ]
 const AGENT: Item[] = [
   { zh: '知识问答', en: 'Knowledge Q&A' },
-  { zh: '失效分析', en: 'Failure analysis' },
+  { zh: '缺陷分析', en: 'Defect analysis' },
   { zh: '变更评估', en: 'Change impact' },
   { zh: '测试验证', en: 'Verification' },
   { zh: '计划辅助', en: 'Planning' },
@@ -29,7 +29,7 @@ const ENGINE: Item[] = [
 const DATA: Item[] = [
   { zh: '工程文档', en: 'Docs' },
   { zh: '测试报告', en: 'Test Reports' },
-  { zh: '8D · FA', en: '8D · FA' },
+  { zh: '质量报告', en: 'Quality Reports' },
   { zh: '变更记录', en: 'Change Logs' },
   { zh: '设计规范', en: 'Specs' },
   { zh: '工艺文件', en: 'Process Docs' },

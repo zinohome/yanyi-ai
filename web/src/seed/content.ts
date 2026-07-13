@@ -233,31 +233,31 @@ export const buildCases = (lang: Lang) => {
   const t = L(lang)
   return [
     {
-      title: t('视觉质检与缺陷分析', 'Visual Inspection & Defect Analytics'),
-      slug: 'visual-inspection',
+      title: t('专家知识资产化', 'Expert Knowledge as an Asset'),
+      slug: 'knowledge-asset',
       summary: t(
-        '工业相机结合视觉模型在线检测微米级缺陷，实时替代人工目检，并把缺陷根因与质量数据沉淀下来，反哺设计与工艺改进。',
-        'Industrial cameras and vision models detect micron-level defects online, replacing manual inspection while capturing root causes and quality data to improve design and process.',
+        '把分散在文档、报告、系统与个人经验中的专业知识，沉淀为可检索、可问答、可持续维护的组织资产，让经验不再只留在少数人脑中。',
+        'Turn expertise scattered across documents, reports, systems and individuals into a searchable, answerable, continuously maintained organizational asset — so knowledge no longer lives only in a few heads.',
       ),
       industry: 'industry',
       status: 'published' as const,
     },
     {
-      title: t('生成式设计与工程仿真', 'Generative Design & Simulation'),
-      slug: 'generative-design',
+      title: t('智能工作流与决策辅助', 'Intelligent Workflows & Decision Support'),
+      slug: 'intelligent-workflow',
       summary: t(
-        '结合设计知识库、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发周期、降低试错成本。',
-        'Combine a design knowledge base, constraint solving and simulation to explore options fast, aid lightweighting and part selection, and shorten R&D cycles.',
+        '把专家经验、业务规则、审批流程与 AI 能力组合为可执行、可追溯的智能工作流，辅助关键判断——人机协同，专家保留最终决策权。',
+        'Compose expertise, business rules, approvals and AI into executable, traceable workflows that support key judgments — human-in-the-loop, with experts keeping the final call.',
       ),
       industry: 'industry',
       status: 'published' as const,
     },
     {
-      title: t('设计手册与工程知识库', 'Design Manuals & Engineering Knowledge Base'),
-      slug: 'engineering-knowledge-base',
+      title: t('私有化行业智能体', 'Private Industry Agents'),
+      slug: 'private-agent',
       summary: t(
-        '面向设计规范、测试标准、经验案例、历史项目资料与专家经验，构建可检索、可问答、可持续维护的工程知识库，提升查询效率、加快新人成长与经验传承。',
-        'Turn design specs, test standards, case libraries, historical project materials and expert experience into a searchable, answerable, continuously maintained engineering knowledge base — improving lookup efficiency and knowledge transfer.',
+        '在客户内网构建可离线运行、可审计的行业智能体，数据不出域、来源可追溯，把一次沉淀的能力跨部门、跨场景复用。',
+        'Build offline-capable, auditable industry agents inside the customer network — data stays on-prem, outputs stay traceable, and capabilities are reused across teams and scenarios.',
       ),
       industry: 'industry',
       status: 'published' as const,

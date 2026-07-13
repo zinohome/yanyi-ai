@@ -86,13 +86,13 @@ export const buildHome = (lang: Lang, ids: Ids) => {
           {
             icon: 'shield',
             name: t('质量侧', 'Quality'),
-            description: t('围绕 FA 失效分析、8D 报告、质量异常与客户现场问题，提升问题定位效率、缩短闭环周期。', 'Improve problem localization and shorten closure cycles around FA, 8D reports and field issues.'),
+            description: t('围绕质量异常、缺陷分析与客户现场问题，提升问题定位效率、缩短闭环周期。', 'Improve problem localization and shorten closure cycles around quality anomalies, defect analysis and field issues.'),
             link: { label: t('查看场景', 'View Scenarios'), href: '/cases' },
           },
           {
             icon: 'workflow',
             name: t('生产与供应链侧', 'Production & Supply Chain'),
-            description: t('围绕 Master Planning、物料风险、供应商风险与产能约束，提升计划协同效率、减少交付风险。', 'Improve planning coordination and reduce delivery risk around master planning, material and supplier risk.'),
+            description: t('围绕生产排程、物料与供应链风险、产能约束，提升计划协同效率、减少交付风险。', 'Improve planning coordination and reduce delivery risk around scheduling, material and supply-chain risk.'),
             link: { label: t('查看场景', 'View Scenarios'), href: '/cases' },
           },
           {
