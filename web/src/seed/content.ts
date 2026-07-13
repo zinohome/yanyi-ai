@@ -233,21 +233,21 @@ export const buildCases = (lang: Lang) => {
   const t = L(lang)
   return [
     {
-      title: t('FA 失效分析与 8D 报告辅助', 'FA & 8D Report Assistance'),
-      slug: 'fa-8d-assistant',
+      title: t('视觉质检与缺陷分析', 'Visual Inspection & Defect Analytics'),
+      slug: 'visual-inspection',
       summary: t(
-        '面向质量异常、测试失败与售后反馈，帮助快速整理问题背景、检索历史案例、生成根因假设并拆解验证任务，辅助形成 8D/FA 报告，缩短问题定位周期。',
-        'For quality anomalies, test failures and field feedback: quickly organize context, retrieve historical cases, generate root-cause hypotheses and break down verification tasks to assist 8D/FA reports and shorten localization cycles.',
+        '工业相机结合视觉模型在线检测微米级缺陷，实时替代人工目检，并把缺陷根因与质量数据沉淀下来，反哺设计与工艺改进。',
+        'Industrial cameras and vision models detect micron-level defects online, replacing manual inspection while capturing root causes and quality data to improve design and process.',
       ),
       industry: 'industry',
       status: 'published' as const,
     },
     {
-      title: t('ECN / PCN 工程变更影响分析', 'ECN / PCN Change-Impact Analysis'),
-      slug: 'ecn-change-impact',
+      title: t('生成式设计与工程仿真', 'Generative Design & Simulation'),
+      slug: 'generative-design',
       summary: t(
-        '面向设计变更、材料替代、供应商切换与工艺调整，帮助识别变更可能影响的产品性能、质量风险、测试验证项、工艺要求与相关文档，降低变更遗漏风险。',
-        'For design changes, material substitution, supplier switches and process adjustments: identify affected performance, quality risks, verification items, process requirements and related documents to reduce the risk of missed impacts.',
+        '结合设计知识库、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发周期、降低试错成本。',
+        'Combine a design knowledge base, constraint solving and simulation to explore options fast, aid lightweighting and part selection, and shorten R&D cycles.',
       ),
       industry: 'industry',
       status: 'published' as const,

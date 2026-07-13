@@ -377,7 +377,7 @@ export const buildSolutions = (lang: Lang) => {
     status: 'published' as const,
     meta: {
       title: t('解决方案', 'Solutions'),
-      description: t('面向制造与医疗行业的端到端 AI 解决方案：把产品与场景打包为可交付、可验收的行业方案——智能质量闭环、研发知识中台、医学影像中枢、临床文书 Copilot 等。', 'End-to-end AI solutions for manufacturing and healthcare — products and scenarios packaged into deliverable industry offerings: smart quality loop, R&D knowledge hub, medical imaging hub, clinical copilot and more.'),
+      description: t('面向制造与医疗行业的端到端 AI 解决方案：把产品与场景打包为可交付、可验收的行业方案——生成式设计与仿真、质量智能、研发知识中台、数字孪生、医学影像中枢、临床文书 Copilot 等。', 'End-to-end AI solutions for manufacturing and healthcare — products and scenarios packaged into deliverable industry offerings: generative design, quality intelligence, R&D knowledge hub, digital twin, medical imaging hub, clinical copilot and more.'),
     },
     layout: [
       {
@@ -390,14 +390,14 @@ export const buildSolutions = (lang: Lang) => {
       {
         blockType: 'scenarioShowcase',
         title: t('制造业解决方案', 'Manufacturing Solutions'),
-        subtitle: t('围绕研发、质量与生产运营，打通"数据—知识—决策"的端到端闭环', 'End-to-end loops from data to knowledge to decision across R&D, quality and operations'),
+        subtitle: t('覆盖研发设计、质量、运营与可持续——把可复用能力组合为面向业务成效的行业方案', 'Across design, quality, operations and sustainability — reusable capabilities composed into outcome-oriented offerings'),
         scenarios: [
           {
-            icon: 'shield',
-            name: t('智能质量闭环', 'Smart Quality Loop'),
+            icon: 'sparkles',
+            name: t('生成式设计与工程仿真', 'Generative Design & Simulation'),
             description: t(
-              '把 AI 视觉质检、FA 失效分析、8D 报告与 ECN 变更评估打包为一体，让质量问题从发现、定位到改进全程可追溯——承载于 IndustrialX + CozyMemory。',
-              'Bundles visual QC, FA analysis, 8D reporting and ECN change assessment so every quality issue is traceable from detection to fix — on IndustrialX + CozyMemory.',
+              '结合设计知识库、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发周期、降低试错成本。',
+              'Combines a design knowledge base, constraint solving and simulation to explore options fast, aid lightweighting and part selection, and shorten R&D cycles.',
             ),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
@@ -411,11 +411,20 @@ export const buildSolutions = (lang: Lang) => {
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
-            icon: 'network',
-            name: t('生产运营智能协同', 'Smart Operations & Planning'),
+            icon: 'gauge',
+            name: t('质量智能与缺陷分析', 'Quality Intelligence & Defect Analytics'),
             description: t(
-              '融合主计划、预测性维护与供应链风险，面向生产运营提供实时决策辅助与跨部门计划协同，减少非计划停机与交付风险。',
-              'Fuses master planning, predictive maintenance and supply-chain risk for real-time operations decisions and cross-department coordination.',
+              '视觉质检、缺陷根因分析与质量数据追溯一体化，让质量问题可发现、可定位、可复盘，并把经验反哺设计与工艺。',
+              'Visual inspection, defect root-cause analytics and quality-data traceability — so issues are detected, localized and reviewed, feeding back to design and process.',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'zap',
+            name: t('数字孪生与能耗优化', 'Digital Twin & Energy Optimization'),
+            description: t(
+              '构建产线与设备的数字孪生，实时映射运行状态，优化能耗与碳排、辅助排产与运营决策，减少非计划停机。',
+              'Builds a digital twin of lines and equipment, mirroring real-time status to optimize energy and carbon, aid scheduling and cut unplanned downtime.',
             ),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
@@ -539,9 +548,21 @@ export const buildScenariosPage = (lang: Lang) => {
             link: { label: t('了解更多', 'Learn More'), href: '/contact' },
           },
           {
+            icon: 'sparkles',
+            name: t('生成式设计与工程仿真', 'Generative Design & Simulation'),
+            description: t('结合设计知识、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发试错周期。', 'Combine design knowledge, constraint solving and simulation to explore options, aid lightweighting and shorten R&D iteration.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'zap',
+            name: t('数字孪生与能耗优化', 'Digital Twin & Energy'),
+            description: t('构建产线与设备数字孪生，实时映射运行状态，优化能耗与碳排、辅助运营决策，减少非计划停机。', 'A digital twin of lines and equipment mirrors real-time status to optimize energy and carbon and cut downtime.'),
+            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
+          },
+          {
             icon: 'network',
-            name: t('生产计划与供应链协同', 'Planning & Supply Chain'),
-            description: t('结合订单、产能、物料与供应风险，辅助主计划生成与动态调整，提升跨部门计划协同效率。', 'Combine orders, capacity, materials and supply risk to assist master planning and dynamic adjustment.'),
+            name: t('排产与供应链协同', 'Scheduling & Supply Chain'),
+            description: t('结合订单、产能、物料与供应风险，辅助排产优化与动态调整，提升跨部门计划协同、减少交付风险。', 'Combine orders, capacity, materials and supply risk to optimize scheduling and improve cross-department coordination.'),
             link: { label: t('了解更多', 'Learn More'), href: '/contact' },
           },
         ],
