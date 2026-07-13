@@ -12,7 +12,6 @@ export async function SiteFooter() {
     { href: `${base}/technology`, label: tn('technology') },
     { href: `${base}/products`, label: tn('products') },
     { href: `${base}/solutions`, label: tn('solutions') },
-    { href: `${base}/cases`, label: tn('cases') },
     { href: `${base}/about`, label: tn('about') },
     { href: `${base}/careers`, label: tn('careers') },
     { href: `${base}/contact`, label: tn('contact') },

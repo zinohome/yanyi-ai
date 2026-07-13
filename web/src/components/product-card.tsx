@@ -27,7 +27,7 @@ export function ProductCard({ product, locale }: { product: Product; locale: str
 
   return (
     <Link
-      href={localeHref(locale, `/solutions/${product.slug}`)}
+      href={localeHref(locale, `/products/${product.slug}`)}
       className="card-glow group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card"
     >
       {/* 封面：上传图优先，否则品牌抽象图 */}

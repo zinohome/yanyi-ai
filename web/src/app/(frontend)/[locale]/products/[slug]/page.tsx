@@ -38,7 +38,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function SolutionDetail({
+export default async function ProductDetail({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>
@@ -69,10 +69,10 @@ export default async function SolutionDetail({
         />
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <Link
-            href={localeHref(locale, '/solutions')}
+            href={localeHref(locale, '/products')}
             className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft className="size-4" /> {t('backToSolutions')}
+            <ArrowLeft className="size-4" /> {tn('products')}
           </Link>
           <div className="max-w-3xl">
             <span className="mb-5 grid size-14 place-items-center rounded-2xl bg-primary/10 text-primary">
@@ -113,7 +113,7 @@ export default async function SolutionDetail({
             />
           </Reveal>
           <Reveal delay={100}>
-            <span className="eyebrow text-primary">{locale === 'en' ? 'OVERVIEW' : '方案概述'}</span>
+            <span className="eyebrow text-primary">{locale === 'en' ? 'OVERVIEW' : '产品概述'}</span>
             <p className="mt-4 text-lg leading-relaxed text-foreground/90">
               {product.overview || product.summary}
             </p>
