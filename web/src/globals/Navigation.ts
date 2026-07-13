@@ -9,7 +9,7 @@ export const Header: GlobalConfig = {
       name: 'navItems',
       type: 'array',
       label: '导航菜单',
-      admin: { description: '导航链接（/technology, /products, /cases, /blog, /about, /careers, /contact）' },
+      admin: { description: '导航链接（/technology, /products, /solutions, /cases, /blog, /about, /careers, /contact）' },
       fields: [
         { name: 'label', type: 'text', localized: true },
         { name: 'href', type: 'text' },

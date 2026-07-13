@@ -377,54 +377,79 @@ export const buildSolutions = (lang: Lang) => {
     status: 'published' as const,
     meta: {
       title: t('解决方案', 'Solutions'),
-      description: t('面向研发、质量、生产与供应链的工业 AI 解决方案：FA 失效分析、ECN/PCN 变更、工程知识库、生产计划协同。', 'Industrial AI solutions across R&D, quality and production: FA analysis, ECN/PCN change, engineering knowledge base and planning.'),
+      description: t('面向制造与医疗行业的端到端 AI 解决方案：把产品与场景打包为可交付、可验收的行业方案——智能质量闭环、研发知识中台、医学影像中枢、临床文书 Copilot 等。', 'End-to-end AI solutions for manufacturing and healthcare — products and scenarios packaged into deliverable industry offerings: smart quality loop, R&D knowledge hub, medical imaging hub, clinical copilot and more.'),
     },
     layout: [
       {
         blockType: 'hero',
-        eyebrow: t('解决方案', 'Solutions'),
-        title: t('面向真实业务场景\n而非泛化 AI 工具', 'Real business scenarios,\nnot generic AI'),
-        subtitle: t('我们围绕客户已有流程、专家规则、工程文档与业务数据，构建能够服务具体业务任务的智能工作流决策能力。', 'We build intelligent workflows around your existing processes, expert rules, engineering documents and business data.'),
+        eyebrow: t('行业解决方案', 'Industry Solutions'),
+        title: t('把产品与场景\n打包为行业方案', 'Products and scenarios,\npackaged for your industry'),
+        subtitle: t('解决方案 = 底座 + 引擎 + 多个场景 + 交付方法。我们把可复用的产品能力，组合为面向制造与医疗行业、以业务成效为目标的端到端方案。', 'A solution = platform + engines + multiple scenarios + a delivery method. We combine reusable product capabilities into outcome-oriented, end-to-end offerings for manufacturing and healthcare.'),
         primaryCta: { label: t('联系方案团队', 'Contact Solution Team'), href: '/contact' },
       },
       {
         blockType: 'scenarioShowcase',
-        title: t('典型应用方向', 'Typical Application Directions'),
-        subtitle: t('每个方向都从数据基础最好、价值最直接的小闭环切入', 'Each starts from a high-value closed loop with the best data foundation'),
+        title: t('制造业解决方案', 'Manufacturing Solutions'),
+        subtitle: t('围绕研发、质量与生产运营，打通"数据—知识—决策"的端到端闭环', 'End-to-end loops from data to knowledge to decision across R&D, quality and operations'),
         scenarios: [
           {
             icon: 'shield',
-            name: t('FA 失效分析与 8D 报告辅助', 'FA & 8D Report Assistance'),
+            name: t('智能质量闭环', 'Smart Quality Loop'),
             description: t(
-              '面向质量异常、客户现场问题、测试失败与售后反馈，帮助快速整理问题背景、检索历史案例、生成根因假设、拆解验证任务，并辅助形成 8D/FA 报告。',
-              'For quality anomalies, field issues, test failures and field feedback — organize context, retrieve cases, generate hypotheses, break down verification and assist 8D/FA reports.',
-            ),
-            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'workflow',
-            name: t('ECN / PCN 工程变更影响分析', 'ECN / PCN Change-Impact Analysis'),
-            description: t(
-              '面向设计变更、材料替代、供应商切换、工艺调整与成本优化，帮助识别变更可能影响的产品性能、质量风险、测试验证项、工艺要求与相关文档。',
-              'For design changes, material substitution, supplier switches and process adjustments — identify affected performance, quality risks, verification items and documents.',
+              '把 AI 视觉质检、FA 失效分析、8D 报告与 ECN 变更评估打包为一体，让质量问题从发现、定位到改进全程可追溯——承载于 IndustrialX + CozyMemory。',
+              'Bundles visual QC, FA analysis, 8D reporting and ECN change assessment so every quality issue is traceable from detection to fix — on IndustrialX + CozyMemory.',
             ),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
             icon: 'brain',
-            name: t('设计手册与工程知识库', 'Design Manuals & Engineering Knowledge'),
+            name: t('研发工程知识中台', 'R&D Engineering Knowledge Hub'),
             description: t(
-              '面向设计规范、测试标准、经验案例、历史项目资料与专家经验，构建可检索、可问答、可持续维护的工程知识库，加快查询与经验传承。',
-              'Turn specs, standards, cases, historical materials and expertise into a searchable, answerable, maintained engineering knowledge base.',
+              '把设计规范、工艺文件、历史项目与专家经验沉淀为工程知识中台，统一支撑知识问答、变更影响评估与跨团队经验复用。',
+              'Turns specs, process docs, historical projects and expertise into a knowledge hub powering Q&A, change-impact assessment and cross-team reuse.',
             ),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
-            icon: 'gauge',
-            name: t('生产计划协同与工艺沉淀', 'Planning & Process Knowledge'),
+            icon: 'network',
+            name: t('生产运营智能协同', 'Smart Operations & Planning'),
             description: t(
-              '面向 Master Planning、物料与供应风险、产能约束，以及工艺文件与作业指导，辅助计划协同与现场经验沉淀，减少跨部门沟通成本。',
-              'For master planning, material/supply risk, capacity constraints and process documents — support planning coordination and shop-floor knowledge capture.',
+              '融合主计划、预测性维护与供应链风险，面向生产运营提供实时决策辅助与跨部门计划协同，减少非计划停机与交付风险。',
+              'Fuses master planning, predictive maintenance and supply-chain risk for real-time operations decisions and cross-department coordination.',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+        ],
+      },
+      {
+        blockType: 'scenarioShowcase',
+        title: t('医疗行业解决方案', 'Healthcare Solutions'),
+        subtitle: t('以人机协同与私有化合规为前提，作为医院与研究机构的企业级 AI 层', 'A private, compliant, human-in-the-loop enterprise AI layer for hospitals and research institutes'),
+        scenarios: [
+          {
+            icon: 'activity',
+            name: t('医学影像智能中枢', 'Medical Imaging Hub'),
+            description: t(
+              '影像分级、危急值预警与多病种分诊统一为影像科的企业级 AI 层，辅助医生更快识别卒中、肺栓塞等急症，缩短诊断响应。',
+              'Unifies triage, critical-finding alerts and multi-pathway prioritization as an enterprise imaging AI layer, speeding recognition of emergencies.',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'message-circle',
+            name: t('临床知识与文书 Copilot', 'Clinical Knowledge & Documentation Copilot'),
+            description: t(
+              '把病历摘要、环境语音文书与循证问答打包为一体（RTVoice + CozyMemory + IndustrialX），减轻医生非临床负担、支持床旁快速查证。',
+              'Bundles record summarization, ambient documentation and evidence-based Q&A (RTVoice + CozyMemory + IndustrialX) to cut paperwork and speed lookups.',
+            ),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'heart',
+            name: t('健康管理与患者陪伴', 'Health Management & Patient Engagement'),
+            description: t(
+              '院外连续状态管理、慢病随访与身心陪伴，把服务从院内延伸到院外，沉淀长期健康画像——以人机协同守住医疗边界。',
+              'Out-of-clinic continuous management, chronic follow-up and companionship extend care beyond the hospital while keeping a human in the loop.',
             ),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
@@ -432,7 +457,7 @@ export const buildSolutions = (lang: Lang) => {
       },
       {
         blockType: 'timeline',
-        title: t('实施方法论', 'Implementation Methodology'),
+        title: t('交付方法论', 'Delivery Methodology'),
         subtitle: t('阶段式交付：诊断咨询 — 方案设计 — 系统交付 — 验证迭代', 'Phased delivery: Diagnose — Design — Deliver — Iterate'),
         milestones: [
           { period: '01', title: t('业务诊断与场景识别', 'Diagnosis & Scenario Identification'), description: t('聚焦现有流程、数据基础、系统环境、安全要求与痛点优先级，识别最适合先落地的高价值小闭环。', 'Map processes, data, systems, security and priority to find the best first scenario.') },
@@ -443,8 +468,8 @@ export const buildSolutions = (lang: Lang) => {
       },
       {
         blockType: 'ctaBanner',
-        title: t('找不到您所在的场景？', "Don't see your scenario?"),
-        subtitle: t('联系我们，我们会评估是否能为您的场景提供合适方案', "Contact us — we'll assess whether we can help with your scenario"),
+        title: t('想要一套适合您行业的方案？', 'Want a solution tailored to your industry?'),
+        subtitle: t('告诉我们您的行业与业务目标，我们会基于底座与场景为您组合合适的方案。', 'Tell us your industry and goals — we\'ll compose the right solution from our platform and scenarios.'),
         primaryCta: { label: t('联系方案团队', 'Contact Solution Team'), href: '/contact' },
       },
     ],

@@ -1612,7 +1612,7 @@ export interface SiteSetting {
 export interface Header {
   id: number;
   /**
-   * 导航链接（/technology, /products, /cases, /blog, /about, /careers, /contact）
+   * 导航链接（/technology, /products, /solutions, /cases, /blog, /about, /careers, /contact）
    */
   navItems?:
     | {
