@@ -2,7 +2,7 @@ import 'dotenv/config'
 import { getPayload } from 'payload'
 import config from '../src/payload.config'
 
-const EMAIL = process.env.SEED_ADMIN_EMAIL || 'admin@yanyi-health.com'
+const EMAIL = process.env.SEED_ADMIN_EMAIL || 'admin@yanyi-ai.com'
 const PASSWORD = process.env.SEED_ADMIN_PASSWORD || 'Yanyi@2026'
 
 async function run() {

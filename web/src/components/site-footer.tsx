@@ -59,33 +59,6 @@ export async function SiteFooter() {
         {/* Legal */}
         <div className="mt-12 flex flex-col gap-2 border-t border-border/20 pt-6 text-[0.7rem] text-muted-foreground/60">
           <p>© 2026 {t('company')}. {t('rights')}.</p>
-          <p className="leading-relaxed">
-            <a
-              href="https://beian.mps.gov.cn/#/query/webSearch?code=11010802047148"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 align-middle transition-opacity hover:opacity-100"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/beian-gongan.png"
-                alt="公安备案"
-                loading="lazy"
-                decoding="async"
-                className="h-[16px] w-auto shrink-0"
-              />
-              {t('police')}
-            </a>
-            {'    '}
-            <a
-              href="https://beian.miit.gov.cn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="align-middle transition-opacity hover:opacity-100"
-            >
-              {t('icp')}
-            </a>
-          </p>
         </div>
       </div>
     </footer>
