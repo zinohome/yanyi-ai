@@ -177,8 +177,8 @@ function PlatformArchitectureMobile({ locale }: { locale: string }) {
       <MobileLayer label={band('AI Agent 工作流', 'AI AGENT WORKFLOWS')} items={AGENT} t={t} />
       <DownArrow />
       <MobileLayer
-        label={band('IndustrialX 核心底座', 'INDUSTRIALX CORE')}
-        title={band('IndustrialX 智能生产力底座', 'IndustrialX — Intelligence Platform')}
+        label={band('IndustriaX 核心底座', 'INDUSTRIAX CORE')}
+        title={band('IndustriaX 智能生产力底座', 'IndustriaX — Intelligence Platform')}
         items={ENGINE}
         t={t}
         highlight
@@ -236,7 +236,7 @@ export function PlatformArchitecture({ locale, className }: { locale: string; cl
       </div>
 
       {/* 桌面端：分层 SVG */}
-      <svg viewBox="0 0 1000 620" className={cn('hidden w-full lg:block', className)} role="img" aria-label="IndustrialX 平台架构">
+      <svg viewBox="0 0 1000 620" className={cn('hidden w-full lg:block', className)} role="img" aria-label="IndustriaX 平台架构">
       <defs>
         <linearGradient id="pa-engine" x1={CX} y1={b3} x2={CX + CW} y2={b3 + HE} gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="color-mix(in oklch, var(--primary) 22%, var(--card))" />
@@ -279,12 +279,12 @@ export function PlatformArchitecture({ locale, className }: { locale: string; cl
       {arrow(b2 + 16 + H1, b3 + 16)}
 
       {/* 核心引擎层 */}
-      {layerLabel(en, b3 + 8, 'IndustrialX 核心底座', 'INDUSTRIALX CORE')}
+      {layerLabel(en, b3 + 8, 'IndustriaX 核心底座', 'INDUSTRIAX CORE')}
       <g filter="url(#pa-glow)">
         <rect x={CX} y={b3 + 16} width={CW} height={HE} rx="16" fill="url(#pa-engine)" stroke="color-mix(in oklch, var(--primary) 45%, transparent)" strokeWidth="1.5" />
       </g>
       <text x={CX + 16} y={b3 + 44} fontSize="14" fontWeight="700" fill="var(--foreground)">
-        {band('IndustrialX 智能生产力底座', 'IndustrialX — Intelligence Platform')}
+        {band('IndustriaX 智能生产力底座', 'IndustriaX — Intelligence Platform')}
       </text>
       {chips(ENGINE, t, b3 + 60, 74, { engine: true })}
 

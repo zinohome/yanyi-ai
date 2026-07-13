@@ -13,8 +13,8 @@ export const buildSiteSettings = (lang: Lang) => {
     defaultMeta: {
       title: t('研翌科技 · 工业智能生产力底座', 'Yanyi · Industrial Intelligence Platform'),
       description: t(
-        '研翌科技面向先进制造企业，提供以专家知识沉淀与赋能为基础、以智能工作流决策为交付形态的智能生产力底座 IndustrialX，助力研发、质量、生产、供应链与销售提效。',
-        'Yanyi builds IndustrialX — an industrial intelligence platform for advanced manufacturers that turns scattered expert knowledge into reusable, traceable, auditable AI workflows across R&D, quality, production, supply chain and sales.',
+        '研翌科技面向先进制造企业，提供以专家知识沉淀与赋能为基础、以智能工作流决策为交付形态的智能生产力底座 IndustriaX，助力研发、质量、生产、供应链与销售提效。',
+        'Yanyi builds IndustriaX — an industrial intelligence platform for advanced manufacturers that turns scattered expert knowledge into reusable, traceable, auditable AI workflows across R&D, quality, production, supply chain and sales.',
       ),
     },
   }
@@ -32,10 +32,10 @@ export const buildProducts = (lang: Lang) => {
   const t = L(lang)
 
   return [
-    /* 1 ── IndustrialX 智能生产力底座（旗舰） */
+    /* 1 ── IndustriaX 智能生产力底座（旗舰） */
     {
-      name: t('IndustrialX 智能生产力底座', 'IndustrialX Intelligence Platform'),
-      slug: 'industrialx',
+      name: t('IndustriaX 智能生产力底座', 'IndustriaX Intelligence Platform'),
+      slug: 'industriax',
       tagline: t('让企业专家知识被 AI 理解、调用、复用', 'Let AI understand, invoke and reuse your expert knowledge'),
       icon: 'layers',
       scenario: 'platform',
@@ -46,8 +46,8 @@ export const buildProducts = (lang: Lang) => {
         'A self-developed industrial AI platform that turns scattered engineering knowledge and business processes into reliable, traceable, auditable agent workflows.',
       ),
       overview: t(
-        'IndustrialX 承载企业级知识库、智能体应用、业务流程与智能工作流决策能力，支持在客户内网环境私有化部署、可离线运行。小模型驱动、松散可组合，靠结构而非模型规模拿到工业级可靠性。',
-        'IndustrialX hosts enterprise knowledge bases, agent applications, business processes and intelligent workflow decisioning — deployable inside the customer network and able to run offline. Small-model-driven and loosely composable, it achieves industrial-grade reliability through structure rather than model scale.',
+        'IndustriaX 承载企业级知识库、智能体应用、业务流程与智能工作流决策能力，支持在客户内网环境私有化部署、可离线运行。小模型驱动、松散可组合，靠结构而非模型规模拿到工业级可靠性。',
+        'IndustriaX hosts enterprise knowledge bases, agent applications, business processes and intelligent workflow decisioning — deployable inside the customer network and able to run offline. Small-model-driven and loosely composable, it achieves industrial-grade reliability through structure rather than model scale.',
       ),
       problem: t(
         '工程知识分散在邮件、文档、测试报告、设计手册与专家个人经验中，难以沉淀为组织能力；研发、质量、工艺、采购与生产之间存在信息断点，问题定位、变更影响判断与计划调整高度依赖人工经验。企业对数据安全、知识产权保护与私有化部署要求高，无法简单采用通用云端 AI。',
@@ -339,7 +339,7 @@ export const buildJobs = (lang: Lang) => {
       order: 1,
       status: 'published',
       description: rt([
-        t('负责 IndustrialX 平台的前后端开发，参与架构设计与工程实践。', 'Build front-end and back-end for the IndustrialX platform.'),
+        t('负责 IndustriaX 平台的前后端开发，参与架构设计与工程实践。', 'Build front-end and back-end for the IndustriaX platform.'),
         t('要求：扎实的 TypeScript/Node 与现代前端经验；对工业 AI 与企业级系统有热情。', 'Requirements: solid TypeScript/Node; passion for industrial AI and enterprise systems.'),
       ]),
     },

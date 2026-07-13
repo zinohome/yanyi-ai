@@ -11,8 +11,8 @@ export const buildHome = (lang: Lang, ids: Ids) => {
     meta: {
       title: t('研翌科技 · 工业智能生产力底座', 'Yanyi · Industrial Intelligence Platform'),
       description: t(
-        '让专家知识成为组织资产。研翌科技以 AI Aided Engineering 为方向，构建可私有化部署、可追溯可审计的智能工作流决策底座 IndustrialX。',
-        'Turn expert knowledge into an organizational asset. Yanyi builds IndustrialX — an AI-Aided-Engineering platform for private, traceable, auditable intelligent workflows.',
+        '让专家知识成为组织资产。研翌科技以 AI Aided Engineering 为方向，构建可私有化部署、可追溯可审计的智能工作流决策底座 IndustriaX。',
+        'Turn expert knowledge into an organizational asset. Yanyi builds IndustriaX — an AI-Aided-Engineering platform for private, traceable, auditable intelligent workflows.',
       ),
     },
     layout: [
@@ -33,7 +33,7 @@ export const buildHome = (lang: Lang, ids: Ids) => {
         subtitle: t('不做泛化 AI 工具，而是把 AI 压进真实业务结构与工程结构', 'Not a generic AI tool — we press AI into real business and engineering structure'),
         items: [
           { icon: 'factory', title: t('面向真实业务场景', 'Real business scenarios'), description: t('聚焦质量失效分析、工程变更、设计知识复用、计划协同等制造真实场景，而非泛化 AI。', 'Focused on FA, engineering change, design knowledge reuse and planning — not generic AI.') },
-          { icon: 'layers', title: t('平台自研，持续演进', 'Self-built, evolving platform'), description: t('每个场景交付都沉淀为 IndustrialX 上的可复用组件、知识模型与方法，而非一次性定制。', 'Every delivery sediments into reusable components on IndustrialX — not one-off customization.') },
+          { icon: 'layers', title: t('平台自研，持续演进', 'Self-built, evolving platform'), description: t('每个场景交付都沉淀为 IndustriaX 上的可复用组件、知识模型与方法，而非一次性定制。', 'Every delivery sediments into reusable components on IndustriaX — not one-off customization.') },
           { icon: 'shield', title: t('私有化优先，安全可控', 'Private-first, secure'), description: t('支持私有化部署与离线运行，敏感数据不出厂，核心知识资产留在客户内网。', 'On-premise and offline-capable; sensitive data and core knowledge stay in the customer network.') },
           { icon: 'workflow', title: t('可追溯、可审计', 'Traceable & auditable'), description: t('关键输出保留来源引用、过程记录与版本痕迹，便于专家复核与责任追溯。', 'Key outputs keep source citations, process logs and version history for review and accountability.') },
           { icon: 'users', title: t('人机协同，专家把关', 'Human-in-the-loop'), description: t('AI 提供建议与初稿，专家保留审核与最终决策权；系统在持续使用中不断沉淀领域经验。', 'AI drafts and suggests; experts keep review and final decisions — and the system accrues domain experience in use.') },
@@ -43,7 +43,7 @@ export const buildHome = (lang: Lang, ids: Ids) => {
       {
         blockType: 'techArchitecture',
         title: t('一个底座，三个引擎', 'One Platform, Three Engines'),
-        subtitle: t('大脑 · 记忆 · 感官 —— 由 IndustrialX 底座编排为可靠、可组合的工业智能体', 'Brain · Memory · Senses — orchestrated by the IndustrialX platform into reliable, composable industrial agents'),
+        subtitle: t('大脑 · 记忆 · 感官 —— 由 IndustriaX 底座编排为可靠、可组合的工业智能体', 'Brain · Memory · Senses — orchestrated by the IndustriaX platform into reliable, composable industrial agents'),
         domains: [
           {
             icon: 'brain',
@@ -64,12 +64,12 @@ export const buildHome = (lang: Lang, ids: Ids) => {
             description: t('实时语音转写、流式合成与语音对话，全栈本地推理，数据不出网。', 'Real-time transcription, streaming synthesis and voice chat — fully local, data on-prem.'),
           },
         ],
-        note: t('IndustrialX 底座负责编排、工作流与工具执行，将三引擎组合为面向工业场景的智能体', 'The IndustrialX platform handles orchestration, workflows and tool execution — composing the three engines into industrial agents'),
+        note: t('IndustriaX 底座负责编排、工作流与工具执行，将三引擎组合为面向工业场景的智能体', 'The IndustriaX platform handles orchestration, workflows and tool execution — composing the three engines into industrial agents'),
       },
       {
         blockType: 'productMatrix',
         title: t('产品矩阵', 'Product Matrix'),
-        subtitle: t('以 IndustrialX 智能生产力底座为核心，三引擎协同支撑', 'Centered on the IndustrialX platform, powered by three collaborating engines'),
+        subtitle: t('以 IndustriaX 智能生产力底座为核心，三引擎协同支撑', 'Centered on the IndustriaX platform, powered by three collaborating engines'),
         products: ids.products,
       },
       {
@@ -147,7 +147,7 @@ export const buildTechnology = (lang: Lang) => {
       {
         blockType: 'techArchitecture',
         title: t('底座 + 三引擎', 'Platform + Three Engines'),
-        subtitle: t('大脑、记忆、感官各司其职，由 IndustrialX 底座编排；每个能力独立、可组合、可替换。', 'Brain, memory and senses each with one job — orchestrated by the IndustrialX platform; every capability independent, composable and replaceable.'),
+        subtitle: t('大脑、记忆、感官各司其职，由 IndustriaX 底座编排；每个能力独立、可组合、可替换。', 'Brain, memory and senses each with one job — orchestrated by the IndustriaX platform; every capability independent, composable and replaceable.'),
         domains: [
           {
             icon: 'brain',
@@ -195,8 +195,8 @@ export const buildTechnology = (lang: Lang) => {
         blockType: 'contentMedia',
         title: t('私有化优先，安全可控', 'Private-First, Secure by Design'),
         body: t(
-          '面向制造企业对数据安全、知识产权与内部流程的高要求，IndustrialX 支持私有化部署与离线运行，敏感数据不出厂，核心知识资产留在客户内网环境中。\n\n系统输出过程可留痕、可追溯、可审计，适用于对可靠性、安全性与合规性要求较高的企业级场景；License 清晰，可进企业尽调、可白标交付。',
-          'Given strict demands on data security, IP and internal process, IndustrialX supports on-premise and offline operation — sensitive data never leaves the plant, and core knowledge stays in the customer network.\n\nEvery output is logged, traceable and auditable — fit for enterprise scenarios with high reliability, security and compliance demands. Clean licensing supports due diligence and white-label delivery.',
+          '面向制造企业对数据安全、知识产权与内部流程的高要求，IndustriaX 支持私有化部署与离线运行，敏感数据不出厂，核心知识资产留在客户内网环境中。\n\n系统输出过程可留痕、可追溯、可审计，适用于对可靠性、安全性与合规性要求较高的企业级场景；License 清晰，可进企业尽调、可白标交付。',
+          'Given strict demands on data security, IP and internal process, IndustriaX supports on-premise and offline operation — sensitive data never leaves the plant, and core knowledge stays in the customer network.\n\nEvery output is logged, traceable and auditable — fit for enterprise scenarios with high reliability, security and compliance demands. Clean licensing supports due diligence and white-label delivery.',
         ),
         mediaPosition: 'right' as const,
       },
@@ -290,8 +290,8 @@ export const buildCareers = (lang: Lang) => {
         blockType: 'richTextBlock',
         content: rt([
           t(
-            '## 开放职位\n\n### AI 算法工程师（LLM / Agent / RAG）\n**职责**：工业文档解析、知识图谱、检索增强与智能体工作流编排研发\n**要求**：熟悉 RAG、向量检索、多 Agent 协作与可解释、可审计机制；有工业/企业级 AI 项目经验优先\n\n### 工业 AI 解决方案架构师\n**职责**：与客户研发、质量、工艺与生产团队对接，负责方案从需求诊断到落地；主导交付实施，输出可验收成果\n**要求**：制造业信息化/智能化项目经验；熟悉 MES/ERP/PLM；优秀的结构化思考能力\n\n### 高级全栈工程师\n**职责**：IndustrialX 平台前后端开发；数据可视化与管理后台；工程实践与架构参与\n**要求**：熟练 TypeScript/Node 与现代前端；对工业 AI 与企业级系统有热情\n\n---\n\n简历请发送至：hr@yanyi-ai.com',
-            '## Open Positions\n\n### AI Engineer (LLM / Agent / RAG)\n**Responsibilities**: Industrial document parsing, knowledge graphs, RAG and agent workflow orchestration\n**Requirements**: RAG, vector search, multi-agent collaboration and explainable, auditable design; industrial/enterprise AI experience preferred\n\n### Industrial AI Solution Architect\n**Responsibilities**: Interface with client R&D, quality, process and production teams; own solutions from diagnosis to delivery; lead implementation and deliver acceptance-ready results\n**Requirements**: Manufacturing IT/AI project experience; familiar with MES/ERP/PLM; strong structured thinking\n\n### Senior Full-stack Engineer\n**Responsibilities**: IndustrialX front-end and back-end; data visualization and admin; engineering and architecture\n**Requirements**: Proficient in TypeScript/Node and modern front-end; passion for industrial AI and enterprise systems\n\n---\n\nSend your CV to: hr@yanyi-ai.com',
+            '## 开放职位\n\n### AI 算法工程师（LLM / Agent / RAG）\n**职责**：工业文档解析、知识图谱、检索增强与智能体工作流编排研发\n**要求**：熟悉 RAG、向量检索、多 Agent 协作与可解释、可审计机制；有工业/企业级 AI 项目经验优先\n\n### 工业 AI 解决方案架构师\n**职责**：与客户研发、质量、工艺与生产团队对接，负责方案从需求诊断到落地；主导交付实施，输出可验收成果\n**要求**：制造业信息化/智能化项目经验；熟悉 MES/ERP/PLM；优秀的结构化思考能力\n\n### 高级全栈工程师\n**职责**：IndustriaX 平台前后端开发；数据可视化与管理后台；工程实践与架构参与\n**要求**：熟练 TypeScript/Node 与现代前端；对工业 AI 与企业级系统有热情\n\n---\n\n简历请发送至：hr@yanyi-ai.com',
+            '## Open Positions\n\n### AI Engineer (LLM / Agent / RAG)\n**Responsibilities**: Industrial document parsing, knowledge graphs, RAG and agent workflow orchestration\n**Requirements**: RAG, vector search, multi-agent collaboration and explainable, auditable design; industrial/enterprise AI experience preferred\n\n### Industrial AI Solution Architect\n**Responsibilities**: Interface with client R&D, quality, process and production teams; own solutions from diagnosis to delivery; lead implementation and deliver acceptance-ready results\n**Requirements**: Manufacturing IT/AI project experience; familiar with MES/ERP/PLM; strong structured thinking\n\n### Senior Full-stack Engineer\n**Responsibilities**: IndustriaX front-end and back-end; data visualization and admin; engineering and architecture\n**Requirements**: Proficient in TypeScript/Node and modern front-end; passion for industrial AI and enterprise systems\n\n---\n\nSend your CV to: hr@yanyi-ai.com',
           ),
         ]),
       },
@@ -331,14 +331,14 @@ export const buildProductsPage = (lang: Lang, ids: { products: number[] }) => {
     status: 'published' as const,
     meta: {
       title: t('产品', 'Products'),
-      description: t('IndustrialX 智能生产力底座，以及 CozyEngine、CozyMemory、RTVoice 三引擎产品。', 'IndustrialX platform plus the three engines — CozyEngine, CozyMemory and RTVoice.'),
+      description: t('IndustriaX 智能生产力底座，以及 CozyEngine、CozyMemory、RTVoice 三引擎产品。', 'IndustriaX platform plus the three engines — CozyEngine, CozyMemory and RTVoice.'),
     },
     layout: [
       {
         blockType: 'hero',
         eyebrow: t('产品矩阵', 'Product Matrix'),
         title: t('一个底座\n三引擎协同', 'One platform,\nthree engines'),
-        subtitle: t('以 IndustrialX 智能生产力底座为核心，CozyEngine、CozyMemory 与 RTVoice 三引擎协同支撑，可独立部署或组合使用。', 'Centered on the IndustrialX platform, powered by three engines — CozyEngine, CozyMemory and RTVoice — deployable standalone or combined.'),
+        subtitle: t('以 IndustriaX 智能生产力底座为核心，CozyEngine、CozyMemory 与 RTVoice 三引擎协同支撑，可独立部署或组合使用。', 'Centered on the IndustriaX platform, powered by three engines — CozyEngine, CozyMemory and RTVoice — deployable standalone or combined.'),
         primaryCta: { label: t('预约演示', 'Book a Demo'), href: '/contact' },
       },
       {
@@ -435,8 +435,8 @@ export const buildSolutions = (lang: Lang) => {
             icon: 'message-circle',
             name: t('临床知识与文书 Copilot', 'Clinical Knowledge & Documentation Copilot'),
             description: t(
-              '把病历摘要、环境语音文书与循证问答打包为一体（RTVoice + CozyMemory + IndustrialX），减轻医生非临床负担、支持床旁快速查证。',
-              'Bundles record summarization, ambient documentation and evidence-based Q&A (RTVoice + CozyMemory + IndustrialX) to cut paperwork and speed lookups.',
+              '把病历摘要、环境语音文书与循证问答打包为一体（RTVoice + CozyMemory + IndustriaX），减轻医生非临床负担、支持床旁快速查证。',
+              'Bundles record summarization, ambient documentation and evidence-based Q&A (RTVoice + CozyMemory + IndustriaX) to cut paperwork and speed lookups.',
             ),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
@@ -491,7 +491,7 @@ export const buildScenariosPage = (lang: Lang) => {
       title: t('应用场景', 'Applications'),
       description: t(
         '研翌科技以智能生产力底座与三引擎，赋能制造与医疗两大方向的知识密集型 AI 场景：质检、预测性维护、失效分析、工程变更、影像诊断、临床文书、药物研发等。',
-        'Powered by the IndustrialX platform and three engines, Yanyi enables knowledge-intensive AI scenarios across manufacturing and healthcare — from visual QC and predictive maintenance to imaging triage and clinical documentation.',
+        'Powered by the IndustriaX platform and three engines, Yanyi enables knowledge-intensive AI scenarios across manufacturing and healthcare — from visual QC and predictive maintenance to imaging triage and clinical documentation.',
       ),
     },
     layout: [

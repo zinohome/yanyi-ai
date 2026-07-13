@@ -2,7 +2,7 @@
 
 - 路径：`/products`
 - SEO 标题：产品
-- SEO 描述：IndustrialX 智能生产力底座，以及 CozyEngine、CozyMemory、RTVoice 三引擎产品。
+- SEO 描述：IndustriaX 智能生产力底座，以及 CozyEngine、CozyMemory、RTVoice 三引擎产品。
 
 ---
 
@@ -10,13 +10,13 @@
 
 ## 一个底座 三引擎协同
 
-以 IndustrialX 智能生产力底座为核心，CozyEngine、CozyMemory 与 RTVoice 三引擎协同支撑，可独立部署或组合使用。
+以 IndustriaX 智能生产力底座为核心，CozyEngine、CozyMemory 与 RTVoice 三引擎协同支撑，可独立部署或组合使用。
 
 **预约演示** → `/contact`
 
 ### 全部产品
 
-- **IndustrialX 智能生产力底座** — 让企业专家知识被 AI 理解、调用、复用。面向先进制造企业自研的智能生产力底座，把散落的工程知识与业务流程，转化为可靠、可追溯、可审计的智能体工作流。
+- **IndustriaX 智能生产力底座** — 让企业专家知识被 AI 理解、调用、复用。面向先进制造企业自研的智能生产力底座，把散落的工程知识与业务流程，转化为可靠、可追溯、可审计的智能体工作流。
 
 - **CozyEngine 智能体大脑** — 智能体的思考、组织与编排层。多智能体架构中的"大脑"——负责思考、人格与组织、记忆调度与工具路由，是会话与决策的唯一事实源。
 

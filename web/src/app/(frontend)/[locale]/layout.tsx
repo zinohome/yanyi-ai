@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: '研翌科技 · 工业智能生产力底座',
     template: '%s · 研翌科技',
   },
-  description: '让专家知识成为组织资产。研翌科技以 AI Aided Engineering 为方向，构建可私有化部署、可追溯可审计的智能工作流决策底座 IndustrialX。',
+  description: '让专家知识成为组织资产。研翌科技以 AI Aided Engineering 为方向，构建可私有化部署、可追溯可审计的智能工作流决策底座 IndustriaX。',
   openGraph: {
     type: 'website',
     siteName: '研翌科技 · Yanyi',

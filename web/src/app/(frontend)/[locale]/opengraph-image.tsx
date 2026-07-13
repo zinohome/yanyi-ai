@@ -55,7 +55,7 @@ export default function OgImage() {
           Turn expert knowledge into an organizational asset
         </div>
         <div style={{ fontSize: 30, marginTop: 36, color: 'rgba(255,255,255,0.7)', letterSpacing: 6 }}>
-          Industrial Intelligence Platform · IndustrialX
+          Industrial Intelligence Platform · IndustriaX
         </div>
       </div>
     ),
