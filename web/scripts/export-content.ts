@@ -12,7 +12,6 @@ import {
   buildAbout,
   buildProductsPage,
   buildSolutions,
-  buildScenariosPage,
   buildCareers,
   buildContact,
 } from '../src/seed/pages'
@@ -161,7 +160,6 @@ const files: Array<[string, string]> = [
   ['02-technology.md', pageToMd(buildTechnology(LANG), '/technology')],
   ['03-products.md', pageToMd(buildProductsPage(LANG, { products: [] }), '/products')],
   ['04-solutions.md', pageToMd(buildSolutions(LANG), '/solutions')],
-  ['05-applications.md', pageToMd(buildScenariosPage(LANG), '/cases')],
   ['06-about.md', pageToMd(buildAbout(LANG), '/about')],
   ['07-careers.md', pageToMd(buildCareers(LANG), '/careers')],
   ['08-contact.md', pageToMd(buildContact(LANG), '/contact')],

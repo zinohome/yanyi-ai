@@ -29,7 +29,6 @@ export function SiteHeader() {
     { href: `${base}/technology`, label: t('technology') },
     { href: `${base}/products`, label: t('products') },
     { href: `${base}/solutions`, label: t('solutions') },
-    { href: `${base}/cases`, label: t('cases') },
     { href: `${base}/about`, label: t('about') },
   ]
 

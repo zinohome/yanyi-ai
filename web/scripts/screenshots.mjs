@@ -7,7 +7,6 @@ const pages = [
   ['02-technology', '/technology'],
   ['03-products', '/products'],
   ['04-solutions', '/solutions'],
-  ['05-applications', '/cases'],
   ['06-about', '/about'],
 ]
 

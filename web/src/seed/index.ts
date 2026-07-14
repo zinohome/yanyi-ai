@@ -17,7 +17,6 @@ import {
   buildAbout,
   buildProductsPage,
   buildSolutions,
-  buildScenariosPage,
   buildCareers,
   buildContact,
 } from './pages'
@@ -104,7 +103,6 @@ async function main() {
     [buildAbout('zh'), buildAbout('en')],
     [buildProductsPage('zh', ids), buildProductsPage('en', ids)],
     [buildSolutions('zh'), buildSolutions('en')],
-    [buildScenariosPage('zh'), buildScenariosPage('en')],
     [buildCareers('zh'), buildCareers('en')],
     [buildContact('zh'), buildContact('en')],
   ] as const

@@ -7,7 +7,6 @@
 - [02-technology.md](02-technology.md)
 - [03-products.md](03-products.md)
 - [04-solutions.md](04-solutions.md)
-- [05-applications.md](05-applications.md)
 - [06-about.md](06-about.md)
 - [07-careers.md](07-careers.md)
 - [08-contact.md](08-contact.md)
