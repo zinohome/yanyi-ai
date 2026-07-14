@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-type Kind = 'brain' | 'cerebellum' | 'voice' | 'memory'
+type Kind = 'brain' | 'cerebellum' | 'voice' | 'memory' | 'vision'
 type Stage = { label: string; items: string[] }
 
 const pick = (locale: string) => (zh: string, en: string) => (locale === 'en' ? en : zh)
@@ -37,6 +37,13 @@ function config(kind: Kind, locale: string): Stage[] {
         { label: t('三大引擎', 'Engines'), items: [t('会话记忆', 'Conversation'), t('用户画像', 'Profile'), t('知识图谱', 'Knowledge graph')] },
         { label: t('存储', 'Stores'), items: [t('向量库', 'Vector'), t('图数据库', 'Graph'), t('关系库', 'SQL')] },
         { label: t('输出', 'Output'), items: [t('记忆上下文', 'Memory context')] },
+      ]
+    case 'vision':
+      return [
+        { label: t('采集', 'Capture'), items: [t('相机 / 扫描 / 影像', 'Camera / Scan / Imagery')] },
+        { label: t('识别', 'Recognize'), items: [t('OCR 版面解析', 'OCR + Layout'), t('VL 视觉理解', 'VL Understanding')] },
+        { label: t('结构化', 'Structure'), items: [t('字段 / 表格 / 实体', 'Fields / Tables / Entities')] },
+        { label: t('入库', 'Store'), items: [t('写入记忆平台', 'To memory'), t('低置信转人工', 'Low-conf → human')] },
       ]
   }
 }

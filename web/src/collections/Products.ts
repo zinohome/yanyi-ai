@@ -23,6 +23,7 @@ export const Products: CollectionConfig = {
         { label: '智能体大脑', value: 'brain' },
         { label: '记忆平台', value: 'memory' },
         { label: '语音底座', value: 'voice' },
+        { label: '视觉平台', value: 'vision' },
       ],
     },
     { name: 'summary', type: 'textarea', localized: true, admin: { description: '简介（卡片/列表用，一句话）' } },

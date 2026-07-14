@@ -241,6 +241,14 @@ export interface ValuePropsBlock {
               | 'message-circle'
               | 'gauge'
               | 'workflow'
+              | 'eye'
+              | 'microscope'
+              | 'flask'
+              | 'stethoscope'
+              | 'search'
+              | 'git-branch'
+              | 'clipboard-check'
+              | 'trending-up'
             )
           | null;
         title?: string | null;
@@ -285,6 +293,14 @@ export interface TechArchitectureBlock {
               | 'message-circle'
               | 'gauge'
               | 'workflow'
+              | 'eye'
+              | 'microscope'
+              | 'flask'
+              | 'stethoscope'
+              | 'search'
+              | 'git-branch'
+              | 'clipboard-check'
+              | 'trending-up'
             )
           | null;
         name?: string | null;
@@ -334,6 +350,14 @@ export interface CapabilityGridBlock {
               | 'message-circle'
               | 'gauge'
               | 'workflow'
+              | 'eye'
+              | 'microscope'
+              | 'flask'
+              | 'stethoscope'
+              | 'search'
+              | 'git-branch'
+              | 'clipboard-check'
+              | 'trending-up'
             )
           | null;
         title?: string | null;
@@ -378,6 +402,14 @@ export interface ScenarioShowcaseBlock {
               | 'message-circle'
               | 'gauge'
               | 'workflow'
+              | 'eye'
+              | 'microscope'
+              | 'flask'
+              | 'stethoscope'
+              | 'search'
+              | 'git-branch'
+              | 'clipboard-check'
+              | 'trending-up'
             )
           | null;
         name?: string | null;
@@ -450,9 +482,17 @@ export interface Product {
         | 'message-circle'
         | 'gauge'
         | 'workflow'
+        | 'eye'
+        | 'microscope'
+        | 'flask'
+        | 'stethoscope'
+        | 'search'
+        | 'git-branch'
+        | 'clipboard-check'
+        | 'trending-up'
       )
     | null;
-  scenario?: ('platform' | 'brain' | 'memory' | 'voice') | null;
+  scenario?: ('platform' | 'brain' | 'memory' | 'voice' | 'vision') | null;
   /**
    * 简介（卡片/列表用，一句话）
    */

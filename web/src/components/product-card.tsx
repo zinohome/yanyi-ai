@@ -11,6 +11,7 @@ const scenarioLabel: Record<string, { zh: string; en: string }> = {
   brain: { zh: '智能体大脑', en: 'Agent Brain' },
   memory: { zh: '记忆平台', en: 'Memory Platform' },
   voice: { zh: '语音底座', en: 'Voice Platform' },
+  vision: { zh: '视觉平台', en: 'Visual Platform' },
 }
 
 const scenarioTone: Record<string, 'blue' | 'warm' | 'mix'> = {
@@ -18,6 +19,7 @@ const scenarioTone: Record<string, 'blue' | 'warm' | 'mix'> = {
   brain: 'mix',
   memory: 'blue',
   voice: 'warm',
+  vision: 'mix',
 }
 
 export function ProductCard({ product, locale }: { product: Product; locale: string }) {

@@ -5,16 +5,17 @@ import { Icon } from '@/lib/icons'
 import { PlatformArchitecture } from '@/components/brand/platform-architecture'
 import { DomainArchitecture } from '@/components/brand/domain-architecture'
 
-type Kind = 'brain' | 'cerebellum' | 'voice' | 'memory'
+type Kind = 'brain' | 'cerebellum' | 'voice' | 'memory' | 'vision'
 const KIND_BY_ICON: Record<string, Kind> = {
   brain: 'brain',
   wrench: 'cerebellum',
   cpu: 'cerebellum',
   mic: 'voice',
   database: 'memory',
+  eye: 'vision',
 }
-// 小脑、嘴耳用暖色，大脑、记忆用蓝色（冷暖交替）
-const ACCENT: Record<Kind, boolean> = { brain: false, cerebellum: true, voice: true, memory: false }
+// 冷暖交替：大脑、记忆、视觉用主色，语音用强调色
+const ACCENT: Record<Kind, boolean> = { brain: false, cerebellum: true, voice: true, memory: false, vision: false }
 
 export function TechArchitecture({ block, locale }: { block: T; locale: string }) {
   const domains = block.domains ?? []

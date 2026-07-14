@@ -82,10 +82,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 2 ── CozyEngine 智能体大脑 */
+    /* 2 ── IndustriaMind 智能体大脑 */
     {
-      name: t('CozyEngine 智能体大脑', 'CozyEngine · Agent Brain'),
-      slug: 'cozyengine',
+      name: t('IndustriaMind 智能体大脑', 'IndustriaMind · Agent Brain'),
+      slug: 'industriamind',
       tagline: t('智能体的思考、组织与编排层', 'The thinking, organizing and orchestration layer'),
       icon: 'brain',
       scenario: 'brain',
@@ -96,8 +96,8 @@ export const buildProducts = (lang: Lang) => {
         'The "brain" of a multi-agent system — responsible for thinking, persona and organization, memory scheduling and tool routing; the single source of truth for conversation and decision.',
       ),
       overview: t(
-        'CozyEngine 将语言理解、任务规划、记忆调度与工具调用决策统一编排：由它决定"想什么、记什么、调用哪个能力"，再把工具执行委托给底座的执行层，形成清晰的思考—执行分离。',
-        'CozyEngine unifies language understanding, task planning, memory scheduling and tool-call decisioning: it decides what to think, what to remember and which capability to invoke, then delegates execution to a dedicated layer — a clean brain-and-cerebellum division of labor.',
+        'IndustriaMind 将语言理解、任务规划、记忆调度与工具调用决策统一编排：由它决定"想什么、记什么、调用哪个能力"，再把工具执行委托给底座的执行层，形成清晰的思考—执行分离。',
+        'IndustriaMind unifies language understanding, task planning, memory scheduling and tool-call decisioning: it decides what to think, what to remember and which capability to invoke, then delegates execution to a dedicated layer — a clean brain-and-cerebellum division of labor.',
       ),
       problem: t(
         '把大模型直接接入业务系统，往往得到一个"能聊天但不可控"的黑盒：人格、记忆、历史与工具调度混在一起，行为难以约束、结果难以复核。工业与企业级场景需要一个职责清晰、状态可控的编排内核。',
@@ -130,10 +130,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 3 ── CozyMemory 统一记忆平台 */
+    /* 3 ── IndustriaMemory 统一记忆平台 */
     {
-      name: t('CozyMemory 统一记忆平台', 'CozyMemory · Memory Platform'),
-      slug: 'cozymemory',
+      name: t('IndustriaMemory 统一记忆平台', 'IndustriaMemory · Memory Platform'),
+      slug: 'industriamemory',
       tagline: t('一套 API 整合三大记忆引擎', 'One API, three memory engines'),
       icon: 'database',
       scenario: 'memory',
@@ -144,8 +144,8 @@ export const buildProducts = (lang: Lang) => {
         'A unified AI memory service — one API integrating conversational memory, user profiles and knowledge graphs, with a ready-to-use admin UI and multi-tenant governance.',
       ),
       overview: t(
-        'CozyMemory 把对话记忆（从对话自动提取事实）、用户画像（结构化偏好与背景）、知识图谱（文档→实体关系→图检索）三类记忆整合为一套 REST + gRPC API，并内置鉴权、审计、备份与观测。',
-        'CozyMemory integrates conversational memory (auto-extracting facts from dialogue), user profiles (structured preferences and background) and knowledge graphs (documents → entity/relation graph → graph retrieval) into one REST + gRPC API, with built-in auth, audit, backup and observability.',
+        'IndustriaMemory 把对话记忆（从对话自动提取事实）、用户画像（结构化偏好与背景）、知识图谱（文档→实体关系→图检索）三类记忆整合为一套 REST + gRPC API，并内置鉴权、审计、备份与观测。',
+        'IndustriaMemory integrates conversational memory (auto-extracting facts from dialogue), user profiles (structured preferences and background) and knowledge graphs (documents → entity/relation graph → graph retrieval) into one REST + gRPC API, with built-in auth, audit, backup and observability.',
       ),
       problem: t(
         '智能体要"越用越懂"，就需要长期、可治理的记忆；但对话记忆、用户画像与知识图谱各有专长、各自为政，逐个接入成本高，且难以统一鉴权与审计。',
@@ -172,16 +172,16 @@ export const buildProducts = (lang: Lang) => {
         { title: t('知识图谱', 'Knowledge graph'), description: t('文档转化为实体/关系图，支持图检索。', 'Turn documents into entity/relation graphs for graph retrieval.') },
       ],
       highlights: [
-        { title: t('单一 API', 'One API'), description: t('REST + gRPC 整合三引擎', 'REST + gRPC over three engines') },
+        { title: t('单一 API', 'One API'), description: t('REST + gRPC 整合三大记忆引擎', 'REST + gRPC over three memory engines') },
         { title: t('可治理', 'Governable'), description: t('多租户鉴权 · 审计 · 备份', 'Multi-tenant auth · audit · backup') },
         { title: t('知识记忆分离', 'Knowledge≠memory'), description: t('权威知识与低可信记忆分层', 'Authoritative knowledge kept apart from low-trust memory') },
       ],
     },
 
-    /* 4 ── RTVoice 实时语音底座 */
+    /* 4 ── IndustriaVoice 实时语音底座 */
     {
-      name: t('RTVoice 实时语音底座', 'RTVoice · Voice Platform'),
-      slug: 'rtvoice',
+      name: t('IndustriaVoice 实时语音底座', 'IndustriaVoice · Voice Platform'),
+      slug: 'industriavoice',
       tagline: t('全栈本地推理的自托管语音平台', 'Self-hosted voice, fully local inference'),
       icon: 'mic',
       scenario: 'voice',
@@ -192,8 +192,8 @@ export const buildProducts = (lang: Lang) => {
         'A self-hosted voice platform — real-time transcription, streaming synthesis with voice cloning and end-to-end voice conversation, all on local inference and a single GPU.',
       ),
       overview: t(
-        'RTVoice 提供 STT、TTS 与实时语音对话三类服务，通过标准 HTTP / WebSocket API 接入任意应用；内置鉴权、审计、用量监控与管理后台，docker-compose 一键启停，敏感语音数据无需出网。',
-        'RTVoice offers STT, TTS and real-time voice conversation via standard HTTP / WebSocket APIs, with built-in auth, audit, usage monitoring and an admin console. One-command docker-compose deployment keeps sensitive voice data on-prem.',
+        'IndustriaVoice 提供 STT、TTS 与实时语音对话三类服务，通过标准 HTTP / WebSocket API 接入任意应用；内置鉴权、审计、用量监控与管理后台，docker-compose 一键启停，敏感语音数据无需出网。',
+        'IndustriaVoice offers STT, TTS and real-time voice conversation via standard HTTP / WebSocket APIs, with built-in auth, audit, usage monitoring and an admin console. One-command docker-compose deployment keeps sensitive voice data on-prem.',
       ),
       problem: t(
         '语音是工业现场与一线最自然的交互方式，但云端语音服务面临数据合规与网络依赖问题；自建又受限于算力与工程复杂度，难以在私有环境稳定落地。',
@@ -223,6 +223,55 @@ export const buildProducts = (lang: Lang) => {
         { title: t('本地推理', 'Local inference'), description: t('单 GPU ≤ 12GB，数据不出网', 'Single ≤12GB GPU, data stays on-prem') },
         { title: t('三大服务', 'Three services'), description: t('STT · TTS · 实时语音对话', 'STT · TTS · realtime voice') },
         { title: t('一键部署', 'One-command'), description: t('docker-compose 启停', 'docker-compose up/down') },
+      ],
+    },
+
+    /* 5 ── IndustriaVision 视觉数据采集平台 */
+    {
+      name: t('IndustriaVision 视觉数据采集平台', 'IndustriaVision · Visual Data Platform'),
+      slug: 'industriavision',
+      tagline: t('用 VL 模型 + OCR 把图像变成可用数据', 'Turn images into usable data with VL models + OCR'),
+      icon: 'eye',
+      scenario: 'vision',
+      order: 5,
+      status: 'published' as const,
+      summary: t(
+        '面向工业与医疗现场的视觉数据采集平台——以视觉语言（VL）模型、OCR 与视觉识别技术，把图纸、单据、仪表、影像与现场画面转化为结构化、可入库、可追溯的数据。',
+        'A visual data-collection platform for industrial and medical sites — vision-language (VL) models, OCR and recognition turn drawings, documents, gauges, imagery and scenes into structured, storable, traceable data.',
+      ),
+      overview: t(
+        'IndustriaVision 作为"感官"家族的视觉入口，与 IndustriaVoice 并列，为智能体提供看得懂现场的能力：既能高精度识别文档与表格中的文字与版面（OCR / 版面解析），也能理解图纸、仪表读数、缺陷与场景语义（VL 模型），并把结果结构化后写入 IndustriaMemory，供后续检索与推理。全栈可私有化部署，图像数据不出厂。',
+        'IndustriaVision is the visual entry point of the "senses" family, alongside IndustriaVoice. It reads text and layout in documents and tables (OCR / layout parsing) and understands drawings, gauge readings, defects and scene semantics (VL models), then structures the results into IndustriaMemory for retrieval and reasoning — fully deployable on-premise, images never leaving the plant.',
+      ),
+      problem: t(
+        '工业与医疗现场大量关键信息以图像形式存在——工程图纸、纸质单据、仪表盘、质检画面、检验报告、显微/影像图。人工录入慢且易错，通用云端视觉服务又面临数据合规与网络依赖，难以稳定接入业务系统。',
+        'Much critical information on industrial and medical sites lives as images — drawings, paper documents, gauges, inspection scenes, reports and micrographs. Manual entry is slow and error-prone, while cloud vision services raise compliance and connectivity concerns.',
+      ),
+      painPoints: [
+        { value: t('图纸、单据、仪表信息靠人工录入，慢且易错', 'Drawings, documents and gauges are entered by hand — slow and error-prone') },
+        { value: t('云端视觉存在数据合规与网络依赖', 'Cloud vision brings compliance and connectivity concerns') },
+        { value: t('视觉结果难以结构化、难以对接业务系统', 'Visual results are hard to structure and integrate with business systems') },
+      ],
+      workflow: [
+        { title: t('采集', 'Capture'), description: t('相机、扫描、截图与影像多源接入', 'Cameras, scans, screenshots and imagery') },
+        { title: t('识别', 'Recognize'), description: t('OCR 版面解析 + VL 模型理解语义', 'OCR layout parsing + VL semantic understanding') },
+        { title: t('结构化', 'Structure'), description: t('抽取字段、表格与实体，规范化输出', 'Extract fields, tables and entities into a schema') },
+        { title: t('入库与校验', 'Store & verify'), description: t('写入记忆平台，低置信转人工复核', 'Write to the memory platform; low-confidence → human review') },
+      ],
+      audience: [
+        { value: t('质量与质检团队', 'Quality & inspection teams') },
+        { value: t('研发 / 工艺工程师', 'R&D / process engineers') },
+        { value: t('医疗科研与检验团队', 'Medical research & lab teams') },
+      ],
+      features: [
+        { title: t('文档 OCR 与版面解析', 'Document OCR & Layout'), description: t('高精度识别图纸、单据、报告中的文字、表格与版面结构。', 'High-accuracy text, table and layout extraction from drawings, documents and reports.') },
+        { title: t('VL 视觉理解', 'VL Understanding'), description: t('用视觉语言模型理解仪表读数、缺陷、场景与图像语义。', 'Vision-language models read gauges, defects, scenes and image semantics.') },
+        { title: t('结构化入库', 'Structured Ingestion'), description: t('把视觉结果规范化为可检索数据，写入 IndustriaMemory。', 'Normalize visual results into searchable data written to IndustriaMemory.') },
+      ],
+      highlights: [
+        { title: t('看得懂现场', 'Sees the site'), description: t('OCR + VL,图像 → 结构化数据', 'OCR + VL, images → structured data') },
+        { title: t('私有化', 'On-prem'), description: t('图像数据不出厂', 'Image data stays in-plant') },
+        { title: t('可追溯', 'Traceable'), description: t('保留来源与置信度，可复核', 'Keeps source and confidence for review') },
       ],
     },
   ]

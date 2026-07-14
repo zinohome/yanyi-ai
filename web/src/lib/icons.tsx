@@ -21,6 +21,14 @@ import {
   MessageCircle,
   Gauge,
   Workflow,
+  Eye,
+  Microscope,
+  FlaskConical,
+  Stethoscope,
+  Search,
+  GitBranch,
+  ClipboardCheck,
+  TrendingUp,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -47,6 +55,14 @@ const map: Record<string, LucideIcon> = {
   'message-circle': MessageCircle,
   gauge: Gauge,
   workflow: Workflow,
+  eye: Eye,
+  microscope: Microscope,
+  flask: FlaskConical,
+  stethoscope: Stethoscope,
+  search: Search,
+  'git-branch': GitBranch,
+  'clipboard-check': ClipboardCheck,
+  'trending-up': TrendingUp,
 }
 
 export function Icon({

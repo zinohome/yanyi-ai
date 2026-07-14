@@ -1,14 +1,14 @@
 import { cn } from '@/lib/utils'
 
-/** 品牌标记（E2）：圆角渐变球 + 白色字母 Y + 顶部火花点 —— 蓝→紫→珊瑚 */
+/** 品牌标记（E2）：圆角渐变球 + 白色字母 Y + 顶部火花点 —— 工业蓝 → 琥珀金 */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 80 80" className={cn('size-8', className)} role="img" aria-label="研翌科技">
       <defs>
         <linearGradient id="yy-mark" x1="6" y1="6" x2="74" y2="74" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#2f6bff" />
-          <stop offset="0.5" stopColor="#7c5cff" />
-          <stop offset="1" stopColor="#ff7a5b" />
+          <stop offset="0" stopColor="#1e5fd8" />
+          <stop offset="0.55" stopColor="#3b82f6" />
+          <stop offset="1" stopColor="#f5b13d" />
         </linearGradient>
       </defs>
       <rect width="80" height="80" rx="22" fill="url(#yy-mark)" />

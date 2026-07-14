@@ -19,6 +19,8 @@ export const iconField = (name = 'icon'): Field => ({
     'brain', 'cpu', 'database', 'mic', 'wrench', 'network', 'shield', 'sparkles',
     'heart', 'activity', 'graduation-cap', 'factory', 'building-2', 'rocket',
     'zap', 'lock', 'users', 'layers', 'bot', 'message-circle', 'gauge', 'workflow',
+    'eye', 'microscope', 'flask', 'stethoscope', 'search', 'git-branch',
+    'clipboard-check', 'trending-up',
   ],
   defaultValue: 'sparkles',
 })

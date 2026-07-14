@@ -116,10 +116,10 @@ export function Hero({ block, locale }: { block: HeroBlockType; locale: string }
         >
           {(
             [
-              { value: 'AAE', label: locale === 'en' ? 'AI Aided Engineering' : 'AI 辅助工程' },
-              { value: locale === 'en' ? 'Local' : '私有化', label: locale === 'en' ? 'Data stays in-plant' : '数据不出厂' },
-              { value: locale === 'en' ? 'Audit' : '可追溯', label: locale === 'en' ? 'Auditable output' : '过程可审计' },
-              { value: locale === 'en' ? 'Reuse' : '可复用', label: locale === 'en' ? 'Knowledge as asset' : '沉淀为资产' },
+              { value: 'AAE', label: locale === 'en' ? 'Industry Agent' : '行业 Agent' },
+              { value: locale === 'en' ? 'Local' : '私有化', label: locale === 'en' ? 'On-prem deploy' : '私有化部署' },
+              { value: locale === 'en' ? 'Audit' : '可审计', label: locale === 'en' ? 'End-to-end audit' : '全流程可审计' },
+              { value: locale === 'en' ? 'Reuse' : '可复用', label: locale === 'en' ? 'Capability assets' : '能力资产复用' },
             ] as const
           ).map((s, i) => (
             <div key={i}>

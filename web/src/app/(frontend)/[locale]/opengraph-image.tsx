@@ -16,7 +16,7 @@ export default function OgImage() {
           justifyContent: 'center',
           padding: '90px',
           background:
-            'radial-gradient(900px 600px at 12% -10%, rgba(45,127,249,0.5), transparent 60%), radial-gradient(800px 560px at 100% 30%, rgba(242,136,75,0.45), transparent 60%), #15233f',
+            'radial-gradient(900px 600px at 12% -10%, rgba(37,99,235,0.5), transparent 60%), radial-gradient(800px 560px at 100% 30%, rgba(245,177,61,0.42), transparent 60%), #0f1b33',
           color: 'white',
           fontFamily: 'sans-serif',
         }}
@@ -27,7 +27,7 @@ export default function OgImage() {
               width: 72,
               height: 72,
               borderRadius: 20,
-              background: 'linear-gradient(135deg, #2f6bff, #7c5cff, #ff7a5b)',
+              background: 'linear-gradient(135deg, #1e5fd8, #3b82f6, #f5b13d)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

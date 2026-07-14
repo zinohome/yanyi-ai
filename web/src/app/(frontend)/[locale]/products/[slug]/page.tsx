@@ -20,6 +20,7 @@ const scenarioTone: Record<string, 'blue' | 'warm' | 'mix'> = {
   brain: 'mix',
   memory: 'blue',
   voice: 'warm',
+  vision: 'mix',
 }
 
 export const dynamic = 'force-dynamic'
