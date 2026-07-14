@@ -160,10 +160,10 @@ const files: Array<[string, string]> = [
   ['02-technology.md', pageToMd(buildTechnology(LANG), '/technology')],
   ['03-products.md', pageToMd(buildProductsPage(LANG, { products: [] }), '/products')],
   ['04-solutions.md', pageToMd(buildSolutions(LANG), '/solutions')],
-  ['06-about.md', pageToMd(buildAbout(LANG), '/about')],
-  ['07-careers.md', pageToMd(buildCareers(LANG), '/careers')],
-  ['08-contact.md', pageToMd(buildContact(LANG), '/contact')],
-  ['09-products-detail.md', productsDetailMd()],
+  ['05-about.md', pageToMd(buildAbout(LANG), '/about')],
+  ['06-careers.md', pageToMd(buildCareers(LANG), '/careers')],
+  ['07-contact.md', pageToMd(buildContact(LANG), '/contact')],
+  ['08-products-detail.md', productsDetailMd()],
 ]
 
 const index = [
@@ -172,6 +172,16 @@ const index = [
   '本目录由 `web/scripts/export-content.ts` 从种子内容（`web/src/seed`）自动生成，是站点文案的唯一事实源。改动文案请改种子并重新运行脚本。',
   '',
   ...files.map(([f]) => `- [${f}](${f})`),
+  '',
+  '## 页面整页截图（浅色主题，1440 宽）',
+  '',
+  '由 `web/scripts/screenshots.mjs` 生成（`SHOT_THEME=light`）。',
+  '',
+  '- [首页](screenshots/01-home.png)',
+  '- [核心技术](screenshots/02-technology.png)',
+  '- [产品](screenshots/03-products.png)',
+  '- [解决方案](screenshots/04-solutions.png)',
+  '- [关于我们](screenshots/05-about.png)',
   '',
 ].join('\n')
 

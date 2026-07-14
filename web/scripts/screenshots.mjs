@@ -7,7 +7,7 @@ const pages = [
   ['02-technology', '/technology'],
   ['03-products', '/products'],
   ['04-solutions', '/solutions'],
-  ['06-about', '/about'],
+  ['05-about', '/about'],
 ]
 
 const KILL_ANIM = `
