@@ -276,6 +276,257 @@ export const buildProducts = (lang: Lang) => {
         { title: t('可追溯', 'Traceable'), description: t('保留来源与置信度，可复核', 'Keeps source and confidence for review') },
       ],
     },
+
+    /* ========== MedicaX 医疗系列 ==========
+       与工业系列同构：1 底座 + 4 引擎（大脑 / 记忆 / 语音 / 视觉）。
+       scenario 枚举按角色而非领域定义，两系列复用同一组值；图标同角色同图标，
+       以传达「同一套架构，两个领域」。 */
+
+    /* 6 ── MedicaX 医疗科研与转化 AI 底座（旗舰） */
+    {
+      name: t('MedicaX 医疗科研与转化 AI 底座', 'MedicaX Research & Translation Platform'),
+      slug: 'medicax',
+      tagline: t('让科研从知识积累到成果转化形成闭环', 'Close the loop from knowledge to translation'),
+      icon: 'layers',
+      scenario: 'platform',
+      order: 6,
+      status: 'published' as const,
+      summary: t(
+        '面向医院、重点实验室、临床团队与医企合作场景的 AI Agent 智能底座，把医学知识、科研数据、专家经验与临床问题，转化为可理解、可推理、可协作、可持续沉淀的能力体系。',
+        'An AI-agent platform for hospitals, key labs, clinical teams and hospital-industry collaboration — turning medical knowledge, research data, expertise and clinical questions into capabilities that can be understood, reasoned over, shared and continuously accrued.',
+      ),
+      overview: t(
+        'MedicaX 承载科研知识库、临床研究流程编排、成果转化与医企协作能力，由 MedicaMind、MedicaMemory、MedicaVoice 与 MedicaVision 四引擎协同支撑，让医学科研从知识积累、临床发现到成果转化形成智能化闭环。支持院内私有化部署，科研与诊疗数据不出院。',
+        'MedicaX hosts research knowledge bases, clinical study orchestration, translation and hospital-industry collaboration, supported by four engines — MedicaMind, MedicaMemory, MedicaVoice and MedicaVision. It closes the loop from knowledge accrual through clinical discovery to translation. Deployable inside the hospital network; research and care data never leave.',
+      ),
+      problem: t(
+        '医学知识散落在文献、指南、病历、课题材料与专家个人经验中，难以沉淀为机构能力；科研过程、临床发现与转化项目彼此割裂，临床问题到科研成果、再到产业落地的链路漫长且高度依赖个人推动；患者与科研数据合规要求高，通用云端 AI 难以进入院内。',
+        'Medical knowledge is scattered across literature, guidelines, records, grant materials and individual expertise, never becoming institutional capability. Research, clinical discovery and translation projects sit in silos, so the path from clinical question to result to industry adoption is long and depends on individuals. Patient and research data compliance keeps generic cloud AI out of the hospital.',
+      ),
+      painPoints: [
+        { value: t('科研知识与专家经验难以沉淀、复用', 'Research knowledge and expertise are hard to capture and reuse') },
+        { value: t('临床问题到科研成果的链路断裂、周期长', 'The path from clinical question to research result is broken and slow') },
+        { value: t('患者与科研数据合规要求高，云端 AI 难落地', 'Patient and research data compliance rules out cloud AI') },
+      ],
+      workflow: [
+        { title: t('知识沉淀', 'Accrue knowledge'), description: t('文献、指南、病种知识、课题与临床案例统一入库', 'Literature, guidelines, disease knowledge, projects and cases into one base') },
+        { title: t('科研协同', 'Collaborate on research'), description: t('临床问题拆解、研究设计、数据整理与统计分析辅助', 'Question decomposition, study design, data curation and statistical support') },
+        { title: t('成果转化', 'Translate results'), description: t('成熟度评估、转化路径规划与材料生成', 'Maturity assessment, translation pathway planning and document generation') },
+        { title: t('医企对接', 'Match with industry'), description: t('企业资源匹配、联合试点与证据沉淀', 'Resource matching, joint pilots and evidence capture') },
+      ],
+      audience: [
+        { value: t('临床医生与研究团队', 'Clinicians & research teams') },
+        { value: t('重点实验室与科研管理', 'Key labs & research administration') },
+        { value: t('医院科教与转化办公室', 'Hospital education & translation offices') },
+        { value: t('医企合作与产业伙伴', 'Hospital-industry & industry partners') },
+      ],
+      features: [
+        { title: t('科研知识资产化', 'Research knowledge assetization'), description: t('把文献、指南、课题与临床案例组织为可检索、可推理的知识底座。', 'Organize literature, guidelines, projects and cases into a searchable, reasoning-ready base.') },
+        { title: t('临床研究流程编排', 'Clinical study orchestration'), description: t('从问题拆解到研究设计、数据整理与论文材料生成的全流程支撑。', 'End-to-end support from question decomposition to study design, data curation and manuscript materials.') },
+        { title: t('转化与医企协作', 'Translation & collaboration'), description: t('成果成熟度评估、转化路径规划与企业资源匹配。', 'Maturity assessment, translation pathway planning and industry resource matching.') },
+      ],
+      highlights: [
+        { title: t('院内私有化', 'In-hospital deployment'), description: t('科研与诊疗数据不出院', 'Research and care data never leave the hospital') },
+        { title: t('可追溯', 'Traceable'), description: t('来源引用 · 过程记录 · 版本痕迹', 'Source citations · process logs · version history') },
+        { title: t('全流程闭环', 'Full loop'), description: t('知识 → 研究 → 成果 → 转化 → 验证', 'Knowledge → research → results → translation → validation') },
+      ],
+    },
+
+    /* 7 ── MedicaMind 医疗智能体大脑 */
+    {
+      name: t('MedicaMind 医疗智能体大脑', 'MedicaMind · Agent Brain'),
+      slug: 'medicamind',
+      tagline: t('科研与转化 Agent 的认知、规划与执行中枢', 'The cognition, planning and execution core for research agents'),
+      icon: 'brain',
+      scenario: 'brain',
+      order: 7,
+      status: 'published' as const,
+      summary: t(
+        '医疗科研与转化 Agent 的认知、规划和执行中枢——科研任务拆解、多 Agent 协同、临床研究流程编排与文献证据分析。',
+        'The cognition, planning and execution core for medical research and translation agents — task decomposition, multi-agent collaboration, clinical study orchestration and evidence analysis.',
+      ),
+      overview: t(
+        'MedicaMind 把一个科研目标拆解为可执行的任务链，调度多个 Agent 协同完成文献检索、证据分析、数据整理与材料生成，并调用统计、检索与项目管理工具。它支撑临床科研 Agent、科研转化 Agent、实验室管理 Agent 与医企合作 Agent，让科研流程从人工推动转为可编排、可复盘的自动化协作。',
+        'MedicaMind decomposes a research goal into an executable task chain, dispatching multiple agents to run literature retrieval, evidence analysis, data curation and document generation while calling statistics, search and project-management tools. It powers the clinical-research, translation, lab-management and collaboration agents, turning research from individually driven work into orchestrated, reviewable automation.',
+      ),
+      problem: t(
+        '科研流程高度依赖个人推动：任务如何拆、证据去哪找、数据怎么整理、材料谁来写，都靠研究者自己把控。通用大模型能回答单点问题，却无法编排一条跨越数周、涉及多种工具与多轮迭代的科研任务链。',
+        'Research depends on individuals: how to break down the task, where to find evidence, how to curate data, who drafts the materials. A general LLM answers isolated questions but cannot orchestrate a multi-week task chain spanning many tools and iterations.',
+      ),
+      painPoints: [
+        { value: t('科研任务拆解与推进全靠个人经验', 'Task decomposition and follow-through rely on individual experience') },
+        { value: t('文献与证据分析耗时，难以系统覆盖', 'Literature and evidence analysis is slow and hard to cover systematically') },
+        { value: t('工具割裂，检索、统计与写作各自为战', 'Tools are siloed — retrieval, statistics and writing never connect') },
+      ],
+      workflow: [
+        { title: t('任务拆解', 'Decompose'), description: t('把科研目标拆为可执行、可追踪的任务链', 'Break the goal into an executable, trackable task chain') },
+        { title: t('多 Agent 协同', 'Coordinate agents'), description: t('检索、分析、整理、生成分工协作', 'Retrieval, analysis, curation and generation in parallel') },
+        { title: t('工具调用', 'Invoke tools'), description: t('统计、检索、文献库与项目管理工具编排', 'Orchestrate statistics, search, literature and project tools') },
+        { title: t('流程自动化', 'Automate the flow'), description: t('过程留痕，结果可复盘、可复用', 'Every step logged — results reviewable and reusable') },
+      ],
+      audience: [
+        { value: t('临床医生与研究团队', 'Clinicians & research teams') },
+        { value: t('重点实验室 PI 与科研骨干', 'Lab PIs & senior researchers') },
+        { value: t('医院科研管理', 'Hospital research administration') },
+      ],
+      features: [
+        { title: t('科研任务拆解与规划', 'Task decomposition & planning'), description: t('把科研目标转化为可执行任务链，明确依赖与产出。', 'Turn a research goal into an executable task chain with clear dependencies and outputs.') },
+        { title: t('多 Agent 协同', 'Multi-agent collaboration'), description: t('临床科研、转化、实验室管理与医企合作 Agent 分工协作。', 'Clinical-research, translation, lab-management and collaboration agents work in concert.') },
+        { title: t('文献与证据分析', 'Literature & evidence analysis'), description: t('系统检索、筛选与综合，输出带出处的证据结论。', 'Systematic retrieval, screening and synthesis with sourced conclusions.') },
+      ],
+      highlights: [
+        { title: t('可编排', 'Orchestrated'), description: t('科研流程从人力推动转为可编排', 'Research shifts from individual push to orchestration') },
+        { title: t('有出处', 'Sourced'), description: t('证据结论保留引用，可复核', 'Evidence keeps citations for review') },
+        { title: t('私有化', 'On-prem'), description: t('院内部署，数据不出院', 'Runs in-hospital; data never leaves') },
+      ],
+    },
+
+    /* 8 ── MedicaMemory 医学统一记忆平台 */
+    {
+      name: t('MedicaMemory 医学统一记忆平台', 'MedicaMemory · Memory Platform'),
+      slug: 'medicamemory',
+      tagline: t('让医疗机构拥有自己的医学知识记忆', 'Give the institution a medical memory of its own'),
+      icon: 'database',
+      scenario: 'memory',
+      order: 8,
+      status: 'published' as const,
+      summary: t(
+        '医疗机构科研知识与经验资产底座——沉淀医学文献、临床指南、病种知识、专家经验、科研课题、临床案例、实验数据与转化项目资料。',
+        'The research knowledge and experience base for a medical institution — accruing literature, guidelines, disease knowledge, expertise, projects, clinical cases, experimental data and translation materials.',
+      ),
+      overview: t(
+        'MedicaMemory 把机构内外的医学知识统一沉淀为可检索、可推理、可复用的记忆底座：外部的文献与指南，内部的病种知识、临床案例、实验数据、课题与转化项目资料，以及最难留存的专家经验。它是 MedicaMind 推理时的事实来源，也是机构科研能力不随人员流动而流失的保障。',
+        'MedicaMemory consolidates medical knowledge from inside and outside the institution into a searchable, reasoning-ready memory: external literature and guidelines; internal disease knowledge, clinical cases, experimental data, projects and translation materials; and the hardest to retain — expert experience. It is the factual ground for MedicaMind and the reason institutional capability survives staff turnover.',
+      ),
+      problem: t(
+        '医学知识的半衰期短、来源分散：指南在更新，文献在爆炸，而机构自己的病种经验、临床案例与课题积累往往只存在于个别专家的记忆和硬盘里。人员一流动，机构的科研能力就跟着流失。',
+        'Medical knowledge has a short half-life and scattered sources: guidelines update, literature explodes — while an institution’s own disease experience, clinical cases and project history live only in a few experts’ memories and hard drives. When they leave, the capability leaves with them.',
+      ),
+      painPoints: [
+        { value: t('专家经验只在个人手里，人走知识走', 'Expertise lives with individuals — it leaves when they do') },
+        { value: t('文献、指南、病历与课题资料分散在各系统', 'Literature, guidelines, records and project files sit in separate systems') },
+        { value: t('知识无法被 AI 直接理解与推理', 'Knowledge is not in a form AI can reason over') },
+      ],
+      workflow: [
+        { title: t('汇聚', 'Aggregate'), description: t('文献、指南、病种知识、案例、实验数据与课题资料统一接入', 'Literature, guidelines, disease knowledge, cases, data and project files in one place') },
+        { title: t('结构化', 'Structure'), description: t('抽取实体与关系，构建医学知识网络', 'Extract entities and relations into a medical knowledge graph') },
+        { title: t('沉淀经验', 'Capture expertise'), description: t('把专家判断与决策依据数字化留存', 'Digitize expert judgment and the reasoning behind it') },
+        { title: t('供给推理', 'Serve reasoning'), description: t('作为 MedicaMind 的事实来源，带出处返回', 'Ground MedicaMind with sourced facts') },
+      ],
+      audience: [
+        { value: t('医院科研管理与科教部门', 'Hospital research administration & education') },
+        { value: t('重点实验室与临床团队', 'Key labs & clinical teams') },
+        { value: t('病种专科与专家团队', 'Specialty departments & expert teams') },
+      ],
+      features: [
+        { title: t('多源知识汇聚', 'Multi-source aggregation'), description: t('文献、指南、病种知识、临床案例、实验数据与转化项目资料统一沉淀。', 'Literature, guidelines, disease knowledge, cases, experimental data and translation materials in one base.') },
+        { title: t('专家经验数字化', 'Expertise digitization'), description: t('把专家的判断依据与决策过程留存为可复用知识。', 'Retain expert judgment and decision rationale as reusable knowledge.') },
+        { title: t('可推理的知识网络', 'Reasoning-ready graph'), description: t('围绕病种、证据、课题与成果构建可检索、可推理的关系网络。', 'A searchable, reasoning-ready graph across diseases, evidence, projects and results.') },
+      ],
+      highlights: [
+        { title: t('机构记忆', 'Institutional memory'), description: t('知识不随人员流动而流失', 'Knowledge survives staff turnover') },
+        { title: t('有出处', 'Sourced'), description: t('每条结论可追溯到原始文献或案例', 'Every conclusion traces to source literature or cases') },
+        { title: t('私有化', 'On-prem'), description: t('院内部署，数据不出院', 'Runs in-hospital; data never leaves') },
+      ],
+    },
+
+    /* 9 ── MedicaVoice 医疗实时语音底座 */
+    {
+      name: t('MedicaVoice 医疗实时语音底座', 'MedicaVoice · Voice Platform'),
+      slug: 'medicavoice',
+      tagline: t('把说过的话，变成可用的记录', 'Turn what was said into usable records'),
+      icon: 'mic',
+      scenario: 'voice',
+      order: 9,
+      status: 'published' as const,
+      summary: t(
+        '医疗现场的自然交互入口——医患语音交互、门诊语音记录、病例整理、科研访谈记录、学术会议纪要与语音驱动 Agent。',
+        'The natural-interaction entry point for medical settings — patient dialogue, outpatient dictation, record structuring, research interviews, conference minutes and voice-driven agents.',
+      ),
+      overview: t(
+        'MedicaVoice 作为"感官"家族的听觉入口，与 MedicaVision 并列：实时识别医患对话、门诊口述、科研访谈与学术会议内容，理解医学术语与表达习惯，并把语音直接整理为结构化的病例、访谈记录与会议纪要。医生也可以用语音直接驱动 Agent 完成检索与记录。全栈可私有化部署，语音数据不出院。',
+        'MedicaVoice is the auditory entry point of the "senses" family, alongside MedicaVision. It transcribes patient dialogue, outpatient dictation, research interviews and academic conferences in real time, understands medical terminology and phrasing, and structures speech directly into records, interview notes and minutes. Clinicians can also drive agents by voice for retrieval and documentation. Fully deployable on-premise; audio never leaves the hospital.',
+      ),
+      problem: t(
+        '医疗现场的大量信息以口头形式产生——医患对话、门诊口述、查房交流、科研访谈、学术讨论。事后补记耗时且失真，通用语音识别听不懂医学术语，而云端转写又触碰患者隐私合规红线。',
+        'Much of what matters in medicine is spoken — patient dialogue, outpatient dictation, ward rounds, research interviews, academic discussion. Writing it up afterwards is slow and lossy; general speech recognition does not know medical terminology; and cloud transcription collides with patient-privacy compliance.',
+      ),
+      painPoints: [
+        { value: t('口述信息事后补记，耗时且失真', 'Spoken information is written up later — slow and lossy') },
+        { value: t('通用语音识别听不懂医学术语', 'General speech recognition does not understand medical terms') },
+        { value: t('云端转写触碰患者隐私合规红线', 'Cloud transcription collides with patient-privacy compliance') },
+      ],
+      workflow: [
+        { title: t('实时识别', 'Transcribe live'), description: t('医患对话、门诊口述、访谈与会议实时转写', 'Live transcription of dialogue, dictation, interviews and meetings') },
+        { title: t('术语理解', 'Understand terms'), description: t('识别医学术语、药名、术式与表达习惯', 'Recognize medical terminology, drug names, procedures and phrasing') },
+        { title: t('结构化整理', 'Structure'), description: t('整理为病例、访谈记录与会议纪要', 'Organize into records, interview notes and minutes') },
+        { title: t('驱动 Agent', 'Drive agents'), description: t('语音直接触发检索、记录与后续任务', 'Voice triggers retrieval, documentation and follow-up tasks') },
+      ],
+      audience: [
+        { value: t('临床医生与门诊团队', 'Clinicians & outpatient teams') },
+        { value: t('临床研究与访谈团队', 'Clinical research & interview teams') },
+        { value: t('科教与学术会议组织者', 'Education & academic conference organizers') },
+      ],
+      features: [
+        { title: t('医疗语音识别', 'Medical speech recognition'), description: t('理解医学术语、药名与术式，适配医疗现场口音与语速。', 'Understands medical terminology, drug names and procedures, tuned to real clinical speech.') },
+        { title: t('病例与纪要整理', 'Records & minutes'), description: t('把门诊口述、访谈与会议内容直接整理为结构化记录。', 'Turn dictation, interviews and meetings directly into structured records.') },
+        { title: t('语音驱动 Agent', 'Voice-driven agents'), description: t('用语音触发检索、记录与后续科研任务。', 'Trigger retrieval, documentation and downstream research tasks by voice.') },
+      ],
+      highlights: [
+        { title: t('听得懂医学', 'Speaks medicine'), description: t('术语、药名、术式准确识别', 'Accurate on terminology, drug names and procedures') },
+        { title: t('私有化', 'On-prem'), description: t('语音数据不出院', 'Audio stays in the hospital') },
+        { title: t('即说即录', 'Instant'), description: t('说完即得结构化记录', 'Structured records the moment you finish speaking') },
+      ],
+    },
+
+    /* 10 ── MedicaVision 医学视觉智能底座 */
+    {
+      name: t('MedicaVision 医学视觉智能底座', 'MedicaVision · Medical Vision Platform'),
+      slug: 'medicavision',
+      tagline: t('让影像与实验图像成为可推理的证据', 'Turn imaging and lab images into reasoning-ready evidence'),
+      icon: 'eye',
+      scenario: 'vision',
+      order: 10,
+      status: 'published' as const,
+      summary: t(
+        '面向医学影像、实验数据与临床视觉信息的智能感知底座——医学影像理解、图像辅助分析、实验图像识别、病理图像分析与多模态医学数据融合。',
+        'Perception for medical imaging, experimental data and clinical visual information — imaging understanding, image-assisted analysis, experimental and pathology image recognition, and multimodal medical data fusion.',
+      ),
+      overview: t(
+        'MedicaVision 作为"感官"家族的视觉入口，与 MedicaVoice 并列：理解医学影像与病理图像的语义，识别实验图像中的目标与量化指标，并把视觉结论与文献证据、临床数据在 MedicaMemory 中融合，供 MedicaMind 推理时调用。它服务于科研而非诊断——输出的是可追溯、可复核的分析证据，最终判断始终由医生与研究者作出。全栈可私有化部署，影像数据不出院。',
+        'MedicaVision is the visual entry point of the "senses" family, alongside MedicaVoice. It interprets the semantics of medical and pathology images, recognizes targets and quantitative measures in experimental imagery, and fuses visual findings with literature evidence and clinical data inside MedicaMemory for MedicaMind to reason over. It serves research rather than diagnosis — its output is traceable, reviewable analytical evidence; the judgment always stays with clinicians and researchers. Fully deployable on-premise; imaging never leaves the hospital.',
+      ),
+      problem: t(
+        '医学影像、病理切片与实验图像里承载着最密集的证据，却最难被批量利用：人工阅片与计数耗时，量化标准因人而异，图像结论又难以和文献证据、临床数据关联起来形成可复用的科研资产。云端影像分析则直接触碰患者数据合规。',
+        'Medical imaging, pathology slides and experimental images carry the densest evidence yet are the hardest to use at scale: manual reading and counting are slow, quantification varies between readers, and image findings rarely connect to literature evidence or clinical data to form reusable research assets. Cloud image analysis runs straight into patient-data compliance.',
+      ),
+      painPoints: [
+        { value: t('人工阅片与计数耗时，量化标准因人而异', 'Manual reading and counting are slow; quantification varies by reader') },
+        { value: t('图像结论难以与文献证据、临床数据关联', 'Image findings rarely connect to literature evidence or clinical data') },
+        { value: t('云端影像分析触碰患者数据合规', 'Cloud image analysis collides with patient-data compliance') },
+      ],
+      workflow: [
+        { title: t('接入', 'Ingest'), description: t('医学影像、病理切片与实验图像多源接入', 'Medical imaging, pathology slides and experimental images from multiple sources') },
+        { title: t('识别与量化', 'Recognize & quantify'), description: t('目标识别、区域分割与指标量化', 'Target recognition, segmentation and quantitative measures') },
+        { title: t('语义理解', 'Interpret'), description: t('理解影像与病理图像语义，给出带依据的分析', 'Interpret imaging and pathology semantics with grounded analysis') },
+        { title: t('融合与复核', 'Fuse & review'), description: t('与文献、临床数据在 MedicaMemory 中融合；结论交专家复核', 'Fuse with literature and clinical data in MedicaMemory; experts review every conclusion') },
+      ],
+      audience: [
+        { value: t('临床研究与影像团队', 'Clinical research & imaging teams') },
+        { value: t('病理与检验科室', 'Pathology & laboratory departments') },
+        { value: t('重点实验室与科研团队', 'Key labs & research teams') },
+      ],
+      features: [
+        { title: t('医学影像理解', 'Medical imaging understanding'), description: t('理解影像语义，辅助定位、分割与量化分析。', 'Interpret imaging semantics to assist localization, segmentation and quantification.') },
+        { title: t('病理与实验图像分析', 'Pathology & experimental images'), description: t('识别病理切片与实验图像中的目标，输出可复现的量化指标。', 'Recognize targets in pathology slides and experimental images with reproducible measures.') },
+        { title: t('多模态医学数据融合', 'Multimodal fusion'), description: t('把视觉结论与文献证据、临床数据在记忆平台中关联。', 'Link visual findings with literature evidence and clinical data in the memory platform.') },
+      ],
+      highlights: [
+        { title: t('服务科研', 'For research'), description: t('输出分析证据，最终判断由医生作出', 'Provides analytical evidence; clinicians make the call') },
+        { title: t('可复现', 'Reproducible'), description: t('量化标准统一，结果可复核', 'Consistent quantification; every result reviewable') },
+        { title: t('私有化', 'On-prem'), description: t('影像数据不出院', 'Imaging stays in the hospital') },
+      ],
+    },
   ]
 }
 
