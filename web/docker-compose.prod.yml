@@ -2,10 +2,15 @@
 # 用法：
 #   1) 复制 .env.example 为 .env.production 并填入真实值
 #      （DATABASE_URL 的 host 用服务名 postgres，例如：
-#       postgresql://yanyi:强密码@postgres:5432/yanyi_web）
+#       postgresql://yanyi:强密码@postgres:5432/yanyi_ai）
 #   2) docker compose -f docker-compose.prod.yml up -d --build
 #   3) 首次部署后初始化内容：
 #      docker compose -f docker-compose.prod.yml exec web node -e "require('child_process')"  # 见 README
+#
+# name 必须显式声明：否则 compose 用所在目录名（web）作 project name，
+# 与 yanyi-health/web 撞成同一个 project，共用容器与数据卷。
+name: yanyi-ai
+
 services:
   postgres:
     image: postgres:16
@@ -13,11 +18,11 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-yanyi}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?请在 .env.production 中设置 POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB:-yanyi_web}
+      POSTGRES_DB: ${POSTGRES_DB:-yanyi_ai}
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-yanyi} -d ${POSTGRES_DB:-yanyi_web}']
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-yanyi} -d ${POSTGRES_DB:-yanyi_ai}']
       interval: 10s
       timeout: 5s
       retries: 5

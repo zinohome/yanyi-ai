@@ -10,8 +10,8 @@ cp .env.example .env.production
 #  - PAYLOAD_SECRET：openssl rand -base64 32
 #  - POSTGRES_PASSWORD：设置强密码
 #  - DATABASE_URL：host 用 compose 服务名 postgres，例如
-#      postgresql://yanyi:强密码@postgres:5432/yanyi_web
-#  - NEXT_PUBLIC_SITE_URL：正式域名 https://www.yanyi-health.com
+#      postgresql://yanyi:强密码@postgres:5432/yanyi_ai
+#  - NEXT_PUBLIC_SITE_URL：正式域名 https://www.yanyi-ai.com
 #  - SMTP_*：如需表单邮件通知
 ```
 
@@ -52,7 +52,7 @@ docker compose -f docker-compose.prod.yml exec web \
 
 ```
 # Caddy 示例
-www.yanyi-health.com {
+www.yanyi-ai.com {
     reverse_proxy 127.0.0.1:3000
 }
 ```
