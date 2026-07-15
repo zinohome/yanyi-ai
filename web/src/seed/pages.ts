@@ -393,57 +393,46 @@ export const buildSolutions = (lang: Lang) => {
         blockType: 'scenarioShowcase',
         title: t('IndustriaX 制造业智能生产力解决方案', 'IndustriaX · Manufacturing Agents'),
         subtitle: t(
-          '面向研发设计、工程知识、质量闭环与生产运营场景，把专家经验、工程数据与智能体能力转化为可复用、可审计、可规模化的制造业 AI 解决方案。',
-          'For design, knowledge, quality and operations — turning expertise, engineering data and agent capabilities into reusable, auditable, scalable manufacturing AI solutions.',
+          '覆盖产品设计 → 制造 → 质量 → 运营 → 服务 → 持续改进的全生命周期，把专家经验、工程数据与智能体能力转化为可复用、可审计、可规模化的制造业 AI 解决方案。',
+          'Across the full product lifecycle — design, manufacturing, quality, operations, service and continuous improvement — turning expertise, engineering data and agent capabilities into reusable, auditable, scalable manufacturing AI solutions.',
         ),
-        // 顺序按研发链路：研发 → 质量 → 生产 → 设备。视觉质检非当前重点，排在最后。
+        // 顺序与产品矩阵一致：产品研发 → 知识 → 质量 → 运营 → 计划 → 服务。
+        // 视觉质检、预测维护、变更影响分析均为能力项，分别归入 Quality / Operations / Product，不再单列。
         scenarios: [
           {
             icon: 'sparkles',
-            name: t('IndustriaX Engineering 产品研发智能体', 'IndustriaX Engineering'),
-            description: t('结合设计知识、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发试错周期。', 'Combine design knowledge, constraint solving and simulation to explore options, aid lightweighting and shorten R&D iteration.'),
+            name: t('IndustriaX Product 产品研发智能体', 'IndustriaX Product'),
+            description: t('面向产品研发、设计优化与变更的智能研发工作台：生成式设计、仿真分析与参数优化，ECN / PCN 影响分析、设计规范校验与历史产品经验复用。', 'A design workbench for R&D, optimization and change — generative design, simulation, parameter tuning, ECN/PCN impact analysis, spec compliance and reuse of past programs.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
             icon: 'brain',
-            name: t('IndustriaX Knowledge 研发知识中台', 'IndustriaX Knowledge'),
-            description: t('设计规范、工艺文件、历史项目与专家经验沉淀为可检索、可推理、可复用的工程知识底座。', 'Sediment specs, process docs, historical projects and expertise into a searchable, reasoning-ready knowledge base.'),
-            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'workflow',
-            name: t('IndustriaX Change 产品变更智能体', 'IndustriaX Change'),
-            description: t('识别设计变更、材料替代对性能、质量、测试、工艺与文档的连锁影响，降低变更遗漏风险。', 'Identify how design changes and substitutions ripple across performance, quality, verification, process and documents.'),
+            name: t('IndustriaX Knowledge 产品知识中台', 'IndustriaX Knowledge'),
+            description: t('面向产品全生命周期的知识沉淀与复用：BOM、图纸与文档理解，产品规格问答、设计标准管理、专家经验数字化与产品知识图谱。', 'Lifecycle knowledge capture and reuse — BOM, drawing and document understanding, spec Q&A, design-standard governance, expert-knowledge digitization and a product knowledge graph.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
             icon: 'shield',
             name: t('IndustriaX Quality 质量闭环智能体', 'IndustriaX Quality'),
-            description: t('打通视觉质检、缺陷识别、质量数据与失效分析，辅助问题定位、根因分析、8D 报告与设计工艺反哺。', 'Connects inspection, defect recognition, quality data and failure analysis for localization, root cause, 8D and feedback.'),
-            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'network',
-            name: t('IndustriaX Planning 计划协同智能体', 'IndustriaX Planning'),
-            description: t('结合订单、产能、物料与供应风险，辅助排产优化与动态调整，提升跨部门计划协同、减少交付风险。', 'Combine orders, capacity, materials and supply risk to optimize scheduling and improve cross-department coordination.'),
+            description: t('从发现到改进的质量闭环：AI 视觉质检与缺陷识别，FA 失效分析、RCA 根因分析、8D 报告、FMEA 与 CAPA 建议，并把结论反哺设计。不止检出缺陷，更理解产品为何失效。', 'Closed-loop quality from detection to improvement — visual inspection, failure analysis, root cause, 8D reports, FMEA and CAPA, feeding conclusions back into design. Not just spotting defects, but understanding why they happen.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
             icon: 'zap',
             name: t('IndustriaX Operations 生产运营智能体', 'IndustriaX Operations'),
-            description: t('打通设备、产线、能耗、排产与异常数据，辅助生产调度、能耗优化、设备维护与运营决策。', 'Connect equipment, line, energy, scheduling and anomaly data for dispatch, energy optimization, maintenance and decisions.'),
+            description: t('面向制造现场的运行优化：生产状态分析、设备异常预测与预测性维护、能耗优化、OEE 分析与生产异常归因，辅助运营决策。', 'Shopfloor optimization — production status, equipment anomaly prediction and predictive maintenance, energy optimization, OEE analysis, anomaly attribution and operational decisions.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
-            icon: 'activity',
-            name: t('IndustriaX Maintenance 预测维护智能体', 'IndustriaX Maintenance'),
-            description: t('融合振动、温度、电流等传感数据与设备知识，提前数周预警故障，显著减少非计划停机。', 'Fuse vibration, temperature and current data with equipment knowledge to warn of failures weeks ahead.'),
+            icon: 'network',
+            name: t('IndustriaX Planning 计划协同智能体', 'IndustriaX Planning'),
+            description: t('面向交付全过程的计划优化：主计划与订单分析、产能评估、物料风险识别、供应链异常预测与交付风险分析，并联动 ECN 与生产计划。', 'Planning across the delivery cycle — master planning, order analysis, capacity assessment, material-risk identification, supply-chain anomaly and delivery-risk prediction, linked to ECN changes.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
-            icon: 'eye',
-            name: t('IndustriaX Vision 视觉质检智能体', 'IndustriaX Vision'),
-            description: t('工业相机结合视觉与 VL 模型在线检测微米级缺陷，实时替代人工目检，降低漏检、沉淀质检数据。', 'Cameras with vision/VL models detect micron-level defects online, replacing manual inspection and capturing QC data.'),
+            icon: 'wrench',
+            name: t('IndustriaX Service 产品服务与持续改进智能体', 'IndustriaX Service'),
+            description: t('面向产品使用阶段的反馈闭环：客户问题分析、售后故障诊断、产品可靠性分析、服务报告生成与用户反馈聚类，沉淀为下一代产品的改进建议。', 'A feedback loop from the field — customer issue analysis, after-sales diagnosis, reliability analysis, service reports and feedback clustering, distilled into next-generation product improvements.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
         ],
