@@ -396,17 +396,24 @@ export const buildSolutions = (lang: Lang) => {
           '面向研发设计、工程知识、质量闭环与生产运营场景，把专家经验、工程数据与智能体能力转化为可复用、可审计、可规模化的制造业 AI 解决方案。',
           'For design, knowledge, quality and operations — turning expertise, engineering data and agent capabilities into reusable, auditable, scalable manufacturing AI solutions.',
         ),
+        // 顺序按研发链路：研发 → 质量 → 生产 → 设备。视觉质检非当前重点，排在最后。
         scenarios: [
           {
-            icon: 'eye',
-            name: t('IndustriaX Vision 视觉质检智能体', 'IndustriaX Vision'),
-            description: t('工业相机结合视觉与 VL 模型在线检测微米级缺陷，实时替代人工目检，降低漏检、沉淀质检数据。', 'Cameras with vision/VL models detect micron-level defects online, replacing manual inspection and capturing QC data.'),
+            icon: 'sparkles',
+            name: t('IndustriaX Engineering 产品研发智能体', 'IndustriaX Engineering'),
+            description: t('结合设计知识、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发试错周期。', 'Combine design knowledge, constraint solving and simulation to explore options, aid lightweighting and shorten R&D iteration.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
-            icon: 'activity',
-            name: t('IndustriaX Maintenance 预测维护智能体', 'IndustriaX Maintenance'),
-            description: t('融合振动、温度、电流等传感数据与设备知识，提前数周预警故障，显著减少非计划停机。', 'Fuse vibration, temperature and current data with equipment knowledge to warn of failures weeks ahead.'),
+            icon: 'brain',
+            name: t('IndustriaX Knowledge 研发知识中台', 'IndustriaX Knowledge'),
+            description: t('设计规范、工艺文件、历史项目与专家经验沉淀为可检索、可推理、可复用的工程知识底座。', 'Sediment specs, process docs, historical projects and expertise into a searchable, reasoning-ready knowledge base.'),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'workflow',
+            name: t('IndustriaX Change 产品变更智能体', 'IndustriaX Change'),
+            description: t('识别设计变更、材料替代对性能、质量、测试、工艺与文档的连锁影响，降低变更遗漏风险。', 'Identify how design changes and substitutions ripple across performance, quality, verification, process and documents.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
@@ -416,21 +423,9 @@ export const buildSolutions = (lang: Lang) => {
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
-            icon: 'workflow',
-            name: t('IndustriaX Change 工程变更智能体', 'IndustriaX Change'),
-            description: t('识别设计变更、材料替代对性能、质量、测试、工艺与文档的连锁影响，降低变更遗漏风险。', 'Identify how design changes and substitutions ripple across performance, quality, verification, process and documents.'),
-            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'brain',
-            name: t('IndustriaX Knowledge 工程知识中台', 'IndustriaX Knowledge'),
-            description: t('设计规范、工艺文件、历史项目与专家经验沉淀为可检索、可推理、可复用的工程知识底座。', 'Sediment specs, process docs, historical projects and expertise into a searchable, reasoning-ready knowledge base.'),
-            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'sparkles',
-            name: t('IndustriaX Engineering 工程研发智能体', 'IndustriaX Engineering'),
-            description: t('结合设计知识、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发试错周期。', 'Combine design knowledge, constraint solving and simulation to explore options, aid lightweighting and shorten R&D iteration.'),
+            icon: 'network',
+            name: t('IndustriaX Planning 计划协同智能体', 'IndustriaX Planning'),
+            description: t('结合订单、产能、物料与供应风险，辅助排产优化与动态调整，提升跨部门计划协同、减少交付风险。', 'Combine orders, capacity, materials and supply risk to optimize scheduling and improve cross-department coordination.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
@@ -440,9 +435,15 @@ export const buildSolutions = (lang: Lang) => {
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
           {
-            icon: 'network',
-            name: t('IndustriaX Planning 计划协同智能体', 'IndustriaX Planning'),
-            description: t('结合订单、产能、物料与供应风险，辅助排产优化与动态调整，提升跨部门计划协同、减少交付风险。', 'Combine orders, capacity, materials and supply risk to optimize scheduling and improve cross-department coordination.'),
+            icon: 'activity',
+            name: t('IndustriaX Maintenance 预测维护智能体', 'IndustriaX Maintenance'),
+            description: t('融合振动、温度、电流等传感数据与设备知识，提前数周预警故障，显著减少非计划停机。', 'Fuse vibration, temperature and current data with equipment knowledge to warn of failures weeks ahead.'),
+            link: { label: t('了解详情', 'Learn More'), href: '/contact' },
+          },
+          {
+            icon: 'eye',
+            name: t('IndustriaX Vision 视觉质检智能体', 'IndustriaX Vision'),
+            description: t('工业相机结合视觉与 VL 模型在线检测微米级缺陷，实时替代人工目检，降低漏检、沉淀质检数据。', 'Cameras with vision/VL models detect micron-level defects online, replacing manual inspection and capturing QC data.'),
             link: { label: t('了解详情', 'Learn More'), href: '/contact' },
           },
         ],
@@ -506,147 +507,6 @@ export const buildSolutions = (lang: Lang) => {
         title: t('想要一套适合您行业的方案？', 'Want a solution tailored to your industry?'),
         subtitle: t('告诉我们您的行业与业务目标，我们会基于底座与场景为您组合合适的方案。', 'Tell us your industry and goals — we\'ll compose the right solution from our platform and scenarios.'),
         primaryCta: { label: t('联系方案团队', 'Contact Solution Team'), href: '/contact' },
-      },
-    ],
-  }
-}
-
-export const buildScenariosPage = (lang: Lang) => {
-  const t = L(lang)
-  return {
-    title: t('应用场景', 'Applications'),
-    slug: 'cases',
-    status: 'published' as const,
-    meta: {
-      title: t('应用场景', 'Applications'),
-      description: t(
-        '行业智能体解决方案矩阵：基于统一的智能体底座、企业记忆平台与私有化部署能力，面向制造业与医疗科研两类高知识密度、高合规要求、高协同复杂度场景，构建可落地、可追溯、可复用的行业 AI Agent 解决方案——从 IndustriaX 到 MedicaX。',
-        'Industry agent solution matrix — from IndustriaX to MedicaX: on a unified agent platform, enterprise memory and private deployment, deployable, traceable, reusable AI-agent solutions for high-knowledge, high-compliance manufacturing and medical-research scenarios.',
-      ),
-    },
-    layout: [
-      {
-        blockType: 'hero',
-        eyebrow: t('行业智能体解决方案矩阵', 'Industry Agent Matrix'),
-        title: t('行业智能体解决方案矩阵\n从 IndustriaX 到 MedicaX', 'Industry Agent Matrix\nIndustriaX to MedicaX'),
-        subtitle: t(
-          '基于统一的智能体底座、企业记忆平台与私有化部署能力，面向制造业与医疗科研两类高知识密度、高合规要求、高协同复杂度场景，构建可落地、可追溯、可复用的行业 AI Agent 解决方案。',
-          'On a unified agent platform, enterprise memory and private deployment, we build deployable, traceable, reusable AI-agent solutions for two high-knowledge, high-compliance, high-coordination domains: manufacturing and medical research.',
-        ),
-        primaryCta: { label: t('联系我们', 'Contact Us'), href: '/contact' },
-      },
-      {
-        blockType: 'scenarioShowcase',
-        title: t('IndustriaX 制造业智能生产力解决方案', 'IndustriaX · Manufacturing Agents'),
-        subtitle: t(
-          '面向研发设计、工程知识、质量闭环与生产运营场景，把专家经验、工程数据与智能体能力转化为可复用、可审计、可规模化的制造业 AI 解决方案。',
-          'For design, knowledge, quality and operations — turning expertise, engineering data and agent capabilities into reusable, auditable, scalable manufacturing AI solutions.',
-        ),
-        scenarios: [
-          {
-            icon: 'eye',
-            name: t('IndustriaX Vision 视觉质检智能体', 'IndustriaX Vision'),
-            description: t('工业相机结合视觉与 VL 模型在线检测微米级缺陷，实时替代人工目检，降低漏检、沉淀质检数据。', 'Cameras with vision/VL models detect micron-level defects online, replacing manual inspection and capturing QC data.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'activity',
-            name: t('IndustriaX Maintenance 预测维护智能体', 'IndustriaX Maintenance'),
-            description: t('融合振动、温度、电流等传感数据与设备知识，提前数周预警故障，显著减少非计划停机。', 'Fuse vibration, temperature and current data with equipment knowledge to warn of failures weeks ahead.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'shield',
-            name: t('IndustriaX Quality 质量闭环智能体', 'IndustriaX Quality'),
-            description: t('打通视觉质检、缺陷识别、质量数据与失效分析，辅助问题定位、根因分析、8D 报告与设计工艺反哺。', 'Connects inspection, defect recognition, quality data and failure analysis for localization, root cause, 8D and feedback.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'workflow',
-            name: t('IndustriaX Change 工程变更智能体', 'IndustriaX Change'),
-            description: t('识别设计变更、材料替代对性能、质量、测试、工艺与文档的连锁影响，降低变更遗漏风险。', 'Identify how design changes and substitutions ripple across performance, quality, verification, process and documents.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'brain',
-            name: t('IndustriaX Knowledge 工程知识中台', 'IndustriaX Knowledge'),
-            description: t('设计规范、工艺文件、历史项目与专家经验沉淀为可检索、可推理、可复用的工程知识底座。', 'Sediment specs, process docs, historical projects and expertise into a searchable, reasoning-ready knowledge base.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'sparkles',
-            name: t('IndustriaX Engineering 工程研发智能体', 'IndustriaX Engineering'),
-            description: t('结合设计知识、约束求解与仿真，快速探索多方案、辅助轻量化与选型，缩短研发试错周期。', 'Combine design knowledge, constraint solving and simulation to explore options, aid lightweighting and shorten R&D iteration.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'zap',
-            name: t('IndustriaX Operations 生产运营智能体', 'IndustriaX Operations'),
-            description: t('打通设备、产线、能耗、排产与异常数据，辅助生产调度、能耗优化、设备维护与运营决策。', 'Connect equipment, line, energy, scheduling and anomaly data for dispatch, energy optimization, maintenance and decisions.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'network',
-            name: t('IndustriaX Planning 计划协同智能体', 'IndustriaX Planning'),
-            description: t('结合订单、产能、物料与供应风险，辅助排产优化与动态调整，提升跨部门计划协同、减少交付风险。', 'Combine orders, capacity, materials and supply risk to optimize scheduling and improve cross-department coordination.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-        ],
-      },
-      {
-        blockType: 'scenarioShowcase',
-        title: t('MedicaX 医疗科研与转化解决方案', 'MedicaX · Medical R&D and Translation'),
-        subtitle: t(
-          '面向医院、重点实验室、临床团队与医企合作场景，构建从科研管理、临床研究到成果转化的医疗 AI Agent 工作台矩阵。',
-          'For hospitals, key labs, clinical teams and hospital-industry collaboration — a medical AI-agent workbench matrix spanning research management, clinical study and translation.',
-        ),
-        scenarios: [
-          {
-            icon: 'microscope',
-            name: t('MedicaX Lab 医学实验室 AI 工作台', 'MedicaX Lab'),
-            description: t('课题管理、合作项目、文献辅助、专家知识、数据标签、专利 / 软著 / 项目书辅助一体化，沉淀实验室可复用科研资产。', 'Project management, literature support, expert knowledge, data labeling and patent/proposal assistance — building reusable lab research assets.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'stethoscope',
-            name: t('MedicaX Research 临床科研 Agent', 'MedicaX Research'),
-            description: t('辅助临床问题拆解、研究设计、文献检索、病例与随访数据整理、统计建议、论文与课题材料生成，提升医生科研效率。', 'Aids question decomposition, study design, literature retrieval, case/follow-up organization, statistics and paper drafting.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'search',
-            name: t('MedicaX Evidence 医学知识与循证问答', 'MedicaX Evidence'),
-            description: t('整合指南、文献、病种知识、专家经验与机构内部资料，形成可追溯的医学知识底座，支持循证问答与科研决策。', 'Integrates guidelines, literature, disease knowledge and institutional materials into a traceable evidence base for Q&A and decisions.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'git-branch',
-            name: t('MedicaX Transfer 医学科研转化 AI 工作台', 'MedicaX Transfer'),
-            description: t('构建科研项目库、成熟度评估、转化路径、材料生成、企业匹配与管理驾驶舱，推动科研成果走向产业合作。', 'A project library, maturity assessment, translation pathways, materials, enterprise matching and a cockpit to move results toward industry.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'clipboard-check',
-            name: t('MedicaX Validation 医企创新验证平台', 'MedicaX Validation'),
-            description: t('面向真实临床需求，支持场景定义、验证方案设计、医企联合试点、数据证据沉淀与转化材料生成。', 'For real clinical needs — scenario definition, validation design, joint pilots, evidence capture and translation materials.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-          {
-            icon: 'trending-up',
-            name: t('MedicaX Insight 科研管理驾驶舱', 'MedicaX Insight'),
-            description: t('汇聚课题、成果、合作、转化、企业资源与项目进展，帮助医院和实验室管理者看清方向、配置资源、推动转化。', 'Aggregates projects, results, collaboration, translation and progress to help leaders set direction, allocate resources and drive translation.'),
-            link: { label: t('了解更多', 'Learn More'), href: '/contact' },
-          },
-        ],
-      },
-      {
-        blockType: 'ctaBanner',
-        title: t('有相似的场景？', 'Have a similar scenario?'),
-        subtitle: t(
-          '告诉我们您的业务场景与数据现状，30 分钟识别最适合先落地的高价值切入点。',
-          'Tell us your scenario and data landscape — 30 minutes to find the highest-value entry point.',
-        ),
-        primaryCta: { label: t('预约咨询', 'Book a Consultation'), href: '/contact' },
       },
     ],
   }
