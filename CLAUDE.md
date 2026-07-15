@@ -80,7 +80,15 @@ The contact form uses a Next server action (`src/app/actions/contact.ts`) that w
 
 ## Deployment
 
-Dockerized (`web/Dockerfile`, `docker-compose.prod.yml`), needs PostgreSQL. Container startup runs `scripts/docker-entrypoint.sh` → `scripts/auto-init.ts` → `next start`.
+Dockerized (`web/Dockerfile`, `docker-compose.prod.yml`), needs PostgreSQL. Full runbook: **[web/DEPLOY.md](web/DEPLOY.md)** (AWS + 1Panel, port 8000, data under `/data/yanyi-ai`).
+
+The Dockerfile has **two runtime targets**, and initialization is a *separate one-shot container* — not an entrypoint:
+- `target: init` — built on `builder`, so it keeps the full TS source, all of `node_modules` and `tsx`. Runs `scripts/auto-init.ts` once and exits. Needs `NODE_ENV=development`: Payload's Postgres schema `push` is hard-blocked in production (`@payloadcms/db-postgres/connect.js`), and an empty DB relies on it to create tables.
+- `target: runner` — the Next standalone bundle (`node server.js`), ~390 MB, no dev deps. It is `depends_on: init: service_completed_successfully`, so a fresh DB can never serve before it has tables.
+
+These two are mutually exclusive by design: `auto-init` needs the whole toolchain, standalone deliberately keeps only what `server.js` traces. Don't try to merge them back into one image or one entrypoint — a `scripts/docker-entrypoint.sh` used to attempt exactly that and was silently dead code (the runner image contains neither `scripts/` nor a `next` binary).
+
+`pnpm` is pinned via `packageManager` in `package.json`. Don't remove it: corepack otherwise pulls the latest pnpm, and pnpm 10+ turns `ERR_PNPM_IGNORED_BUILDS` into a hard error that breaks `docker build`.
 
 `auto-init.ts` only ever runs the seed (`src/seed/index.ts`) and `create-admin.ts`:
 - **empty DB** (0 products) → seed
@@ -94,5 +102,5 @@ Note `auto-init.ts` runs under `NODE_ENV=development` because Payload's Postgres
 ## Notes
 
 - `src/payload-types.ts` is **generated** — never hand-edit it; run `pnpm generate:types`.
-- `web/scripts/` is deliberately minimal: `auto-init.ts` + `create-admin.ts` (deploy), `docker-entrypoint.sh`, and two authoring tools — `export-content.ts` (regenerates `docs/site-content/*.md` from the seed) and `screenshots.mjs` (full-page screenshots; `SHOT_THEME=light|dark`). The old one-off `update-*` / `add-capabilities` / `attach-covers` migration scripts were removed: they carried yanyi-health-era copy and `auto-init` ran them on every boot, silently overwriting the site back to the old medical content. Don't reintroduce startup scripts that mutate content — change the seed instead.
+- `web/scripts/` is deliberately minimal: `auto-init.ts` + `create-admin.ts` (deploy), and two authoring tools — `export-content.ts` (regenerates `docs/site-content/*.md` from the seed) and `screenshots.mjs` (full-page screenshots; `SHOT_THEME=light|dark`). The old one-off `update-*` / `add-capabilities` / `attach-covers` migration scripts were removed: they carried yanyi-health-era copy and `auto-init` ran them on every boot, silently overwriting the site back to the old medical content. Don't reintroduce startup scripts that mutate content — change the seed instead.
 - Design specs and the build plan for this site are in `docs/superpowers/specs/` and `docs/superpowers/plans/`.
