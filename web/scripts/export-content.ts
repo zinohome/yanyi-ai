@@ -74,11 +74,17 @@ function blockToMd(b: any): string {
       if (b.subtitle) L.push(`_${b.subtitle}_`)
       for (const s of b.scenarios ?? []) L.push(`- **${s.name}** — ${s.description ?? ''}`)
       break
-    case 'productMatrix':
+    case 'productMatrix': {
       L.push(`### ${b.title || ''}`)
       if (b.subtitle) L.push(`_${b.subtitle}_`)
-      for (const p of products) L.push(`- **${p.name}** — ${p.tagline ? p.tagline + '。' : ''}${p.summary ?? ''}`)
+      // 与线上语义一致：block 选了产品就只列这些，留空才列全部。
+      // 导出没有真实 id，用 buildProducts 的数组下标当替身（见 EXPORT_IDS）。
+      const picked: any[] = b.products?.length
+        ? b.products.map((i: number) => products[i]).filter(Boolean)
+        : products
+      for (const p of picked) L.push(`- **${p.name}** — ${p.tagline ? p.tagline + '。' : ''}${p.summary ?? ''}`)
       break
+    }
     case 'caseHighlights':
       L.push(`### ${b.title || ''}`)
       if (b.subtitle) L.push(`_${b.subtitle}_`)
@@ -154,11 +160,20 @@ function siteMd(): string {
   return out.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n'
 }
 
+// 导出拿不到数据库 id，用 buildProducts 的数组下标当替身，
+// 好让 productMatrix 的分组选择（工业 / 医疗）在 md 里如实反映，而不是一律列全部。
+const EXPORT_IDS = {
+  products: products.map((_, i) => i),
+  industrial: products.map((_, i) => i).filter((i) => products[i].slug.startsWith('industria')),
+  medical: products.map((_, i) => i).filter((i) => products[i].slug.startsWith('medica')),
+  cases: cases.map((_, i) => i),
+}
+
 const files: Array<[string, string]> = [
   ['00-site.md', siteMd()],
-  ['01-home.md', pageToMd(buildHome(LANG, { products: [], cases: [] }), '/')],
+  ['01-home.md', pageToMd(buildHome(LANG, EXPORT_IDS), '/')],
   ['02-technology.md', pageToMd(buildTechnology(LANG), '/technology')],
-  ['03-products.md', pageToMd(buildProductsPage(LANG, { products: [] }), '/products')],
+  ['03-products.md', pageToMd(buildProductsPage(LANG, EXPORT_IDS), '/products')],
   ['04-solutions.md', pageToMd(buildSolutions(LANG), '/solutions')],
   ['05-about.md', pageToMd(buildAbout(LANG), '/about')],
   ['06-careers.md', pageToMd(buildCareers(LANG), '/careers')],
