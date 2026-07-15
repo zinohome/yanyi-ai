@@ -1,3 +1,8 @@
+# name 必须显式声明：否则 compose 用所在目录名（web）作 project name，
+# 与 yanyi-health/web 撞车 —— 两个项目会共用同一容器与数据卷，
+# 而 `pnpm seed` 会先清空全部内容（src/seed/index.ts），足以抹掉 yanyi-health 的站点数据。
+name: yanyi-ai
+
 services:
   postgres:
     image: postgres:16
@@ -5,9 +10,10 @@ services:
     environment:
       POSTGRES_USER: yanyi
       POSTGRES_PASSWORD: yanyi_dev_pw
-      POSTGRES_DB: yanyi_web
+      POSTGRES_DB: yanyi_ai
     ports:
-      - "5432:5432"
+      # 5432 已被 yanyi-health 的 postgres 占用，这里用 5433
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 volumes:
