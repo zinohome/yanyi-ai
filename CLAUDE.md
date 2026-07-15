@@ -54,6 +54,20 @@ Two layers, don't confuse them:
 - **Payload content localization** (`payload.config.ts` → `localization`): editor-managed content per locale. Mark fields `localized: true`. Default `zh`, fallback to `zh`.
 - **next-intl UI strings**: static UI labels in `src/messages/{zh,en}.json`, routed by `src/middleware.ts` + `src/i18n/`. Middleware excludes `admin`, `api`, `_next`, `_payload`.
 
+### Theming
+
+Two localStorage keys, **both load-bearing**:
+- `yanyi-theme` — next-themes' own storage (its `storageKey`), holds the resolved theme.
+- `yanyi-theme-manual` — `'1'` once the user clicks `ThemeToggle`.
+
+The second key is **not redundant**: next-themes writes `yanyi-theme` on *every* `setTheme`, so an automatic write and a deliberate user choice look identical from that key alone. `yanyi-theme-manual` is the only thing distinguishing them.
+
+Without the manual flag, the theme follows the clock — `06:00–18:59` light, `19:00–05:59` dark (`timeTheme()` in `src/components/theme-toggle.tsx`, re-synced on `focus`/`visibilitychange` so long sessions cross the boundary).
+
+The inline script in `layout.tsx` must apply that same clock rule **and write the result to `yanyi-theme`** before React hydrates. next-themes reads that key on mount: if the script painted a class without writing the key, next-themes disagrees and `ThemeToggle`'s effect repaints visibly. That was a real bug — dark flashed before the daytime light. `defaultTheme="dark"` is only the fallback for when localStorage is unavailable, **not** the effective default; don't read it as "dark by default".
+
+**Three files touch these keys — change them together:** `src/app/(frontend)/[locale]/layout.tsx` (inline script + `ThemeProvider`), `src/components/theme-toggle.tsx`, and `web/scripts/screenshots.mjs` (sets the manual flag so `SHOT_THEME` isn't overridden by the clock). The screenshot script is plain JS injected through Playwright, so `type-check` and `lint` cannot catch a stale key there — grep the whole repo, not just `src/`.
+
 ### Shared field & seed conventions
 
 - Reusable field builders live in `src/fields/`: `slugField`, `statusField`, `orderField`, `publicRead` (`slug.ts`); `linkField`, `iconField` (`link.ts`); `seoField` (`seo.ts`).
