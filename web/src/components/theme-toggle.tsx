@@ -15,7 +15,7 @@ const timeTheme = () => {
 }
 const isManual = () => {
   try {
-    return localStorage.getItem('theme-manual') === '1'
+    return localStorage.getItem('yanyi-theme-manual') === '1'
   } catch {
     return false
   }
@@ -48,7 +48,7 @@ export function ThemeToggle() {
   const toggle = () => {
     // 用户手动切换后，记录标记，之后尊重手动选择、不再按时间覆盖
     try {
-      localStorage.setItem('theme-manual', '1')
+      localStorage.setItem('yanyi-theme-manual', '1')
     } catch {
       /* ignore */
     }

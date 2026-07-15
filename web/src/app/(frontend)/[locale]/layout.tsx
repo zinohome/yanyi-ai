@@ -51,16 +51,22 @@ export default async function LocaleLayout({
       className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable}`}
     >
       <head>
-        {/* 读取 yanyi-theme 偏好；无存储值时默认 dark，零闪烁 */}
+        {/*
+          自动模式（未手动选择过）按时间取主题：06:00–18:59 亮色，19:00–05:59 暗色。
+          脚本必须把结果写回 yanyi-theme —— next-themes 挂载时读的就是这个键，
+          写了它才会与本脚本涂上的 class 一致，ThemeToggle 的时间同步随之成为 no-op，
+          否则白天会先闪一下 dark 再跳成 light。
+        */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){try{var t=localStorage.getItem('yanyi-theme');var d=!t||t==='dark';document.documentElement.classList.add(d?'dark':'light','js');}catch(e){document.documentElement.classList.add('dark','js');}})();",
+              "(function(){try{if(localStorage.getItem('yanyi-theme-manual')!=='1'){var h=new Date().getHours();localStorage.setItem('yanyi-theme',(h>=19||h<6)?'dark':'light');}var t=localStorage.getItem('yanyi-theme');document.documentElement.classList.add(t==='light'?'light':'dark','js');}catch(e){document.documentElement.classList.add('dark','js');}})();",
           }}
         />
       </head>
       <body className="min-h-screen font-sans antialiased">
         <NextIntlClientProvider>
+          {/* defaultTheme 仅在 localStorage 不可用时兜底：正常路径由上方脚本按时间写入 yanyi-theme */}
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
