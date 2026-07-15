@@ -26,8 +26,8 @@ const ctx = await browser.newContext({
 // 在页面脚本执行前写入 next-themes 的 localStorage，强制主题
 await ctx.addInitScript((theme) => {
   try {
-    // 标记为"手动选择"，否则会被基于时间的自动主题覆盖（夜间=暗色）
-    localStorage.setItem('theme-manual', '1')
+    // 标记为"手动选择"，否则会被基于时间的自动主题覆盖（06:00–18:59=亮色）
+    localStorage.setItem('yanyi-theme-manual', '1')
     localStorage.setItem('yanyi-theme', theme)
   } catch {}
 }, THEME)
