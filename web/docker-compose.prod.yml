@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-yanyi}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?请在 .env.production 中设置 POSTGRES_PASSWORD}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?未设置。请在本文件同目录创建 .env 并写入 POSTGRES_PASSWORD（见 DEPLOY.md 第 3 步）——compose 只读默认的 .env，改名不生效}
       POSTGRES_DB: ${POSTGRES_DB:-yanyi_ai}
     volumes:
       - ${DATA_DIR:-/data/yanyi-ai}/postgres:/var/lib/postgresql/data
