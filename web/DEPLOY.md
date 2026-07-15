@@ -57,10 +57,15 @@ ls -ld /data/yanyi-ai/postgres /data/yanyi-ai/media   # 两个目录都应存在
 
 ## 3. 创建配置文件 `.env`
 
-**必须命名为 `.env`，不能改名。** 它同时承担两个职责，两者机制不同、缺一不可：
+**必须命名为 `.env`，且必须与 `docker-compose.prod.yml` 同目录。** 它同时承担两个职责，两者机制不同、缺一不可：
 
 1. **compose 变量插值**（`${POSTGRES_PASSWORD}`、`${DATA_DIR}`、`${WEB_PORT}`）—— compose 只自动读取同目录的 `.env`
 2. **注入容器内部**（`DATABASE_URL`、`PAYLOAD_SECRET` …）—— 由编排里的 `env_file` 完成
+
+> ⚠️ **不要用 `--env-file` 把配置放到别处。** `--env-file` 只替换第 1 条（插值来源），
+> 编排里的 `env_file:` 仍按 compose 文件所在目录去找 `.env`。结果是插值用了新文件、
+> 容器却拿到旧文件（或找不到），`init` 会以退出码 1 失败，日志里是数据库连不上。
+> 两个名字几乎一样、作用域完全不同——这是本部署最容易踩的一脚。
 
 先生成两个随机密钥：
 
@@ -130,8 +135,9 @@ docker compose -f docker-compose.prod.yml up -d --build
 
 ```bash
 # 等 web 变 healthy，最多 60 秒
+CID=$(docker compose -f docker-compose.prod.yml ps -q web)
 for i in $(seq 1 30); do
-  st=$(docker inspect yanyi-ai-web-1 --format '{{.State.Health.Status}}' 2>/dev/null)
+  st=$(docker inspect "$CID" --format '{{.State.Health.Status}}' 2>/dev/null)
   echo "web: ${st:-starting}"
   [ "$st" = "healthy" ] && break
   sleep 2
@@ -220,26 +226,54 @@ cd web && docker compose -f docker-compose.prod.yml up -d --build
 
 ```bash
 docker compose -f docker-compose.prod.yml run --rm -e SEED_FORCE=1 init
-docker compose -f docker-compose.prod.yml restart web
+```
+
+不需要重启 `web`：页面是 force-dynamic，每次请求实时读库，跑完即生效。
+
+**验证：**
+```bash
+docker compose -f docker-compose.prod.yml logs init | tail -2   # 应有 “[auto-init] ✅ 完成”
+curl -s http://127.0.0.1:8000/zh/products | grep -c 'IndustriaX'  # 应 > 0
 ```
 
 ### 备份
 
 ```bash
-# 数据库
+# 数据库。--clean --if-exists 必须加：让备份自带 DROP 语句，否则恢复时
+# 所有对象都已存在，CREATE/COPY 会全部报错，数据根本进不去（见下）。
 docker compose -f docker-compose.prod.yml exec -T postgres \
-  pg_dump -U yanyi yanyi_ai | gzip > /data/yanyi-ai/backup-$(date +%F).sql.gz
+  pg_dump -U yanyi --clean --if-exists yanyi_ai | gzip > /data/yanyi-ai/backup-$(date +%F).sql.gz
 
 # 上传文件
 tar czf /data/yanyi-ai/media-$(date +%F).tar.gz -C /data/yanyi-ai media
 ```
 
+**验证备份可用**（不验证的备份等于没有备份）：
+```bash
+gunzip -c /data/yanyi-ai/backup-$(date +%F).sql.gz | grep -c '^DROP'
+# 必须 > 0。若为 0，说明备份时漏了 --clean，恢复时会静默失败。
+```
+
 ### 恢复
 
 ```bash
+# 把文件名换成实际的备份文件
 gunzip -c /data/yanyi-ai/backup-2026-07-15.sql.gz | \
-  docker compose -f docker-compose.prod.yml exec -T postgres psql -U yanyi -d yanyi_ai
+  docker compose -f docker-compose.prod.yml exec -T postgres psql -U yanyi -d yanyi_ai 2>&1 | tee /tmp/restore.log
+
+# 必须检查报错数——恢复会「看起来成功」，实际什么都没做
+grep -c ERROR /tmp/restore.log     # 期望 0
 ```
+
+**恢复后务必核对数据，不要只看命令有没有报错：**
+```bash
+docker compose -f docker-compose.prod.yml exec -T postgres \
+  psql -U yanyi -d yanyi_ai -t -c "SELECT 'products='||count(*) FROM products;"
+```
+
+> **为什么强调这个**：不带 `--clean` 的备份恢复到一个已有数据的库时，psql 会吐出几百条
+> `already exists` 错误然后继续，最后库里还是**旧数据**。而 `count(*)` 看着是对的
+> （因为旧数据还在），极易被误判为恢复成功。真出事故时这会要命。
 
 ### 查看日志
 
@@ -254,6 +288,17 @@ docker compose -f docker-compose.prod.yml logs init     # 排查初始化问题
 docker compose -f docker-compose.prod.yml stop
 docker compose -f docker-compose.prod.yml up -d
 ```
+
+### 改了 `.env` 之后
+
+必须 **`up -d` 重建容器**，`restart` 不生效：
+
+```bash
+docker compose -f docker-compose.prod.yml up -d
+```
+
+`env_file` 是在容器**创建时**求值并烘进容器的，之后就与文件解耦了。`restart` 只是重启
+既有容器的进程，环境变量还是旧的——改完密码却发现没生效，通常就是这个原因。
 
 ---
 
@@ -282,13 +327,25 @@ docker compose -f docker-compose.prod.yml up -d
 
 ## 附：本地验证记录
 
-本手册的每一步都在本地用真实的 docker compose 演练过（2026-07-15）：
+本手册的每条命令都在本地用真实的 docker compose 执行过（2026-07-15）：
 
 - 镜像构建成功，运行层 391MB（standalone 产物）
 - 空库首启：`init` 建表 + 灌入 10 款产品 / 7 个页面 + 创建管理员，退出码 0
-- 8000 端口：`/` → 307 → `/zh` 200、`/en` 200、`/admin` 200
+- 8000 端口：`/` → 307 → `/zh` 200、`/en` 200、`/zh/products` 200、`/admin` 200
 - 数据落盘：postgres 54MB 真实写入宿主机 bind mount
 - 重启幂等：`down` 再 `up`，后台的人工编辑完好保留，`init` 正确跳过灌种子
-- `SEED_FORCE=1`：确认会覆盖人工编辑，回到代码里的文案
+- `SEED_FORCE=1`：确认覆盖人工编辑回到代码文案，且**无需重启 web** 即生效
+- 备份 / 恢复：先破坏数据（删 7 个页面 + 改名产品），再用 `--clean` 备份恢复，
+  0 报错、数据完整还原
 
-> 本地演练时若同机还跑着开发用的 `docker-compose.yml`，注意两者 project name 同为 `yanyi-ai`，会互相顶掉容器。生产服务器上只有本编排，不存在此问题。
+演练中真实踩到、并已写入本手册的坑：
+
+| 坑 | 现象 |
+|---|---|
+| `pg_dump` 漏 `--clean` | 恢复产生 661 条 `already exists` 错误，数据**根本没进去**，而 `count(*)` 因旧数据还在而看着正常——最危险的一个 |
+| 用 `--env-file` 指向别处 | `init` 退出码 1，容器拿到的 `DATABASE_URL` 仍是旧文件里的值 |
+| `up -d` 后立刻 `curl` | 得到 `000`，实为 healthcheck 40s 宽限期未过 |
+| 改了 `.env` 后 `restart` | 不生效，`env_file` 在容器创建时即已烘入 |
+
+> 本地若同机还跑着开发用的 `docker-compose.yml`，注意两者 project name 同为 `yanyi-ai`，
+> 会互相顶掉容器；本地并行验证需加 `-p 别的名字`。生产服务器上只有本编排，不存在此问题。
