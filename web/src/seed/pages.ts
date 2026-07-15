@@ -48,26 +48,26 @@ export const buildHome = (lang: Lang, ids: Ids) => {
           {
             icon: 'brain',
             name: t('大脑', 'Brain'),
-            role: t('IndustriaMind · 思考与编排', 'IndustriaMind · Thinking & Orchestration'),
+            role: t('IndustrialMind · 思考与编排', 'IndustrialMind · Thinking & Orchestration'),
             description: t('负责思考、人格与组织、任务规划与工具路由，是会话与决策的唯一事实源。', 'Handles thinking, persona, planning and tool routing — the single source of truth for decisions.'),
           },
           {
             icon: 'database',
             name: t('记忆', 'Memory'),
-            role: t('IndustriaMemory · 统一记忆', 'IndustriaMemory · Unified Memory'),
+            role: t('IndustrialMemory · 统一记忆', 'IndustrialMemory · Unified Memory'),
             description: t('整合对话记忆、用户画像与知识图谱，让智能体越用越懂业务。', 'Integrates conversational memory, profiles and knowledge graphs so agents get smarter over time.'),
           },
           {
             icon: 'mic',
             name: t('语音（感官）', 'Voice (Senses)'),
-            role: t('IndustriaVoice · 实时语音', 'IndustriaVoice · Real-time Voice'),
+            role: t('IndustrialVoice · 实时语音', 'IndustrialVoice · Real-time Voice'),
             description: t('实时语音转写、流式合成与语音对话，全栈本地推理，数据不出网。', 'Real-time transcription, streaming synthesis and voice chat — fully local, data on-prem.'),
           },
           {
             icon: 'eye',
             name: t('视觉（感官）', 'Vision (Senses)'),
-            role: t('IndustriaVision · 视觉采集', 'IndustriaVision · Visual Capture'),
-            description: t('VL 模型 + OCR 把图纸、单据、仪表与影像转化为结构化、可入库的数据。', 'VL models + OCR turn drawings, documents, gauges and imagery into structured, storable data.'),
+            role: t('IndustrialVision · 视觉感知与理解', 'IndustrialVision · Perception & Understanding'),
+            description: t('缺陷检测、装配状态识别与 OCR，并用 VL 模型理解异常成因——不止看见，更理解为何发生。', 'Defect detection, assembly-state recognition and OCR, with VL models interpreting why anomalies happen — not just seeing them.'),
           },
         ],
         note: t('IndustriaX 底座负责编排、工作流与工具执行，将四引擎组合为面向工业场景的智能体', 'The IndustriaX platform handles orchestration, workflows and tool execution — composing the four engines into industrial agents'),
@@ -158,7 +158,7 @@ export const buildTechnology = (lang: Lang) => {
         domains: [
           {
             icon: 'brain',
-            name: t('大脑 · IndustriaMind', 'Brain · IndustriaMind'),
+            name: t('大脑 · IndustrialMind', 'Brain · IndustrialMind'),
             role: t('思考与语言编排', 'Thinking & Orchestration'),
             description: t(
               '统一意图理解、任务规划、记忆调度与工具路由决策；作为唯一会话事实源，把工具执行委托给底座的执行层。',
@@ -167,7 +167,7 @@ export const buildTechnology = (lang: Lang) => {
           },
           {
             icon: 'database',
-            name: t('记忆 · IndustriaMemory', 'Memory · IndustriaMemory'),
+            name: t('记忆 · IndustrialMemory', 'Memory · IndustrialMemory'),
             role: t('统一记忆平台', 'Unified Memory'),
             description: t(
               '一套 API 整合对话记忆、用户画像与知识图谱；权威知识（合规、规格）进 RAG/KB 层并人工策展，低可信信息进 Memory 层，两者信任级别不混淆。',
@@ -176,7 +176,7 @@ export const buildTechnology = (lang: Lang) => {
           },
           {
             icon: 'mic',
-            name: t('语音 · IndustriaVoice', 'Voice · IndustriaVoice'),
+            name: t('语音 · IndustrialVoice', 'Voice · IndustrialVoice'),
             role: t('实时语音底座（感官）', 'Real-time Voice (Senses)'),
             description: t(
               '实时语音转写、流式合成与端到端语音对话，全栈本地推理，单 GPU 即可运行；通过标准 API 接入应用，敏感语音数据无需出网。',
@@ -185,11 +185,11 @@ export const buildTechnology = (lang: Lang) => {
           },
           {
             icon: 'eye',
-            name: t('视觉 · IndustriaVision', 'Vision · IndustriaVision'),
-            role: t('视觉数据采集（感官）', 'Visual Capture (Senses)'),
+            name: t('视觉 · IndustrialVision', 'Vision · IndustrialVision'),
+            role: t('视觉感知与理解（感官）', 'Perception & Understanding (Senses)'),
             description: t(
-              '以 VL 模型、OCR 与视觉识别，把图纸、单据、仪表、缺陷与影像转化为结构化、可入库、可追溯的数据，写入记忆平台供检索与推理。',
-              'VL models, OCR and recognition turn drawings, documents, gauges, defects and imagery into structured, storable, traceable data for retrieval and reasoning.',
+              '以 VL 模型、OCR 与视觉识别，覆盖产品缺陷检测、装配状态识别、图纸与仪表解析及视频行为理解；结果结构化写入记忆平台，把「看见异常」推进到「理解异常为何发生」。',
+              'VL models, OCR and recognition cover defect detection, assembly-state recognition, drawing and gauge parsing, and video behavior understanding — structured into the memory platform, pushing past "seeing an anomaly" to "understanding why it happened".',
             ),
           },
         ],

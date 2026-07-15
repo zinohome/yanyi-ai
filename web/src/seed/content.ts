@@ -27,7 +27,10 @@ export const categories = [
   { slug: 'industry', build: (l: Lang) => ({ title: L(l)('行业洞察', 'Industry') }) },
 ]
 
-/* ============================ 产品（4 款工业 AI 产品）============================ */
+/* ============================ 产品（10 款：IndustriaX 工业 5 + MedicaX 医疗 5）============================
+   命名规则：X 是用来替换 L 的（Industrial → IndustriaX，Medical → MedicaX），
+   寓意无限衍生与可能性。凡带 X 的即无 L；不带 X 的一律保留 L——
+   故引擎为 IndustrialMind / MedicalMind…，而非 IndustriaMind / MedicaMind。 */
 export const buildProducts = (lang: Lang) => {
   const t = L(lang)
 
@@ -82,10 +85,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 2 ── IndustriaMind 智能体大脑 */
+    /* 2 ── IndustrialMind 智能体大脑 */
     {
-      name: t('IndustriaMind 智能体大脑', 'IndustriaMind · Agent Brain'),
-      slug: 'industriamind',
+      name: t('IndustrialMind 智能体大脑', 'IndustrialMind · Agent Brain'),
+      slug: 'industrialmind',
       tagline: t('智能体的思考、组织与编排层', 'The thinking, organizing and orchestration layer'),
       icon: 'brain',
       scenario: 'brain',
@@ -96,8 +99,8 @@ export const buildProducts = (lang: Lang) => {
         'The "brain" of a multi-agent system — responsible for thinking, persona and organization, memory scheduling and tool routing; the single source of truth for conversation and decision.',
       ),
       overview: t(
-        'IndustriaMind 将语言理解、任务规划、记忆调度与工具调用决策统一编排：由它决定"想什么、记什么、调用哪个能力"，再把工具执行委托给底座的执行层，形成清晰的思考—执行分离。',
-        'IndustriaMind unifies language understanding, task planning, memory scheduling and tool-call decisioning: it decides what to think, what to remember and which capability to invoke, then delegates execution to a dedicated layer — a clean brain-and-cerebellum division of labor.',
+        'IndustrialMind 将语言理解、任务规划、记忆调度与工具调用决策统一编排：由它决定"想什么、记什么、调用哪个能力"，再把工具执行委托给底座的执行层，形成清晰的思考—执行分离。',
+        'IndustrialMind unifies language understanding, task planning, memory scheduling and tool-call decisioning: it decides what to think, what to remember and which capability to invoke, then delegates execution to a dedicated layer — a clean brain-and-cerebellum division of labor.',
       ),
       problem: t(
         '把大模型直接接入业务系统，往往得到一个"能聊天但不可控"的黑盒：人格、记忆、历史与工具调度混在一起，行为难以约束、结果难以复核。工业与企业级场景需要一个职责清晰、状态可控的编排内核。',
@@ -130,10 +133,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 3 ── IndustriaMemory 统一记忆平台 */
+    /* 3 ── IndustrialMemory 统一记忆平台 */
     {
-      name: t('IndustriaMemory 统一记忆平台', 'IndustriaMemory · Memory Platform'),
-      slug: 'industriamemory',
+      name: t('IndustrialMemory 统一记忆平台', 'IndustrialMemory · Memory Platform'),
+      slug: 'industrialmemory',
       tagline: t('一套 API 整合三大记忆引擎', 'One API, three memory engines'),
       icon: 'database',
       scenario: 'memory',
@@ -144,8 +147,8 @@ export const buildProducts = (lang: Lang) => {
         'A unified AI memory service — one API integrating conversational memory, user profiles and knowledge graphs, with a ready-to-use admin UI and multi-tenant governance.',
       ),
       overview: t(
-        'IndustriaMemory 把对话记忆（从对话自动提取事实）、用户画像（结构化偏好与背景）、知识图谱（文档→实体关系→图检索）三类记忆整合为一套 REST + gRPC API，并内置鉴权、审计、备份与观测。',
-        'IndustriaMemory integrates conversational memory (auto-extracting facts from dialogue), user profiles (structured preferences and background) and knowledge graphs (documents → entity/relation graph → graph retrieval) into one REST + gRPC API, with built-in auth, audit, backup and observability.',
+        'IndustrialMemory 把对话记忆（从对话自动提取事实）、用户画像（结构化偏好与背景）、知识图谱（文档→实体关系→图检索）三类记忆整合为一套 REST + gRPC API，并内置鉴权、审计、备份与观测。',
+        'IndustrialMemory integrates conversational memory (auto-extracting facts from dialogue), user profiles (structured preferences and background) and knowledge graphs (documents → entity/relation graph → graph retrieval) into one REST + gRPC API, with built-in auth, audit, backup and observability.',
       ),
       problem: t(
         '智能体要"越用越懂"，就需要长期、可治理的记忆；但对话记忆、用户画像与知识图谱各有专长、各自为政，逐个接入成本高，且难以统一鉴权与审计。',
@@ -178,10 +181,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 4 ── IndustriaVoice 实时语音底座 */
+    /* 4 ── IndustrialVoice 实时语音底座 */
     {
-      name: t('IndustriaVoice 实时语音底座', 'IndustriaVoice · Voice Platform'),
-      slug: 'industriavoice',
+      name: t('IndustrialVoice 实时语音底座', 'IndustrialVoice · Voice Platform'),
+      slug: 'industrialvoice',
       tagline: t('全栈本地推理的自托管语音平台', 'Self-hosted voice, fully local inference'),
       icon: 'mic',
       scenario: 'voice',
@@ -192,8 +195,8 @@ export const buildProducts = (lang: Lang) => {
         'A self-hosted voice platform — real-time transcription, streaming synthesis with voice cloning and end-to-end voice conversation, all on local inference and a single GPU.',
       ),
       overview: t(
-        'IndustriaVoice 提供 STT、TTS 与实时语音对话三类服务，通过标准 HTTP / WebSocket API 接入任意应用；内置鉴权、审计、用量监控与管理后台，docker-compose 一键启停，敏感语音数据无需出网。',
-        'IndustriaVoice offers STT, TTS and real-time voice conversation via standard HTTP / WebSocket APIs, with built-in auth, audit, usage monitoring and an admin console. One-command docker-compose deployment keeps sensitive voice data on-prem.',
+        'IndustrialVoice 提供 STT、TTS 与实时语音对话三类服务，通过标准 HTTP / WebSocket API 接入任意应用；内置鉴权、审计、用量监控与管理后台，docker-compose 一键启停，敏感语音数据无需出网。',
+        'IndustrialVoice offers STT, TTS and real-time voice conversation via standard HTTP / WebSocket APIs, with built-in auth, audit, usage monitoring and an admin console. One-command docker-compose deployment keeps sensitive voice data on-prem.',
       ),
       problem: t(
         '语音是工业现场与一线最自然的交互方式，但云端语音服务面临数据合规与网络依赖问题；自建又受限于算力与工程复杂度，难以在私有环境稳定落地。',
@@ -226,10 +229,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 5 ── IndustriaVision 工业视觉智能底座 */
+    /* 5 ── IndustrialVision 工业视觉智能底座 */
     {
-      name: t('IndustriaVision 工业视觉智能底座', 'IndustriaVision · Industrial Vision Platform'),
-      slug: 'industriavision',
+      name: t('IndustrialVision 工业视觉智能底座', 'IndustrialVision · Industrial Vision Platform'),
+      slug: 'industrialvision',
       tagline: t('从看见异常，到理解异常为何发生', 'From spotting anomalies to understanding why they happen'),
       icon: 'eye',
       scenario: 'vision',
@@ -240,8 +243,8 @@ export const buildProducts = (lang: Lang) => {
         'Perception and understanding for the shopfloor — vision-language (VL) models and recognition covering defect detection, assembly-state and part recognition, OCR, visual quality analysis and video behavior understanding, fused across modalities.',
       ),
       overview: t(
-        'IndustriaVision 作为"感官"家族的视觉入口，与 IndustriaVoice 并列，为智能体提供看得懂现场的能力：识别产品缺陷、装配状态与零部件，读取图纸、单据与仪表中的文字与版面（OCR / 版面解析），理解质量异常与作业场景的语义（VL 模型与视频行为理解）。结果结构化后写入 IndustriaMemory，与 IndustriaMind 协同，把"看见异常"推进到"理解异常为何发生"——缺陷不只是被检出，更被归因、被反哺到设计与工艺。全栈可私有化部署，图像数据不出厂。',
-        'IndustriaVision is the visual entry point of the "senses" family, alongside IndustriaVoice. It recognizes product defects, assembly states and parts; reads text and layout from drawings, documents and gauges (OCR / layout parsing); and interprets quality anomalies and work scenes (VL models and video behavior understanding). Results are structured into IndustriaMemory and, with IndustriaMind, push past "seeing an anomaly" to "understanding why it happened" — defects are not merely detected but attributed and fed back into design and process. Fully deployable on-premise; images never leave the plant.',
+        'IndustrialVision 作为"感官"家族的视觉入口，与 IndustrialVoice 并列，为智能体提供看得懂现场的能力：识别产品缺陷、装配状态与零部件，读取图纸、单据与仪表中的文字与版面（OCR / 版面解析），理解质量异常与作业场景的语义（VL 模型与视频行为理解）。结果结构化后写入 IndustrialMemory，与 IndustrialMind 协同，把"看见异常"推进到"理解异常为何发生"——缺陷不只是被检出，更被归因、被反哺到设计与工艺。全栈可私有化部署，图像数据不出厂。',
+        'IndustrialVision is the visual entry point of the "senses" family, alongside IndustrialVoice. It recognizes product defects, assembly states and parts; reads text and layout from drawings, documents and gauges (OCR / layout parsing); and interprets quality anomalies and work scenes (VL models and video behavior understanding). Results are structured into IndustrialMemory and, with IndustrialMind, push past "seeing an anomaly" to "understanding why it happened" — defects are not merely detected but attributed and fed back into design and process. Fully deployable on-premise; images never leave the plant.',
       ),
       problem: t(
         '制造现场大量关键信息以图像形式存在——产品缺陷、装配状态、工程图纸、纸质单据、仪表盘、质检画面与作业视频。传统机器视觉只能按预设规则判定"有无缺陷"，说不出成因；人工录入慢且易错；通用云端视觉又面临数据合规与网络依赖，难以稳定接入业务系统。',
@@ -268,7 +271,7 @@ export const buildProducts = (lang: Lang) => {
         { title: t('缺陷与装配识别', 'Defect & Assembly Recognition'), description: t('识别产品缺陷、装配状态与零部件，替代人工目检。', 'Recognize product defects, assembly states and parts, replacing manual inspection.') },
         { title: t('文档 OCR 与版面解析', 'Document OCR & Layout'), description: t('高精度识别图纸、单据、报告中的文字、表格与版面结构。', 'High-accuracy text, table and layout extraction from drawings, documents and reports.') },
         { title: t('VL 理解与视频行为', 'VL & Video Understanding'), description: t('用视觉语言模型理解仪表读数、质量异常、作业场景与视频行为语义。', 'Vision-language models read gauges, quality anomalies, work scenes and video behavior.') },
-        { title: t('多模态融合与入库', 'Multimodal Fusion & Ingestion'), description: t('融合视觉、时序与文档数据，规范化写入 IndustriaMemory。', 'Fuse visual, time-series and document data, normalized into IndustriaMemory.') },
+        { title: t('多模态融合与入库', 'Multimodal Fusion & Ingestion'), description: t('融合视觉、时序与文档数据，规范化写入 IndustrialMemory。', 'Fuse visual, time-series and document data, normalized into IndustrialMemory.') },
       ],
       highlights: [
         { title: t('看得懂现场', 'Understands the site'), description: t('从检出缺陷到归因成因', 'From detecting defects to attributing causes') },
@@ -296,8 +299,8 @@ export const buildProducts = (lang: Lang) => {
         'An AI-agent platform for hospitals, key labs, clinical teams and hospital-industry collaboration — turning medical knowledge, research data, expertise and clinical questions into capabilities that can be understood, reasoned over, shared and continuously accrued.',
       ),
       overview: t(
-        'MedicaX 承载科研知识库、临床研究流程编排、成果转化与医企协作能力，由 MedicaMind、MedicaMemory、MedicaVoice 与 MedicaVision 四引擎协同支撑，让医学科研从知识积累、临床发现到成果转化形成智能化闭环。支持院内私有化部署，科研与诊疗数据不出院。',
-        'MedicaX hosts research knowledge bases, clinical study orchestration, translation and hospital-industry collaboration, supported by four engines — MedicaMind, MedicaMemory, MedicaVoice and MedicaVision. It closes the loop from knowledge accrual through clinical discovery to translation. Deployable inside the hospital network; research and care data never leave.',
+        'MedicaX 承载科研知识库、临床研究流程编排、成果转化与医企协作能力，由 MedicalMind、MedicalMemory、MedicalVoice 与 MedicalVision 四引擎协同支撑，让医学科研从知识积累、临床发现到成果转化形成智能化闭环。支持院内私有化部署，科研与诊疗数据不出院。',
+        'MedicaX hosts research knowledge bases, clinical study orchestration, translation and hospital-industry collaboration, supported by four engines — MedicalMind, MedicalMemory, MedicalVoice and MedicalVision. It closes the loop from knowledge accrual through clinical discovery to translation. Deployable inside the hospital network; research and care data never leave.',
       ),
       problem: t(
         '医学知识散落在文献、指南、病历、课题材料与专家个人经验中，难以沉淀为机构能力；科研过程、临床发现与转化项目彼此割裂，临床问题到科研成果、再到产业落地的链路漫长且高度依赖个人推动；患者与科研数据合规要求高，通用云端 AI 难以进入院内。',
@@ -332,10 +335,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 7 ── MedicaMind 医疗智能体大脑 */
+    /* 7 ── MedicalMind 医疗智能体大脑 */
     {
-      name: t('MedicaMind 医疗智能体大脑', 'MedicaMind · Agent Brain'),
-      slug: 'medicamind',
+      name: t('MedicalMind 医疗智能体大脑', 'MedicalMind · Agent Brain'),
+      slug: 'medicalmind',
       tagline: t('科研与转化 Agent 的认知、规划与执行中枢', 'The cognition, planning and execution core for research agents'),
       icon: 'brain',
       scenario: 'brain',
@@ -346,8 +349,8 @@ export const buildProducts = (lang: Lang) => {
         'The cognition, planning and execution core for medical research and translation agents — task decomposition, multi-agent collaboration, clinical study orchestration and evidence analysis.',
       ),
       overview: t(
-        'MedicaMind 把一个科研目标拆解为可执行的任务链，调度多个 Agent 协同完成文献检索、证据分析、数据整理与材料生成，并调用统计、检索与项目管理工具。它支撑临床科研 Agent、科研转化 Agent、实验室管理 Agent 与医企合作 Agent，让科研流程从人工推动转为可编排、可复盘的自动化协作。',
-        'MedicaMind decomposes a research goal into an executable task chain, dispatching multiple agents to run literature retrieval, evidence analysis, data curation and document generation while calling statistics, search and project-management tools. It powers the clinical-research, translation, lab-management and collaboration agents, turning research from individually driven work into orchestrated, reviewable automation.',
+        'MedicalMind 把一个科研目标拆解为可执行的任务链，调度多个 Agent 协同完成文献检索、证据分析、数据整理与材料生成，并调用统计、检索与项目管理工具。它支撑临床科研 Agent、科研转化 Agent、实验室管理 Agent 与医企合作 Agent，让科研流程从人工推动转为可编排、可复盘的自动化协作。',
+        'MedicalMind decomposes a research goal into an executable task chain, dispatching multiple agents to run literature retrieval, evidence analysis, data curation and document generation while calling statistics, search and project-management tools. It powers the clinical-research, translation, lab-management and collaboration agents, turning research from individually driven work into orchestrated, reviewable automation.',
       ),
       problem: t(
         '科研流程高度依赖个人推动：任务如何拆、证据去哪找、数据怎么整理、材料谁来写，都靠研究者自己把控。通用大模型能回答单点问题，却无法编排一条跨越数周、涉及多种工具与多轮迭代的科研任务链。',
@@ -381,10 +384,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 8 ── MedicaMemory 医学统一记忆平台 */
+    /* 8 ── MedicalMemory 医学统一记忆平台 */
     {
-      name: t('MedicaMemory 医学统一记忆平台', 'MedicaMemory · Memory Platform'),
-      slug: 'medicamemory',
+      name: t('MedicalMemory 医学统一记忆平台', 'MedicalMemory · Memory Platform'),
+      slug: 'medicalmemory',
       tagline: t('让医疗机构拥有自己的医学知识记忆', 'Give the institution a medical memory of its own'),
       icon: 'database',
       scenario: 'memory',
@@ -395,8 +398,8 @@ export const buildProducts = (lang: Lang) => {
         'The research knowledge and experience base for a medical institution — accruing literature, guidelines, disease knowledge, expertise, projects, clinical cases, experimental data and translation materials.',
       ),
       overview: t(
-        'MedicaMemory 把机构内外的医学知识统一沉淀为可检索、可推理、可复用的记忆底座：外部的文献与指南，内部的病种知识、临床案例、实验数据、课题与转化项目资料，以及最难留存的专家经验。它是 MedicaMind 推理时的事实来源，也是机构科研能力不随人员流动而流失的保障。',
-        'MedicaMemory consolidates medical knowledge from inside and outside the institution into a searchable, reasoning-ready memory: external literature and guidelines; internal disease knowledge, clinical cases, experimental data, projects and translation materials; and the hardest to retain — expert experience. It is the factual ground for MedicaMind and the reason institutional capability survives staff turnover.',
+        'MedicalMemory 把机构内外的医学知识统一沉淀为可检索、可推理、可复用的记忆底座：外部的文献与指南，内部的病种知识、临床案例、实验数据、课题与转化项目资料，以及最难留存的专家经验。它是 MedicalMind 推理时的事实来源，也是机构科研能力不随人员流动而流失的保障。',
+        'MedicalMemory consolidates medical knowledge from inside and outside the institution into a searchable, reasoning-ready memory: external literature and guidelines; internal disease knowledge, clinical cases, experimental data, projects and translation materials; and the hardest to retain — expert experience. It is the factual ground for MedicalMind and the reason institutional capability survives staff turnover.',
       ),
       problem: t(
         '医学知识的半衰期短、来源分散：指南在更新，文献在爆炸，而机构自己的病种经验、临床案例与课题积累往往只存在于个别专家的记忆和硬盘里。人员一流动，机构的科研能力就跟着流失。',
@@ -411,7 +414,7 @@ export const buildProducts = (lang: Lang) => {
         { title: t('汇聚', 'Aggregate'), description: t('文献、指南、病种知识、案例、实验数据与课题资料统一接入', 'Literature, guidelines, disease knowledge, cases, data and project files in one place') },
         { title: t('结构化', 'Structure'), description: t('抽取实体与关系，构建医学知识网络', 'Extract entities and relations into a medical knowledge graph') },
         { title: t('沉淀经验', 'Capture expertise'), description: t('把专家判断与决策依据数字化留存', 'Digitize expert judgment and the reasoning behind it') },
-        { title: t('供给推理', 'Serve reasoning'), description: t('作为 MedicaMind 的事实来源，带出处返回', 'Ground MedicaMind with sourced facts') },
+        { title: t('供给推理', 'Serve reasoning'), description: t('作为 MedicalMind 的事实来源，带出处返回', 'Ground MedicalMind with sourced facts') },
       ],
       audience: [
         { value: t('医院科研管理与科教部门', 'Hospital research administration & education') },
@@ -430,10 +433,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 9 ── MedicaVoice 医疗实时语音底座 */
+    /* 9 ── MedicalVoice 医疗实时语音底座 */
     {
-      name: t('MedicaVoice 医疗实时语音底座', 'MedicaVoice · Voice Platform'),
-      slug: 'medicavoice',
+      name: t('MedicalVoice 医疗实时语音底座', 'MedicalVoice · Voice Platform'),
+      slug: 'medicalvoice',
       tagline: t('把说过的话，变成可用的记录', 'Turn what was said into usable records'),
       icon: 'mic',
       scenario: 'voice',
@@ -444,8 +447,8 @@ export const buildProducts = (lang: Lang) => {
         'The natural-interaction entry point for medical settings — patient dialogue, outpatient dictation, record structuring, research interviews, conference minutes and voice-driven agents.',
       ),
       overview: t(
-        'MedicaVoice 作为"感官"家族的听觉入口，与 MedicaVision 并列：实时识别医患对话、门诊口述、科研访谈与学术会议内容，理解医学术语与表达习惯，并把语音直接整理为结构化的病例、访谈记录与会议纪要。医生也可以用语音直接驱动 Agent 完成检索与记录。全栈可私有化部署，语音数据不出院。',
-        'MedicaVoice is the auditory entry point of the "senses" family, alongside MedicaVision. It transcribes patient dialogue, outpatient dictation, research interviews and academic conferences in real time, understands medical terminology and phrasing, and structures speech directly into records, interview notes and minutes. Clinicians can also drive agents by voice for retrieval and documentation. Fully deployable on-premise; audio never leaves the hospital.',
+        'MedicalVoice 作为"感官"家族的听觉入口，与 MedicalVision 并列：实时识别医患对话、门诊口述、科研访谈与学术会议内容，理解医学术语与表达习惯，并把语音直接整理为结构化的病例、访谈记录与会议纪要。医生也可以用语音直接驱动 Agent 完成检索与记录。全栈可私有化部署，语音数据不出院。',
+        'MedicalVoice is the auditory entry point of the "senses" family, alongside MedicalVision. It transcribes patient dialogue, outpatient dictation, research interviews and academic conferences in real time, understands medical terminology and phrasing, and structures speech directly into records, interview notes and minutes. Clinicians can also drive agents by voice for retrieval and documentation. Fully deployable on-premise; audio never leaves the hospital.',
       ),
       problem: t(
         '医疗现场的大量信息以口头形式产生——医患对话、门诊口述、查房交流、科研访谈、学术讨论。事后补记耗时且失真，通用语音识别听不懂医学术语，而云端转写又触碰患者隐私合规红线。',
@@ -479,10 +482,10 @@ export const buildProducts = (lang: Lang) => {
       ],
     },
 
-    /* 10 ── MedicaVision 医学视觉智能底座 */
+    /* 10 ── MedicalVision 医学视觉智能底座 */
     {
-      name: t('MedicaVision 医学视觉智能底座', 'MedicaVision · Medical Vision Platform'),
-      slug: 'medicavision',
+      name: t('MedicalVision 医学视觉智能底座', 'MedicalVision · Medical Vision Platform'),
+      slug: 'medicalvision',
       tagline: t('让影像与实验图像成为可推理的证据', 'Turn imaging and lab images into reasoning-ready evidence'),
       icon: 'eye',
       scenario: 'vision',
@@ -493,8 +496,8 @@ export const buildProducts = (lang: Lang) => {
         'Perception for medical imaging, experimental data and clinical visual information — imaging understanding, image-assisted analysis, experimental and pathology image recognition, and multimodal medical data fusion.',
       ),
       overview: t(
-        'MedicaVision 作为"感官"家族的视觉入口，与 MedicaVoice 并列：理解医学影像与病理图像的语义，识别实验图像中的目标与量化指标，并把视觉结论与文献证据、临床数据在 MedicaMemory 中融合，供 MedicaMind 推理时调用。它服务于科研而非诊断——输出的是可追溯、可复核的分析证据，最终判断始终由医生与研究者作出。全栈可私有化部署，影像数据不出院。',
-        'MedicaVision is the visual entry point of the "senses" family, alongside MedicaVoice. It interprets the semantics of medical and pathology images, recognizes targets and quantitative measures in experimental imagery, and fuses visual findings with literature evidence and clinical data inside MedicaMemory for MedicaMind to reason over. It serves research rather than diagnosis — its output is traceable, reviewable analytical evidence; the judgment always stays with clinicians and researchers. Fully deployable on-premise; imaging never leaves the hospital.',
+        'MedicalVision 作为"感官"家族的视觉入口，与 MedicalVoice 并列：理解医学影像与病理图像的语义，识别实验图像中的目标与量化指标，并把视觉结论与文献证据、临床数据在 MedicalMemory 中融合，供 MedicalMind 推理时调用。它服务于科研而非诊断——输出的是可追溯、可复核的分析证据，最终判断始终由医生与研究者作出。全栈可私有化部署，影像数据不出院。',
+        'MedicalVision is the visual entry point of the "senses" family, alongside MedicalVoice. It interprets the semantics of medical and pathology images, recognizes targets and quantitative measures in experimental imagery, and fuses visual findings with literature evidence and clinical data inside MedicalMemory for MedicalMind to reason over. It serves research rather than diagnosis — its output is traceable, reviewable analytical evidence; the judgment always stays with clinicians and researchers. Fully deployable on-premise; imaging never leaves the hospital.',
       ),
       problem: t(
         '医学影像、病理切片与实验图像里承载着最密集的证据，却最难被批量利用：人工阅片与计数耗时，量化标准因人而异，图像结论又难以和文献证据、临床数据关联起来形成可复用的科研资产。云端影像分析则直接触碰患者数据合规。',
@@ -509,7 +512,7 @@ export const buildProducts = (lang: Lang) => {
         { title: t('接入', 'Ingest'), description: t('医学影像、病理切片与实验图像多源接入', 'Medical imaging, pathology slides and experimental images from multiple sources') },
         { title: t('识别与量化', 'Recognize & quantify'), description: t('目标识别、区域分割与指标量化', 'Target recognition, segmentation and quantitative measures') },
         { title: t('语义理解', 'Interpret'), description: t('理解影像与病理图像语义，给出带依据的分析', 'Interpret imaging and pathology semantics with grounded analysis') },
-        { title: t('融合与复核', 'Fuse & review'), description: t('与文献、临床数据在 MedicaMemory 中融合；结论交专家复核', 'Fuse with literature and clinical data in MedicaMemory; experts review every conclusion') },
+        { title: t('融合与复核', 'Fuse & review'), description: t('与文献、临床数据在 MedicalMemory 中融合；结论交专家复核', 'Fuse with literature and clinical data in MedicalMemory; experts review every conclusion') },
       ],
       audience: [
         { value: t('临床研究与影像团队', 'Clinical research & imaging teams') },
