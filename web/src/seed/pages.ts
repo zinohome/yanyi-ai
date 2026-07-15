@@ -1,6 +1,6 @@
 import { rt, L, type Lang } from './helpers'
 
-type Ids = { products: number[]; cases: number[] }
+type Ids = { products: number[]; industrial: number[]; medical: number[]; cases: number[] }
 
 export const buildHome = (lang: Lang, ids: Ids) => {
   const t = L(lang)
@@ -76,7 +76,8 @@ export const buildHome = (lang: Lang, ids: Ids) => {
         blockType: 'productMatrix',
         title: t('产品矩阵', 'Product Matrix'),
         subtitle: t('以 IndustriaX 智能生产力底座为核心，四引擎协同支撑', 'Centered on the IndustriaX platform, powered by four collaborating engines'),
-        products: ids.products,
+        // 首页是纯工业叙事（techArchitecture 写死「一个底座，四个引擎」），只列工业系列
+        products: ids.industrial,
       },
       {
         blockType: 'scenarioShowcase',
@@ -338,7 +339,7 @@ export const buildContact = (lang: Lang) => {
   }
 }
 
-export const buildProductsPage = (lang: Lang, ids: { products: number[] }) => {
+export const buildProductsPage = (lang: Lang, ids: Ids) => {
   const t = L(lang)
   return {
     title: t('产品', 'Products'),
@@ -346,20 +347,27 @@ export const buildProductsPage = (lang: Lang, ids: { products: number[] }) => {
     status: 'published' as const,
     meta: {
       title: t('产品', 'Products'),
-      description: t('IndustriaX 智能生产力底座，以及 IndustriaMind、IndustriaMemory、IndustriaVoice 与 IndustriaVision 四引擎产品。', 'IndustriaX platform plus four engines — IndustriaMind, IndustriaMemory, IndustriaVoice and IndustriaVision.'),
+      description: t('IndustriaX 工业智能生产力底座与 MedicaX 医疗科研与转化 AI 底座，各由大脑、记忆、语音、视觉四引擎协同支撑。', 'The IndustriaX industrial platform and the MedicaX medical research platform — each powered by four engines: brain, memory, voice and vision.'),
     },
     layout: [
       {
         blockType: 'hero',
         eyebrow: t('产品矩阵', 'Product Matrix'),
-        title: t('一个底座\n四引擎协同', 'One platform,\nfour engines'),
-        subtitle: t('以 IndustriaX 智能生产力底座为核心，IndustriaMind、IndustriaMemory、IndustriaVoice 与 IndustriaVision 四引擎协同支撑，可独立部署或组合使用。', 'Centered on the IndustriaX platform, powered by four engines — IndustriaMind, IndustriaMemory, IndustriaVoice and IndustriaVision — deployable standalone or combined.'),
+        title: t('工业 × 医疗\n双底座协同', 'Industry × Medicine\ntwo platforms, one architecture'),
+        subtitle: t('IndustriaX 面向先进制造，MedicaX 面向医疗科研与转化。两个底座共用同一套架构——大脑、记忆、语音、视觉四引擎协同支撑，可独立部署或组合使用。', 'IndustriaX serves advanced manufacturing; MedicaX serves medical research and translation. Both platforms share one architecture — brain, memory, voice and vision — deployable standalone or combined.'),
         primaryCta: { label: t('预约演示', 'Book a Demo'), href: '/contact' },
       },
       {
         blockType: 'productMatrix',
-        title: t('全部产品', 'All Products'),
-        products: ids.products,
+        title: t('IndustriaX 工业系列', 'IndustriaX · Industrial Series'),
+        subtitle: t('面向先进制造企业：把工程知识与业务流程转化为可靠、可追溯的智能体工作流。', 'For advanced manufacturing — turning engineering knowledge and business processes into reliable, traceable agent workflows.'),
+        products: ids.industrial,
+      },
+      {
+        blockType: 'productMatrix',
+        title: t('MedicaX 医疗系列', 'MedicaX · Medical Series'),
+        subtitle: t('面向医院、重点实验室与临床团队：让医学科研从知识积累、临床发现到成果转化形成闭环。', 'For hospitals, key labs and clinical teams — closing the loop from knowledge accrual through clinical discovery to translation.'),
+        products: ids.medical,
       },
       {
         blockType: 'ctaBanner',

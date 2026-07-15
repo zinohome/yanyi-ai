@@ -63,8 +63,16 @@ async function main() {
     const doc = await create('products', zhProducts[i], enProducts[i])
     solutionIds[zhProducts[i].slug] = doc.id as number
   }
+  // 按 slug 前缀分出两个系列：首页只讲工业，产品页分系列展示
+  const bySeries = (prefix: string) =>
+    Object.entries(solutionIds)
+      .filter(([slug]) => slug.startsWith(prefix))
+      .map(([, id]) => id)
+
   const ids = {
     products: Object.values(solutionIds),
+    industrial: bySeries('industria'),
+    medical: bySeries('medica'),
     cases: [] as number[],
   }
 
