@@ -4,6 +4,7 @@
   "description": "Yanyi Data Technology corporate website",
   "license": "UNLICENSED",
   "type": "module",
+  "packageManager": "pnpm@9.12.0",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
