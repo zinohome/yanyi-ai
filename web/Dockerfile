@@ -23,6 +23,17 @@ COPY . .
 # 构建期不连接数据库（页面均为 force-dynamic；PAYLOAD_SECRET/DATABASE_URL 缺省为空字符串）
 RUN corepack enable pnpm && pnpm run build
 
+# ---------- 初始化层（一次性任务）----------
+# auto-init 需要完整 TS 源码 + 全量 node_modules + tsx，而 standalone 运行层刻意
+# 只保留 server.js 追踪到的依赖 —— 两者互斥，故拆成独立的一次性容器。
+# NODE_ENV=development 是必需的：Payload 的 postgres schema push 在 production 下被硬性禁用
+# （见 @payloadcms/db-postgres/connect.js），空库首启就靠它建表。
+FROM builder AS init
+WORKDIR /app
+ENV NODE_ENV=development
+ENV PAYLOAD_DB_PUSH=1
+CMD ["node", "--import=tsx/esm", "scripts/auto-init.ts"]
+
 # ---------- 运行层 ----------
 FROM base AS runner
 WORKDIR /app

@@ -1,14 +1,15 @@
-# 研翌科技官网 · 生产编排
-# 用法：
-#   1) 复制 .env.example 为 .env.production 并填入真实值
-#      （DATABASE_URL 的 host 用服务名 postgres，例如：
-#       postgresql://yanyi:强密码@postgres:5432/yanyi_ai）
-#   2) docker compose -f docker-compose.prod.yml up -d --build
-#   3) 首次部署后初始化内容：
-#      docker compose -f docker-compose.prod.yml exec web node -e "require('child_process')"  # 见 README
+# 研翌科技官网 · 生产编排（1Panel / docker compose）
 #
-# name 必须显式声明：否则 compose 用所在目录名（web）作 project name，
-# 与 yanyi-health/web 撞成同一个 project，共用容器与数据卷。
+# 用法见 DEPLOY.md。三个服务，按顺序起：
+#   postgres → init（一次性，跑完退出）→ web
+#
+# 配置全部来自同目录的 .env，它承担两个不同职责，缺一不可：
+#   1) compose 自身的变量插值（${POSTGRES_PASSWORD}、${DATA_DIR}、${WEB_PORT}）
+#      —— compose 只认默认的 .env，改名就要加 --env-file
+#   2) env_file 注入容器内部（DATABASE_URL、PAYLOAD_SECRET…）
+#   注意：env_file 不参与插值，插值也不进容器 —— 两者是不同机制，故同一份文件被用了两次。
+#
+# name 必须显式声明：否则 compose 用所在目录名作 project name，可能与同机其它项目撞车。
 name: yanyi-ai
 
 services:
@@ -20,7 +21,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?请在 .env.production 中设置 POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB:-yanyi_ai}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ${DATA_DIR:-/data/yanyi-ai}/postgres:/var/lib/postgresql/data
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-yanyi} -d ${POSTGRES_DB:-yanyi_ai}']
       interval: 10s
@@ -30,25 +31,40 @@ services:
     # ports:
     #   - "5432:5432"
 
+  # 一次性初始化：空库建表 + 灌入种子内容 + 确保管理员存在。幂等。
+  # 非空库默认跳过，保护后台的人工编辑；SEED_FORCE=1 可强制用代码里的文案覆盖。
+  init:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: init
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: 'no'
+    volumes:
+      - ${DATA_DIR:-/data/yanyi-ai}/media:/app/media
+
   web:
     build:
       context: .
       dockerfile: Dockerfile
+      target: runner
     restart: unless-stopped
     env_file:
-      - .env.production
+      - .env
     environment:
       NODE_ENV: production
       PORT: '3000'
     depends_on:
-      postgres:
-        condition: service_healthy
+      # 必须等 init 成功退出，否则空库启动会因无表而报错
+      init:
+        condition: service_completed_successfully
     ports:
-      - '3000:3000'
+      # 宿主 8000 → 容器 3000（1Panel 反代指向 8000）
+      - '${WEB_PORT:-8000}:3000'
     volumes:
       # Payload 上传持久化（与 Dockerfile 中 /app/media 对应）
-      - media:/app/media
-
-volumes:
-  pgdata:
-  media:
+      - ${DATA_DIR:-/data/yanyi-ai}/media:/app/media
