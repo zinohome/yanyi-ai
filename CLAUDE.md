@@ -66,10 +66,19 @@ The contact form uses a Next server action (`src/app/actions/contact.ts`) that w
 
 ## Deployment
 
-Dockerized (`web/Dockerfile`, `docker-compose.prod.yml`), needs PostgreSQL. Container startup runs `scripts/docker-entrypoint.sh` → `scripts/auto-init.ts`, which is **idempotent**: it waits for the DB, seeds content + admin only if empty (never overwrites existing edits), then `next start`. Note `auto-init.ts` runs under `NODE_ENV=development` because Payload's Postgres schema `push` is hard-blocked in production — schema auto-create only happens with `PAYLOAD_DB_PUSH=1`. Set `NEXT_STANDALONE=1` only if you want a standalone output bundle (the prod image uses `next start` instead).
+Dockerized (`web/Dockerfile`, `docker-compose.prod.yml`), needs PostgreSQL. Container startup runs `scripts/docker-entrypoint.sh` → `scripts/auto-init.ts` → `next start`.
+
+`auto-init.ts` only ever runs the seed (`src/seed/index.ts`) and `create-admin.ts`:
+- **empty DB** (0 products) → seed
+- **non-empty DB** → skip, to protect edits made in the admin
+- **`SEED_FORCE=1`** → clear and re-seed, i.e. push the code's current copy over an existing DB
+
+**Content lives in the DB, not the build.** Deploying new code does *not* update an existing database — a redeploy against an old DB keeps showing the old content. Use `SEED_FORCE=1` once to refresh it (this wipes admin-side edits).
+
+Note `auto-init.ts` runs under `NODE_ENV=development` because Payload's Postgres schema `push` is hard-blocked in production — schema auto-create only happens with `PAYLOAD_DB_PUSH=1`. Set `NEXT_STANDALONE=1` only if you want a standalone output bundle (the prod image uses `next start` instead).
 
 ## Notes
 
 - `src/payload-types.ts` is **generated** — never hand-edit it; run `pnpm generate:types`.
-- The one-off `scripts/*.ts` (e.g. `update-products.ts`, `update-team.ts`, `add-capabilities.ts`) are content-migration utilities run manually with `tsx --import=tsx/esm`, not part of the app runtime.
+- `web/scripts/` is deliberately minimal: `auto-init.ts` + `create-admin.ts` (deploy), `docker-entrypoint.sh`, and two authoring tools — `export-content.ts` (regenerates `docs/site-content/*.md` from the seed) and `screenshots.mjs` (full-page screenshots; `SHOT_THEME=light|dark`). The old one-off `update-*` / `add-capabilities` / `attach-covers` migration scripts were removed: they carried yanyi-health-era copy and `auto-init` ran them on every boot, silently overwriting the site back to the old medical content. Don't reintroduce startup scripts that mutate content — change the seed instead.
 - Design specs and the build plan for this site are in `docs/superpowers/specs/` and `docs/superpowers/plans/`.

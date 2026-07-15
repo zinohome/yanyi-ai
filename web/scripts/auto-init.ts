@@ -4,11 +4,17 @@ import { getPayload } from 'payload'
 import config from '../src/payload.config'
 
 /**
- * 容器自动初始化（幂等，仅首启灌入）。
- * - 等待数据库就绪并由 Payload push 建表（需 PAYLOAD_DB_PUSH=1）
- * - 若 solutions 为空 → 灌入内容 + 封面 + 站点设置
- * - 始终确保后台管理员存在
- * 已有内容时不会覆盖后台编辑（避免每次重启清库）。
+ * 容器自动初始化。
+ *
+ * 站点文案的唯一事实源是 `src/seed/index.ts`（种子先清空再灌入全部内容）。
+ * 这里不再运行任何一次性迁移脚本 —— 历史上的 update-* / add-* / attach-covers
+ * 属于 yanyi-health 时代，却被无条件执行，会把站点覆写回旧的医疗版内容。
+ *
+ * 行为：
+ *  - 空库（products 为 0）→ 灌入种子
+ *  - 非空库 → 默认跳过，保护后台的人工编辑
+ *  - SEED_FORCE=1 → 强制重新灌入（会清空并重建内容！用于让旧库升级到最新文案）
+ *  - 始终确保后台管理员存在
  */
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
@@ -47,22 +53,20 @@ async function main() {
     total = 0 // 表可能尚未建立
   }
 
-  if (total > 0) {
-    console.log(`[auto-init] 已检测到内容（${total} 套解决方案），跳过灌入`)
-  } else {
-    console.log('[auto-init] 空库 → 开始灌入内容 / 封面 / 站点设置')
-    run('src/seed/index.ts')
-    run('scripts/attach-covers.ts')
-    run('scripts/update-settings.ts')
-  }
+  const force = process.env.SEED_FORCE === '1'
 
-  // 幂等内容同步（每次启动都跑）：让旧库也能自动补齐代码新增的页面内容
-  // —— 新库由 seed 直接带出，脚本检测到已存在即跳过；旧库增量补齐。
-  run('scripts/add-capabilities.ts')
-  // 幂等文案同步（每次启动都跑）：首页 hero / 我们解决的问题 与代码保持一致
-  run('scripts/update-homepage-text.ts')
-  // 幂等产品/页面文案同步（每次启动都跑）：产品改名、新增模块等与代码保持一致
-  run('scripts/update-content-v2.ts')
+  if (total === 0) {
+    console.log('[auto-init] 空库 → 灌入种子内容')
+    run('src/seed/index.ts')
+  } else if (force) {
+    console.log(`[auto-init] SEED_FORCE=1 → 已有 ${total} 条产品，强制清空并重新灌入种子`)
+    run('src/seed/index.ts')
+  } else {
+    console.log(
+      `[auto-init] 已检测到内容（${total} 条产品），跳过灌入。` +
+        ' 如需用代码里的最新文案覆盖旧内容，请设置 SEED_FORCE=1 重新部署。',
+    )
+  }
 
   // 管理员幂等确保（脚本内部已判断是否已存在）
   run('scripts/create-admin.ts')
